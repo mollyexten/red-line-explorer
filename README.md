@@ -10,7 +10,7 @@ Red Line Explorer is a mobile-first application made from Airtable and React in 
 
 The wireframes depict the layout in a mobile view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, just called "STATION" in this example. The destinations will be clickable links that display more information about the destination (not shown in these wireframes). The form displays the view for users wishing to add a destination to a specific station. Finally, the "CATEGORIES" page displays destination for all stations under a specific category (food, shopping, or leisure)
 
-![Wireframes](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1cuF9oUWmCb1jkJyH-nmks7qMF44mLkED)
+![Wireframes](https://flic.kr/ps/3W5n9D)
 
 ## Component Hierarchy
 
