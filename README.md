@@ -4,13 +4,13 @@ deployed site here
 
 ## Project Description
 
-Red Line Explorer is a mobile-first application made from Airtable and React in which the user is able to find and add interesting destinations near MBTA stations on the Red Line (Boston, MA). To find destinations, the user can select a station on the homepage, which takes them to a station page that lists interesting nearby places. The user can learn more about a specific location by clicking on its corresponding link. To add destinations, the user can submit a form with the necessary details about the point of interest. Finally, users can discover interesting places through the explore page, which randomly generates information about a destination.
+Red Line Explorer is a mobile-first application made from Airtable and React in which the user is able to find things to do near MBTA stations on the Red Line (Boston, MA). From the homepage, the user can select a station page to find the beloved places, activities, and itineraries of others users. If a user is familiar with a particular station, they can contribute their own suggestions via a form.
 
 ## Wireframes
 
-The wireframes depict the layout in a mobile view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, just called "STATION" in this example. The destinations will be clickable links that display more information about the destination (not shown in these wireframes). The form displays the view for users wishing to add a destination to a specific station. Finally, the "CATEGORIES" page displays destination for all stations under a specific category (food, shopping, or leisure)
+The wireframes depict the layout in a mobile view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, referred to as "STATION" in this example. Each station page will render user contributions. Also included are the form ("Share Your Experience") and the About page.
 
-![Wireframes](https://i.imgur.com/XHoJJNN.jpg)
+![Wireframes](https://i.imgur.com/NMWg5lG.jpg)
 
 ## Component Hierarchy
 
