@@ -65,6 +65,7 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
 ## Timeframes
 
 | Component         | Estimated Time | Time Invested | Actual Time |
+| ----------------- | -------------- | ------------- | ----------- |
 | Proposal          | 2 hrs          |               |             |
 | Airtable          | 3 hrs          |               |             |
 | Form component    | 2 hrs          |               |             |
@@ -102,4 +103,4 @@ I'm unsure how to link stations up with params. This has been a difficult for me
 Figuring out params on this problem will probably help clear up my confusion. It will also help cement the concepts I've learned from this unit.
 
 ### Threats:
-My biggest threat is getting stuck on one small part. I need to find other points to work on while I wait for help. 
+My biggest threat is getting stuck on one small part. If I've run out of ideas for debugging, I need to find other points to work on while I wait for help. 
