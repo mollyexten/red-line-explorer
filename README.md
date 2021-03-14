@@ -13,7 +13,7 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
 ![Wireframes](https://i.imgur.com/NMWg5lG.jpg)
 
 ## Component Hierarchy
-![ComponentHierarchy](https://i.imgur.com/ZbZBg5K.jpeg)
+![ComponentHierarchy](https://i.imgur.com/ja3lvlg.jpeg)
 
 ## API and Data Sample
 
