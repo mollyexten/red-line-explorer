@@ -30,7 +30,8 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
             "createdTime": "2021-03-13T01:40:29.000Z"
         },
     "offset": "recgGlIpJnta3CcmC"
-}```
+}
+```
 
 ### MVP/PostMVP
 
