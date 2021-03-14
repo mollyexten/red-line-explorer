@@ -97,7 +97,7 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
 I understand how the different parts of my app should connect to each other. I can refer to classwork and homework assignments for extra help along the way.
 
 ### Weaknesses:
-I'm unsure how to link stations up with params. This has been a difficult for me in this unit.
+I'm unsure how to link stations up with params. This has been a difficult for me in this unit. Getting from App through Home to each Station will be one of my first challenges in this assignment. I want the stations to render on the homepage in their respective branches, and I was planning to do this by making three separate <ul> tags because then the CSS would be easier, but I don't know how this would look in react. Maybe I need a separate branch component?
 
 ### Opportunities:
 Figuring out params on this problem will probably help clear up my confusion. It will also help cement the concepts I've learned from this unit.
