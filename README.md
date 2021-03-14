@@ -77,7 +77,7 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
 | Fix props/ toggle | 3 hrs          |               |             |
 | CSS color & font  | 2 hrs          |               |             |
 | CSS icons         | 1 hr           |               |             |
-| Advaned CSS       | 2 hrs          |               |             |
+| Advanced CSS       | 2 hrs          |               |             |
 | Flexbox/Grid-home | 1.5 hrs        |               |             |
 | Flex/Grid-station | 1.5 hrs        |               |             |
 | Flex/Grid-form    | 1 hr           |               |             |
