@@ -10,26 +10,40 @@ Red Line Explorer is a mobile-first application made from Airtable and React in 
 
 The wireframes depict the layout in a mobile view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, referred to as "STATION" in this example. Each station page will render user contributions. Also included are the form ("Share Your Experience") and the About page.
 
-![Wireframes](https://i.imgur.com/NMWg5lG.jpg)
+![MobileWireframes](https://i.imgur.com/2aVTSrH.jpg)
+![DesktopWireframes](https://i.imgur.com/hdtHEr9.jpg)
 
 ## Component Hierarchy
-![ComponentHierarchy](https://i.imgur.com/ja3lvlg.jpeg)
+![ComponentHierarchy](https://i.imgur.com/qHpTsLP.jpeg)
 
 ## API and Data Sample
 
+Here is a data sample from the stations table. This table will be static (assuming the MBTA doesn't add or remove a station). Note the two different ids: (1) randomly generated id and (2) a sort-id to be used when rendering the stations in order on the homepage.
+```
+{
+    "id": "recTNQvkYjoI7GX3A",
+    "fields": {
+        "sort-id": 10,
+        "station-kebab": "alewife",
+        "Name": "Alewife"
+    },
+    "createdTime": "2021-03-15T15:16:49.000Z"
+}
+```
+
+Here is a data sample from the recommendations table. The id-like value in the station section corresponds to the randomly generated id in the stations table.
 ```        
 {
-  {            
-    "id": "recgGlIpJnta3CcmC","fields": {
-                "station-kebab": "charles-mgh",
-                "station": "Charles/MGH",
-                "name": "Molly",
-                "date": "2021-03-13",
-                "content": "On any non-windy day, the Esplanade is an amazing park to visit. Watch sailboats on the Charles and have a picnic. Great spot for runners. You can als..."
-            },
-            "createdTime": "2021-03-13T01:40:29.000Z"
-        },
-    "offset": "recgGlIpJnta3CcmC"
+    "id": "recuElOvA7w4XZ23g",
+    "fields": {
+        "date": "2021-03-13T16:42:00.000Z",
+        "name": "Molly",
+        "content": "On a nice, non-windy day, the nearby Esplanade is the most beautiful park in the city. Great place for runners. Have a picnic and watch the sailboats ...",
+        "station": [
+            "rec3vw7LEAKQ5TmLh"
+        ]
+    },
+    "createdTime": "2021-03-15T15:42:22.000Z"
 }
 ```
 
