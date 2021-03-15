@@ -84,8 +84,8 @@ Here is a data sample from the recommendations table. I will access data from th
 
 | Component         | Estimated Time | Time Invested | Actual Time |
 | ----------------- | -------------- | ------------- | ----------- |
-| Proposal          | 2 hrs          |               |             |
-| Proposal revision | 3 hrs          |               |             |
+| Proposal          | 2 hrs          | 4 hrs         | 4 hrs       |
+| Proposal revision | 3 hrs          | 3 hrs         | 3 hrs       |
 | Airtable          | 3 hrs          |               |             |
 | Form component    | 2 hrs          |               |             |
 | Rec. component    | 1 hrs          |               |             |
