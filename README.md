@@ -8,13 +8,13 @@ Red Line Explorer is a mobile-first application made from Airtable and React in 
 
 ## Wireframes
 
-The wireframes depict the layout in a mobile view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, referred to as "STATION" in this example. Each station page will render user contributions. Also included are the form ("Share Your Experience") and the About page.
+The wireframes depict the layout in a mobile and desktop view. The homepage, entitled "RED LINE EXPLORER" links to specific station pages, referred to as "STATION" in this example. Each station page will render user contributions. Also included are the form ("Share Your Experience") and the About page.
 
 ![MobileWireframes](https://i.imgur.com/2aVTSrH.jpg)
 ![DesktopWireframes](https://i.imgur.com/hdtHEr9.jpg)
 
 ## Component Hierarchy
-![ComponentHierarchy](https://i.imgur.com/qHpTsLP.jpeg)
+![ComponentHierarchy](https://i.imgur.com/LGhaPqg.jpg)
 
 ## API and Data Sample
 
@@ -85,6 +85,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Component         | Estimated Time | Time Invested | Actual Time |
 | ----------------- | -------------- | ------------- | ----------- |
 | Proposal          | 2 hrs          |               |             |
+| Proposal revision | 3 hrs          |               |             |
 | Airtable          | 3 hrs          |               |             |
 | Form component    | 2 hrs          |               |             |
 | Rec. component    | 1 hrs          |               |             |
@@ -105,7 +106,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
 | Add form redirect | 1 hrs          |               |             |
-| TOTAL             | 39 hrs         |               |             |
+| TOTAL             | 42 hrs         |               |             |
 
 
 ## SWOT Analysis
