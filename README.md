@@ -54,14 +54,16 @@ Here is a data sample from the recommendations table. I will access data from th
 #### MVP
 - Set up an effective and understandable database on Airtable
 - Create home, station, recommendation, form, about, and nav components
+- Map out stations into CSS grid on homepage
 - Utilize functional and (maybe) class components to link/route to appropriate pages
-- Use axios to complete get and post requests with Airtable database
-- Implement styling, including flexbox and/or grid
+- Use axios to complete get requests from stations and recommendations tables
+- Use axios to post requests from recommendations table on Airtable
 - Make a mobile first design with a breakpoint for desktops
 - No errors or logs to the console
+- Add a dropdown for station IDs
+- Redirect user to station after submitting form
 
 #### PostMVP
-- Redirect user to station after submitting form
 - Make put request to fill in station data when user clicks on the share button from a specific station page
 - Make a hamburger menu
 - Add another MBTA line
@@ -93,9 +95,9 @@ Here is a data sample from the recommendations table. I will access data from th
 | Fix props/ toggle | 3 hrs          |               |             |
 | CSS color & font  | 2 hrs          |               |             |
 | CSS icons         | 1 hr           |               |             |
-| Advanced CSS       | 2 hrs          |               |             |
-| Flexbox/Grid-home | 1.5 hrs        |               |             |
-| Flex/Grid-station | 1.5 hrs        |               |             |
+| Advanced CSS      | 2 hrs          |               |             |
+| Flexbox/Grid-home | 3 hrs          |               |             |
+| Flex/Grid-station | 3 hrs          |               |             |
 | Flex/Grid-form    | 1 hr           |               |             |
 | breakpoint-home   | 1 hr           |               |             |
 | breakpoint-station| 1 hr           |               |             |
@@ -103,8 +105,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
 | Add form redirect | 1 hrs          |               |             |
-| Put-form          | 3 hrs          |               |             |
-| TOTAL             | 40 hrs         |               |             |
+| TOTAL             | 39 hrs         |               |             |
 
 
 ## SWOT Analysis
