@@ -20,7 +20,7 @@ The wireframes depict the layout in a mobile view. The homepage, entitled "RED L
 
 There will be two tables: stations and recommendations.
 
-Here is a data sample from the stations table. I will access this table via get requests on the <Home /> and <Form /> components. Note the two different ids: (1) randomly generated id and (2) a sort-id to be used when rendering the stations in order on the homepage.
+Here is a data sample from the stations table. I will access this table via get requests on the home and form components. Note the two different ids: (1) randomly generated id and (2) a sort-id to be used when rendering the stations in order on the homepage.
 ```
 {
     "id": "recTNQvkYjoI7GX3A",
@@ -33,7 +33,7 @@ Here is a data sample from the stations table. I will access this table via get 
 }
 ```
 
-Here is a data sample from the recommendations table. I will access data from this table via get requests on the <Station /> component and pass it as props to the <Recommendation /> component. On the <Form /> component, I will post data to this table. The id-like value in the station section corresponds to the randomly generated id in the stations table.
+Here is a data sample from the recommendations table. I will access data from this table via get requests on the station component and pass it as props to the recommendation component. On the form component, I will post data to this table. The id-like value in the station section corresponds to the randomly generated id in the stations table.
 ```        
 {
     "id": "recuElOvA7w4XZ23g",
