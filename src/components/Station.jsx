@@ -39,6 +39,9 @@ function Station() {
   return (
     <div>
       <h1>{stationName}</h1>
+      {recommendations.map((recommendation) => (
+        <p>{recommendation}</p>
+      ))}
       <Recommendation />
       <Link to="/contribute"><button>Add a Recommendation</button></Link>
     </div>
