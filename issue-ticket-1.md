@@ -2,38 +2,34 @@
 
 ## Unexpected Behavior
 
-> I want to log API data to the console, but nothing appears.
+> I cannot get the results from the recommendations table to filter by station id.
 
 ## Expected Behavior
 
-> When I 
+> I expected that using the .filter function within the parentheses of setResults would provide the results state with the values it needed. 
 
 ## Reproduce the Error
 
 > Describe the steps we can take to reproduce the error, i.e.:
 
 ```md
-1. Clone this repo.
-2. Run `npm start`.
-3. Navigate to the landing page.
-4. Click on _____, which should return the API data set.
-5. Scroll down to _____.
-6. See the subsequent error in the console.
+1. Make an Airtable database 
+2. Make an axios get request
+3. Store values from get request in the variable recs
+4. setResults(recs.filter(red (rec.fields.station[0] === stationId)))
+5. console.log(results)
+6. Discover that an empty array logs to the console
 ```
 
 ## Documentation
 
-> Include the exact error message, and if helpful, any supplemental documentation, such as screen captures.
-
-```md
-Copy and paste the contents of the error message here.
-```
+> There is no error message
 
 ## Attempted Resolution
 
-> If you haven't already, **Google your error message now**. See if those error messages return an answer. Include at least 2 resources you've tried to consult such as walk-throughs, stack overflow articles, and other discussion threads related to your error.
+> I looked at these two websites
 
 ```md
-1. Link 1
-2. Link 2
+1. https://stackoverflow.com/questions/50142525/how-to-render-the-elements-before-to-filter-elements-with-reactjs
+2. https://stackoverflow.com/questions/55390113/pushing-responses-of-axios-request-into-array
 ```

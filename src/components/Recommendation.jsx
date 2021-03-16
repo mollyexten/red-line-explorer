@@ -1,7 +1,7 @@
 function Recommendation(props) {
   return (
     <div>
-      <h1>RECOMMENDATION</h1>
+      <h1>recommendation</h1>
     </div>
   )
 }
