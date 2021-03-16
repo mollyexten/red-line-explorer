@@ -12,9 +12,25 @@ function Contribute() {
   useEffect(() => {
     const getStations = async () => {
       const resp = await axios.get(stationsURL, config)
-      const stationNames = resp.data.records
-      const stationList = stationNames.map((station) => station.fields.Name)
-      setStations(stationList)
+      const stationObjects = resp.data.records
+      const unsortedStations = []
+      stationObjects.map((stationObject) => (
+        unsortedStations.push(stationObject.fields)
+      ))
+      function compare(a, b) {
+        const stationA = a.sortId;
+        const stationB = b.sortId;
+        let comparison = 0;
+        if (stationA > stationB) {
+          comparison = 1
+        } else if (stationA < stationB) {
+          comparison = -1
+        }
+        return comparison;
+      }
+      const sortedStations = (unsortedStations.sort(compare))
+      // const stationList = stationObjects.map((station) => station.fields.Name)
+      setStations(sortedStations)
     }
     getStations();
   }, [])
@@ -35,8 +51,8 @@ function Contribute() {
           onChange={(e) => setName(e.target.value)}
         />
         <select>
-          {stations.map((stationName) => (
-            <option>{stationName}</option>
+          {stations.map((station) => (
+            <option>{station.Name}</option>
           ))}
           
         </select>
