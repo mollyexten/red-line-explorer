@@ -12,8 +12,9 @@ function Contribute() {
   useEffect(() => {
     const getStations = async () => {
       const resp = await axios.get(stationsURL, config)
-      setStations(resp)
-      console.log(stations)
+      const stationNames = resp.data.records
+      const stationList = stationNames.map((station) => station.fields.Name)
+      setStations(stationList)
     }
     getStations();
   }, [])
@@ -26,16 +27,27 @@ function Contribute() {
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input required type="text" id="name" />
-        <label htmlFor="station">Station</label>
-        <select required id="station">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-          <option>D</option>
+        <input
+          required
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <select>
+          {stations.map((stationName) => (
+            <option>{stationName}</option>
+          ))}
+          
         </select>
         <label htmlFor="recommendation">Recommendation</label>
-        <input required type="text" id="recommendation" />
+        <input
+          required
+          type="text"
+          id="recommendation"
+          value={content, setContent}
+          onChange={(e) => setContent(e.target.value)}
+        />
         <button type="submit">Submit</button>
       </form>
     </div>
