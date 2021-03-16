@@ -4,8 +4,29 @@
 
 nav {
   text-align: right;
+  background-color: red;
 }
 
 nav > a {
   padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.header-top {
+  background-color: red;
+  color: white;
+}
+
+.header-bottom {
+  background-color: white;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+ul > a {
+  text-decoration: none;
+  color: black;
 }

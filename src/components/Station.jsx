@@ -1,10 +1,11 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { recommendationsURL, stationsURL, config } from "../services"
 import axios from "axios"
 import Recommendation from "./Recommendation"
 
-function Station() {
+function Station(props) {
   const [stationId, setStationId] = useState("")
   const [stationName, setStationName] = useState("")
   const [recommendations, setRecommendations] = useState([]);
@@ -24,7 +25,9 @@ function Station() {
       setStationName(stationObject.fields.Name)
     }
     getId();
-    
+  }, [stationParam])
+
+  useEffect(() => {
     // get the recommendations from the recommendations table
     const getRecommendations = async () => {
       const resp = await axios.get(recommendationsURL, config)
@@ -33,16 +36,19 @@ function Station() {
       setRecommendations(stationRecommendations)
     }
     getRecommendations();
-  })
+  }, [stationId])
+
 
   // recommendations.map(recommendation => console.log(recommendation.fields.name))
   return (
     <div>
-      <h1>{stationName}</h1>
+      <header>
+        <h1 className="header-top">{stationName.toUpperCase()}</h1>
+      </header>
         {recommendations.map((recommendation) => (
           <Recommendation key={recommendation.id} name={recommendation.fields.name} content={recommendation.fields.content} />
         ))}
-      <Link to="/contribute"><button>Add a Recommendation</button></Link> 
+      <Link to="/contribute">Share Your Ideas</Link>
     </div>
   )
 }

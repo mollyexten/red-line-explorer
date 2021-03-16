@@ -1,9 +1,8 @@
 function Recommendation(props) {
   return (
     <div>
-      <h1>recommendation</h1>
-      <h1>{props.name}</h1>
-      <h1>{props.content}</h1>
+      <h3>{props.name}</h3>
+      <p>{props.content}</p>
     </div>
   )
 }

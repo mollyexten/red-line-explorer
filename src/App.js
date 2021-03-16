@@ -1,27 +1,31 @@
-import './App.css';
-import About from "./components/About"
-import Contribute from "./components/Contribute"
-import Home from "./components/Home"
-import Navbar from "./components/Navbar"
-import Station from "./components/Station"
-import { Route } from "react-router-dom"
+import "./App.css";
+import About from "./components/About";
+import Contribute from "./components/Contribute";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import Station from "./components/Station";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
+  // const [toggleFetch, setToggleFetch] = useState(false)
+
   return (
     <div className="App">
-      <Navbar />   
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/:stationParam">
-        <Station />
-      </Route>
-      <Route path="/contribute">
-        <Contribute />
-      </Route>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/contribute">
+          <Contribute />
+        </Route>
+        <Route exact path="/:stationParam">
+          <Station />
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -72,8 +72,8 @@ Here is a data sample from the recommendations table. I will access data from th
 
 | Day       | Deliverable                       | Status     |
 | --------- | --------------------------------- | ---------- |
-| Mar 15    | Proposal approval/Airtable setup  | Incomplete |
-| Mar 16    | Create components/get & post data | Incomplete |
+| Mar 15    | Proposal approval/Airtable setup  | Complete   |
+| Mar 16    | Create components/get & post data | Complete   |
 | Mar 17    | Get & post cont'd/Basic CSS       | Incomplete |
 | Mar 18    | Grid, flexbox, responsive CSS/MVP | Incomplete |
 | Mar 19    | Advanced styling/post MVP         | Incomplete |
@@ -86,13 +86,13 @@ Here is a data sample from the recommendations table. I will access data from th
 | ----------------- | -------------- | ------------- | ----------- |
 | Proposal          | 2 hrs          | 4 hrs         | 4 hrs       |
 | Proposal revision | 3 hrs          | 3 hrs         | 3 hrs       |
-| Airtable          | 3 hrs          |               |             |
-| Form component    | 2 hrs          |               |             |
-| Rec. component    | 1 hrs          |               |             |
-| Station component | 3 hrs          |               |             |
-| Home component    | 3 hrs          |               |             |
-| Nav component     | .5 hr          |               |             |
-| About component   | .5 hr          |               |             |
+| Airtable          | 3 hrs          | 2 hrs         |             |
+| Form component    | 2 hrs          | 2 hrs         |             |
+| Rec. component    | 1 hrs          | .5 hr         |             |
+| Station component | 3 hrs          | 4 hrs         |             |
+| Home component    | 3 hrs          | 2 hrs         |             |
+| Nav component     | .5 hr          | .5 hr         |             |
+| About component   | .5 hr          | .5 hr         |             |
 | Fix props/ toggle | 3 hrs          |               |             |
 | CSS color & font  | 2 hrs          |               |             |
 | CSS icons         | 1 hr           |               |             |
@@ -106,7 +106,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
 | Add form redirect | 1 hrs          |               |             |
-| TOTAL             | 42 hrs         |               |             |
+| TOTAL             | 42 hrs         | 18.5 hrs      |             |
 
 
 ## SWOT Analysis

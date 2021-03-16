@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { stationsURL, recommendationsURL, config } from "../services"
 
-function Contribute() {
+function Contribute(props) {
   const [stations, setStations] = useState([]);
   // const [date, setDate] = useState();
   const [stationId, setStationId] = useState("");
@@ -29,7 +29,6 @@ function Contribute() {
         return comparison;
       }
       const sortedStations = (unsortedStations.sort(compare))
-      // const stationList = stationObjects.map((station) => station.fields.Name)
       setStations(sortedStations)
     }
     getStations();
@@ -42,12 +41,15 @@ function Contribute() {
       content: content,
       station: [stationId],
     }
-    console.log(newRecommendation)
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
   }
 
   return (
     <div>
+      <header>
+        <h1>SHARE YOUR</h1>
+        <h1>IDEAS</h1>
+      </header>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input

@@ -32,7 +32,12 @@ function Home() {
   }, [])
 
   return (
-    <ul>
+    <div>
+      <header>
+        <h1 className="header-top">RED LINE</h1>
+        <h1 className="header-bottom">EXPLORER</h1>
+      </header>
+      <ul>
       {stations.map((station) => (
         <Link to={`/${station.stationKebab}`} key={station.sortId}>
           <li>{station.Name}</li>
@@ -40,7 +45,8 @@ function Home() {
       ))}
       
     </ul>
-  )
+    </div>
+  )  
 }
 
 export default Home;
