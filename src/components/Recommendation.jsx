@@ -1,8 +1,9 @@
 function Recommendation(props) {
   return (
     <div>
-      {/* <p>{props.fields.id}</p> */}
-      <h1>recommendations</h1>
+      <h1>recommendation</h1>
+      <h1>{props.name}</h1>
+      <h1>{props.content}</h1>
     </div>
   )
 }

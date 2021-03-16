@@ -33,9 +33,9 @@ function Home() {
 
   return (
     <ul>
-      {stations.map((station, index) => (
-        <Link to={`/${station.stationKebab}`}>
-          <li key={index}>{station.Name}</li>
+      {stations.map((station) => (
+        <Link to={`/${station.stationKebab}`} key={station.sortId}>
+          <li>{station.Name}</li>
         </Link>
       ))}
       
