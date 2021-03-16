@@ -16,7 +16,7 @@ function App() {
       <Route path="/about">
         <About />
       </Route>
-      <Route path="/station">
+      <Route path="/:station">
         <Station />
       </Route>
       <Route path="/contribute">

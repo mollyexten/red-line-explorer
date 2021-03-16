@@ -16,7 +16,7 @@ function Contribute() {
       console.log(stations)
     }
     getStations();
-  })
+  }, [])
   
   const handleSubmit = async (e) => {
     e.preventDefault();

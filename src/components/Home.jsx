@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { stationsURL, config } from "../services"
 
@@ -32,8 +33,10 @@ function Home() {
 
   return (
     <ul>
-      {stations.map((station, sortId) => (
-        <li key={station.sortId}>{station.Name}</li>
+      {stations.map((station, index) => (
+        <Link to={`/${station.stationKebab}`}>
+          <li key={index}>{station.Name}</li>
+        </Link>
       ))}
       
     </ul>
