@@ -4,8 +4,8 @@ import { stationsURL, config } from "../services"
 
 function Contribute() {
   const [stations, setStations] = useState([]);
-  const [date, setDate] = useState();
-  const [station, setStation] = useState();
+  // const [date, setDate] = useState();
+  const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
@@ -15,11 +15,11 @@ function Contribute() {
       const stationObjects = resp.data.records
       const unsortedStations = []
       stationObjects.map((stationObject) => (
-        unsortedStations.push(stationObject.fields)
+        unsortedStations.push(stationObject)
       ))
       function compare(a, b) {
-        const stationA = a.sortId;
-        const stationB = b.sortId;
+        const stationA = a.fields.sortId;
+        const stationB = b.fields.sortId;
         let comparison = 0;
         if (stationA > stationB) {
           comparison = 1
@@ -37,6 +37,12 @@ function Contribute() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newRecommendation = {
+      name: name,
+      stationId: stationId,
+      content: content,
+    }
+    console.log(newRecommendation)
   }
 
   return (
@@ -50,18 +56,22 @@ function Contribute() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <select>
+        <select onChange={(e) => setStationId(e.target.value)}>
           {stations.map((station) => (
-            <option>{station.Name}</option>
+            <option
+              value={station.id}
+              // onChange={setStationId(station.id)}
+            >
+              {station.fields.Name}
+            </option>
           ))}
-          
         </select>
         <label htmlFor="recommendation">Recommendation</label>
         <input
           required
           type="text"
           id="recommendation"
-          value={content, setContent}
+          value={content}
           onChange={(e) => setContent(e.target.value)}
         />
         <button type="submit">Submit</button>
