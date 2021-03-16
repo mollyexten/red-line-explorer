@@ -37,9 +37,21 @@ function Station(props) {
     }
     getRecommendations();
   }, [stationId])
+  
+  if (recommendations.length === 0) {
+    return (
+      <div>
+        <header>
+        <h1 className="header-top">{stationName}</h1>
+        </header>
+        <main>
+          <p>No recommendations found</p>
+          <Link to="/contribute">Share Your Ideas</Link>
+        </main>
+      </div>
+    )
+  }
 
-
-  // recommendations.map(recommendation => console.log(recommendation.fields.name))
   return (
     <div>
       <header>

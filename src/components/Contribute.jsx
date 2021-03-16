@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { stationsURL, recommendationsURL, config } from "../services"
 
 function Contribute(props) {
@@ -8,6 +9,7 @@ function Contribute(props) {
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     const getStations = async () => {
@@ -42,6 +44,7 @@ function Contribute(props) {
       station: [stationId],
     }
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
+    history.push("/")
   }
 
   return (
