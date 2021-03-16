@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { stationsURL, config } from "../services"
+import { stationsURL, recommendationsURL, config } from "../services"
 
 function Contribute() {
   const [stations, setStations] = useState([]);
@@ -39,10 +39,11 @@ function Contribute() {
     e.preventDefault();
     const newRecommendation = {
       name: name,
-      stationId: stationId,
       content: content,
+      station: [stationId],
     }
     console.log(newRecommendation)
+    await axios.post(recommendationsURL, { fields: newRecommendation }, config)
   }
 
   return (
@@ -57,9 +58,11 @@ function Contribute() {
           onChange={(e) => setName(e.target.value)}
         />
         <select onChange={(e) => setStationId(e.target.value)}>
+          <option value="null" selected>Choose Station</option> 
           {stations.map((station) => (
             <option
               value={station.id}
+              key={station.id}
               // onChange={setStationId(station.id)}
             >
               {station.fields.Name}
