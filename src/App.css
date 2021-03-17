@@ -37,7 +37,7 @@ header {
 .station-map {
   display: grid;
   grid-template-columns: 1fr repeat(2, 10%) 15% 10% 15% repeat(2, 10%) 1fr;
-  grid-template-rows: repeat(18, 20px);
+  grid-template-rows: repeat(18, 25px);
   list-style-type: circle;
 }
 
@@ -150,4 +150,5 @@ ul > a {
 
 .rec-text, .about-text {
   text-align: left;
+  padding: 10px;
 }
