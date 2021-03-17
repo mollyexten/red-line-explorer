@@ -95,18 +95,18 @@ Here is a data sample from the recommendations table. I will access data from th
 | About component   | .5 hr          | .5 hr         |             |
 | Commenting        | 3 hrs          | 1 hr          |             |
 | CSS color & font  | 2 hrs          | 2 hrs         |             |
-| CSS icons         | 1 hr           |               |             |
+| CSS icons/buttons | 1 hr           | .5 hrs        |             |
 | Advanced CSS      | 2 hrs          |               |             |
-| Flexbox/Grid-home | 3 hrs          |               |             |
+| Flexbox/Grid-home | 3 hrs          | 2 hrs         |             |
 | Flex/Grid-station | 3 hrs          |               |             |
-| Flex/Grid-form    | 1 hr           |               |             |
-| breakpoint-home   | 1 hr           |               |             |
+| Flex/Grid-form    | 1 hr           | 1 hr          |             |
+| breakpoint-home   | 1 hr           | 1 hr          |             |
 | breakpoint-station| 1 hr           |               |             |
-| breakpoint-form   | 1 hr           |               |             |
+| breakpoint-form   | 1 hr           | 1 hr          |             |
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
-| Add form redirect | 1 hrs          |               |             |
-| TOTAL             | 42 hrs         | 21.5 hrs      |             |
+| Add form redirect | 1 hrs          | .5 hrs        |             |
+| TOTAL             | 42 hrs         | 27.5 hrs      |             |
 
 
 ## SWOT Analysis
