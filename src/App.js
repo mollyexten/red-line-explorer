@@ -30,6 +30,17 @@ function App() {
           <Station />
         </Route>
       </Switch>
+      <footer>
+        Photo credit: <a href=
+          "https://commons.wikimedia.org/wiki/File:Outbound_train_at_Charles_MGH_station,_May_2006.jpg"
+        >
+          Adam E. Moreira
+        </a>,
+        <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+          CC BY-SA 3.0
+        </a>
+        , via Wikimedia Commons
+      </footer>
     </div>
   );
 }

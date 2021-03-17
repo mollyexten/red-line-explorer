@@ -1,5 +1,9 @@
 body {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e6/Outbound_train_at_Charles_MGH_station%2C_May_2006.jpg");
+  background-color: rgba(238, 241, 241);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
 }
 
 .App {
@@ -8,6 +12,24 @@ body {
   padding-bottom: 30px;
 }
 
+/* ==========================================================================
+  Link Styles
+========================================================================== */
+a {
+  text-decoration: none;
+  color: black;
+  text-align: left;
+}
+
+a:hover {
+  color: #f50f0a;
+  border: 1px solid #f50f0a;
+}
+
+.submit-button {
+  color: black;
+  border: 1px solid #f50f0a;
+}
 /* ==========================================================================
   Nav Styles
 ========================================================================== */
@@ -58,11 +80,6 @@ ul > a {
   text-decoration: none;
   color: black;
   text-align: left;
-}
-
-a:hover {
-  color: #f50f0a;
-  border: 1px solid #f50f0a;
 }
 
 .alewife,
@@ -244,6 +261,18 @@ form {
 
 .submit-button {
   grid-row: 5 / 6;
+}
+
+/* ==========================================================================
+  Footer Styles
+========================================================================== */
+
+footer {
+  width: 100%;
+  background-color: #eef1f1;
+  position: fixed;
+  font-size: 0.5em;
+  bottom: 0;
 }
 
 /* ==========================================================================
