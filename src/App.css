@@ -60,6 +60,11 @@ ul > a {
   text-align: left;
 }
 
+a:hover {
+  color: #f50f0a;
+  border: 1px solid #f50f0a;
+}
+
 .alewife, .porter, .davis, .harvard, .central, .kendall-mit, .charles-mgh, .park-street, .downtown-crossing, .south-station, .broadway, .andrew, .jfk-umass {
   grid-column: 4 / 9;
 }
@@ -219,7 +224,7 @@ form {
   Breakpoints
 ========================================================================== */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
 
   /* ==========================================================================
   Homepage Styles
@@ -227,77 +232,77 @@ form {
 
 .station-map {
   display: grid;
-  grid-template-columns: repeat(27, 1fr);
-  grid-template-rows: repeat(22, 25px);
+  grid-template-columns: repeat(23, 1fr);
+  grid-template-rows: repeat(22, 30px);
   list-style-type: circle;
 }
 
 .alewife {
-  grid-column: 1 / span 7;
+  grid-column: 1 / span 5;
 }
 
 .porter {
-  grid-column: 2 / span 7;
+  grid-column: 2 / span 5;
 }
 
 .davis {
-  grid-column: 3 / span 7;
+  grid-column: 3 / span 5;
 }
 
 .harvard {
-  grid-column: 4 / span 7;
+  grid-column: 4 / span 5;
 }
 
 .central {
-  grid-column: 5 / span 7;
+  grid-column: 5 / span 5;
 }
 
 .kendall-mit {
-  grid-column: 6 / span 7;
+  grid-column: 6 / span 5;
 }
 
 .charles-mgh {
-  grid-column: 7 / span 7;
+  grid-column: 7 / span 5;
 }
 
 .park-street {
-  grid-column: 8 / span 7;
+  grid-column: 8 / span 5;
 }
 
 .downtown-crossing {
-  grid-column: 9 / span 7;
+  grid-column: 9 / span 5;
 }
 
 .south-station {
-  grid-column: 10 / span 7;
+  grid-column: 10 / span 5;
 }
 
 .broadway, .andrew, .jfk-umass {
-  grid-column: 11 / span 7;
+  grid-column: 11 / span 5;
 }
 
 .savin-hill, .fields-corner, .shawmut, .ashmont {
-  grid-column: 8 / span 7;
+  grid-column: 8 / span 5;
 }
 
 .north-quincy {
-  grid-column: 16 / span 7;
+  grid-column: 14 / span 5;
 }
 
 .wollaston {
-  grid-column: 17 / span 7;
+  grid-column: 15 / span 5;
 }
 
 .quincy-center {
-  grid-column: 18 / span 7;
+  grid-column: 16 / span 5;
 }
 
 .quincy-adams {
-  grid-column: 19 / span 7;
+  grid-column: 17 / span 5;
 }
 
 .braintree {
-  grid-column: 19 / span 7;
+  grid-column: 18 / span 5;
 }
 
 .alewife {
