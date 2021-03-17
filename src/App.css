@@ -36,7 +36,7 @@ header {
 
 .station-map {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr repeat(2, 10%) 15% 10% 15% repeat(2, 10%) 1fr;
   grid-template-rows: repeat(18, 20px);
   list-style-type: circle;
 }
@@ -47,112 +47,103 @@ ul > a {
   text-align: left;
 }
 
+.alewife, .porter, .davis, .harvard, .central, .kendall-mit, .charles-mgh, .park-street, .downtown-crossing, .south-station, .broadway, .andrew, .jfk-umass {
+  grid-column: 4 / 7;
+}
+
+.savin-hill, .fields-corner, .shawmut, .ashmont {
+  grid-column: 2 / 5;
+}
+
+.north-quincy, .wollaston, .quincy-center, .quincy-adams, .braintree {
+  grid-column: 6 / 9;
+}
+
 .alewife {
-  grid-column: 2 / 3;
   grid-row: 1 / 2;
 }
 
 .porter {
-  grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
 .davis {
-  grid-column: 2 / 3;
   grid-row: 3 / 4;
 }
 
 .harvard {
-  grid-column: 2 / 3;
   grid-row: 4 / 5;
 }
 
 .central {
-  grid-column: 2 / 3;
   grid-row: 5 / 6;
 }
 
 .kendall-mit {
-  grid-column: 2 / 3;
   grid-row: 6 / 7;
 }
 
 .charles-mgh {
-  grid-column: 2 / 3;
   grid-row: 7 / 8;
 }
 
 .park-street {
-  grid-column: 2 / 3;
   grid-row: 8 / 9;
 }
 
 .downtown-crossing {
-  grid-column: 2 / 3;
   grid-row: 9 / 10;
 }
 
 .south-station {
-  grid-column: 2 / 3;
   grid-row: 10 / 11;
 }
 
 .broadway {
-  grid-column: 2 / 3;
   grid-row: 11 / 12;
 }
 
 .andrew {
-  grid-column: 2 / 3;
   grid-row: 12 / 13;
 }
 
 .jfk-umass {
-  grid-column: 2 / 3;
   grid-row: 13 / 14;
 }
 
+
 .savin-hill {
-  grid-column: 1 / 2;
   grid-row: 14 / 15;
 }
 
 .fields-corner {
-  grid-column: 1 / 2;
   grid-row: 15 / 16;
 }
 
 .shawmut {
-  grid-column: 1 / 2;
   grid-row: 16 / 17;
 }
 
 .ashmont {
-  grid-column: 1 / 2;
   grid-row: 17 / 18;
 }
 
 .north-quincy {
-  grid-column: 3 / 4;
   grid-row: 14 / 15;
 }
 
 .wollaston {
-  grid-column: 3 / 4;
   grid-row: 15 / 16;
 }
 
 .quincy-center {
-  grid-column: 3 / 4;
   grid-row: 16 / 17;
 }
 
 .quincy-adams {
-  grid-column: 3 / 4;
   grid-row: 17 / 18;
 }
 
 .braintree {
-  grid-column: 3 / 4;
   grid-row: 18 / 19;
 }
