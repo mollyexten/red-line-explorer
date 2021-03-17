@@ -21,13 +21,17 @@ a {
   text-align: left;
 }
 
-a:hover {
-  color: #f50f0a;
-  border: 1px solid #f50f0a;
+button {
+  color: black;
+  border: none;
+  background-color:rgb(238, 241, 241);
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
 }
 
-.submit-button {
-  color: black;
+a:hover, button:hover {
+  color: #f50f0a;
   border: 1px solid #f50f0a;
 }
 /* ==========================================================================
@@ -38,7 +42,7 @@ nav {
   text-align: right;
   background-color: #eef1f1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: 5px;
   margin-right: 5px;
 }
