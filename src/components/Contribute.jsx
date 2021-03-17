@@ -80,9 +80,9 @@ function Contribute(props) {
           onChange={(e) => setName(e.target.value)}
         />
         {/* Set the value of this select element to the value of the option selected and stored as stationId */}
-        <label htmlFor="station">Station</label>
+        <label htmlFor="station" className="station-label">Station</label>
         <select
-          className="select-input"
+          className="station-input"
           id="station"
           onChange={(e) => setStationId(e.target.value)}>
           <option value="default" disabled>Choose Station</option> 

@@ -200,22 +200,22 @@ a:hover {
 
 form {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  grid-template-rows: repeat(3, 25px) 200px auto;
+  grid-template-columns: 20% auto;
+  grid-template-rows: repeat(3, 25px) 200px 1fr;
   grid-gap: 10px;
   margin: 10px;
   text-align: left;
 }
 
 .name-label,
-.select-label,
+.station-label,
 .recommendation-label,
 .submit-button {
   grid-column: 1 / 2;
 }
 
 .name-input,
-.select-input {
+.station-input {
   grid-column: 2 / 3;
 }
 
@@ -228,8 +228,8 @@ form {
   grid-row: 1 / 2;
 }
 
-.select-label,
-.select-input {
+.station-label,
+.station-input {
   grid-row: 2 / 3;
 }
 
@@ -248,6 +248,59 @@ form {
 /* ==========================================================================
   Breakpoints
 ========================================================================== */
+
+@media screen and (min-width: 400px) {
+  /* ==========================================================================
+  Form Styles
+========================================================================== */
+
+form {
+  display: grid;
+  grid-template-columns: 80px 200px auto;
+  grid-template-rows: repeat(3, 25px) 200px 1fr;
+  grid-gap: 10px;
+  margin: 30px;
+  text-align: left;
+}
+
+.name-label,
+.station-label,
+.recommendation-label,
+.submit-button {
+  grid-column: 1 / 2;
+}
+
+.name-input,
+.station-input {
+  grid-column: 2 / 3;
+}
+
+.recommendation-input {
+  grid-column: 1 / 4;
+}
+
+.name-label,
+.name-input {
+  grid-row: 1 / 2;
+}
+
+.station-label,
+.station-input {
+  grid-row: 2 / 3;
+}
+
+.recommendation-label {
+  grid-row: 3 / 4;
+}
+
+.recommendation-input {
+  grid-row: 4 / 5;
+}
+
+.submit-button {
+  grid-row: 5 / 6;
+}
+}
 
 @media screen and (min-width: 500px) {
   /* ==========================================================================
@@ -427,179 +480,4 @@ form {
   .braintree {
     font-weight: 700;
   }
-}
-
-@media screen and (min-width: 1000px) {
-  /* ==========================================================================
-  Homepage Styles
-  ========================================================================== */
-
-  .station-map {
-    display: grid;
-    grid-template-columns: repeat(23, 1fr);
-    grid-template-rows: repeat(22, 30px);
-    list-style-type: circle;
-  }
-
-  .alewife {
-    grid-column: 1 / span 5;
-  }
-
-  .porter {
-    grid-column: 2 / span 5;
-  }
-
-  .davis {
-    grid-column: 3 / span 5;
-  }
-
-  .harvard {
-    grid-column: 4 / span 5;
-  }
-
-  .central {
-    grid-column: 5 / span 5;
-  }
-
-  .kendall-mit {
-    grid-column: 6 / span 5;
-  }
-
-  .charles-mgh {
-    grid-column: 7 / span 5;
-  }
-
-  .park-street {
-    grid-column: 8 / span 5;
-  }
-
-  .downtown-crossing {
-    grid-column: 9 / span 5;
-  }
-
-  .south-station {
-    grid-column: 10 / span 5;
-  }
-
-  .broadway,
-  .andrew,
-  .jfk-umass {
-    grid-column: 11 / span 5;
-  }
-
-  .savin-hill,
-  .fields-corner,
-  .shawmut,
-  .ashmont {
-    grid-column: 8 / span 5;
-  }
-
-  .north-quincy {
-    grid-column: 14 / span 5;
-  }
-
-  .wollaston {
-    grid-column: 15 / span 5;
-  }
-
-  .quincy-center {
-    grid-column: 16 / span 5;
-  }
-
-  .quincy-adams {
-    grid-column: 17 / span 5;
-  }
-
-  .braintree {
-    grid-column: 18 / span 5;
-  }
-
-  .alewife {
-    grid-row: 1 / 2;
-  }
-
-  .porter {
-    grid-row: 2 / 3;
-  }
-
-  .davis {
-    grid-row: 3 / 4;
-  }
-
-  .harvard {
-    grid-row: 4 / 5;
-  }
-
-  .central {
-    grid-row: 5 / 6;
-  }
-
-  .kendall-mit {
-    grid-row: 6 / 7;
-  }
-
-  .charles-mgh {
-    grid-row: 7 / 8;
-  }
-
-  .park-street {
-    grid-row: 8 / 9;
-  }
-
-  .downtown-crossing {
-    grid-row: 9 / 10;
-  }
-
-  .south-station {
-    grid-row: 10 / 11;
-  }
-
-  .broadway {
-    grid-row: 11 / 12;
-  }
-
-  .andrew {
-    grid-row: 12 / 13;
-  }
-
-  .jfk-umass {
-    grid-row: 13 / 14;
-  }
-
-  .savin-hill {
-    grid-row: 15 / 16;
-  }
-
-  .fields-corner {
-    grid-row: 16 / 17;
-  }
-
-  .shawmut {
-    grid-row: 17 / 18;
-  }
-
-  .ashmont {
-    grid-row: 18 / 19;
-  }
-
-  .north-quincy {
-    grid-row: 15 / 16;
-  }
-
-  .wollaston {
-    grid-row: 16 / 17;
-  }
-
-  .quincy-center {
-    grid-row: 17 / 18;
-  }
-
-  .quincy-adams {
-    grid-row: 18 / 19;
-  }
-
-  .braintree {
-    grid-row: 19 / 20;
-  }
-
 }
