@@ -1,27 +1,32 @@
 import "./App.css";
+// Import App components
 import About from "./components/About";
 import Contribute from "./components/Contribute";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Station from "./components/Station";
+
 import { Route, Switch } from "react-router-dom";
 
 function App() {
 
   return (
     <div className="App">
+      {/* Navbar appears on all paths */}
       <Navbar />
+      {/* Other components render in separate views, hence the route paths */}
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/about">
+        <Route path="/about">
           <About />
         </Route>
-        <Route exact path="/contribute">
+        {/* Putting <Contribute /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
+        <Route path="/contribute">
           <Contribute />
         </Route>
-        <Route exact path="/:stationParam">
+        <Route path="/:stationParam">
           <Station />
         </Route>
       </Switch>

@@ -5,8 +5,10 @@ import { recommendationsURL, stationsURL, config } from "../services"
 import axios from "axios"
 import Recommendation from "./Recommendation"
 
-function Station(props) {
+function Station() {
+  // Store stationId, obtained from get request in getId and used to filter recommendations in 
   const [stationId, setStationId] = useState("")
+
   const [stationName, setStationName] = useState("")
   const [recommendations, setRecommendations] = useState([]);
   const { stationParam } = useParams()
