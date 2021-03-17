@@ -99,9 +99,8 @@ function Contribute(props) {
         </select>
         <label htmlFor="recommendation" className="recommendation-label">Recommendation</label>
         {/* Set the value of content to the value of this textbox */}
-        <input
+        <textarea
           required
-          type="text"
           id="recommendation"
           className="recommendation-input"
           value={content}
