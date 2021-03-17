@@ -30,9 +30,14 @@ button {
   cursor: pointer;
 }
 
-a:hover, button:hover {
+ul > a:hover {
   color: #f50f0a;
   border: 1px solid #f50f0a;
+}
+
+button:hover {
+  text-decoration: underline;
+  border: none;
 }
 /* ==========================================================================
   Nav Styles

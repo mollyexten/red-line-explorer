@@ -19,7 +19,7 @@ function About() {
           Know of any good activities around a particular Red Line station?
           Share your experiences!
         </p>
-        <Link to="/contribute">Add Recommendation</Link>
+        <Link to="/share-ideas"><button>Share Ideas</button></Link>
       </div>
     </div>
   );
