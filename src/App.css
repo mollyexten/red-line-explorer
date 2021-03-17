@@ -147,3 +147,7 @@ ul > a {
 .braintree {
   grid-row: 18 / 19;
 }
+
+.rec-text, .about-text {
+  text-align: left;
+}
