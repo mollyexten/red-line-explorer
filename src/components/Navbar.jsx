@@ -5,7 +5,7 @@ function Navbar() {
     <nav>
       <Link to="/"><button>Home</button></Link>
       <Link to="/about"><button>About</button></Link>
-      <Link to="/contribute"><button>Share Ideas</button></Link>
+      <Link to="/share-ideas"><button>Share Ideas</button></Link>
     </nav>
   )
 }

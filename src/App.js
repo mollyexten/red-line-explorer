@@ -1,7 +1,7 @@
 import "./App.css";
 // Import App components
 import About from "./components/About";
-import Contribute from "./components/Contribute";
+import ShareIdeas from "./components/ShareIdeas";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Station from "./components/Station";
@@ -22,9 +22,9 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        {/* Putting <Contribute /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
-        <Route path="/contribute">
-          <Contribute />
+        {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
+        <Route path="/share-ideas">
+          <ShareIdeas />
         </Route>
         <Route path="/:stationParam">
           <Station />

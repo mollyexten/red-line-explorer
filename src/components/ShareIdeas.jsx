@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { stationsURL, recommendationsURL, config } from "../services"
 
-function Contribute(props) {
+function ShareIdeas(props) {
   // store stations, stationId, name, and content as state variables
   const [stations, setStations] = useState([]);
   const [stationId, setStationId] = useState("");
@@ -42,7 +42,7 @@ function Contribute(props) {
       setStations(sortedStations)
     }
     getStations();
-  // Invoke this function whenever the Contribute component mounts
+  // Invoke this function whenever the ShareIdeas component mounts
   }, [])
   
   const handleSubmit = async (e) => {
@@ -113,4 +113,4 @@ function Contribute(props) {
   )
 }
 
-export default Contribute;
+export default ShareIdeas;

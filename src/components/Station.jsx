@@ -58,7 +58,7 @@ function Station() {
         </header>
         <main>
           <p>No recommendations found</p>
-          <Link to="/contribute"><button>Share Your Ideas</button></Link>
+          <Link to="/share-ideas"><button>Share Ideas</button></Link>
         </main>
       </div>
     );
@@ -79,7 +79,7 @@ function Station() {
           content={recommendation.fields.content}
         />
       ))}
-      <Link to="/contribute"><button>Share Your Ideas</button></Link>
+      <Link to="/share-ideas"><button>Share Ideas</button></Link>
     </div>
   );
 }
