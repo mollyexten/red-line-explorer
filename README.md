@@ -93,7 +93,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Home component    | 3 hrs          | 2 hrs         |             |
 | Nav component     | .5 hr          | .5 hr         |             |
 | About component   | .5 hr          | .5 hr         |             |
-| Fix props/ toggle | 3 hrs          |               |             |
+| Commenting        | 3 hrs          | 1 hr          |             |
 | CSS color & font  | 2 hrs          | 2 hrs         |             |
 | CSS icons         | 1 hr           |               |             |
 | Advanced CSS      | 2 hrs          |               |             |
@@ -106,7 +106,7 @@ Here is a data sample from the recommendations table. I will access data from th
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
 | Add form redirect | 1 hrs          |               |             |
-| TOTAL             | 42 hrs         | 20.5 hrs      |             |
+| TOTAL             | 42 hrs         | 21.5 hrs      |             |
 
 
 ## SWOT Analysis

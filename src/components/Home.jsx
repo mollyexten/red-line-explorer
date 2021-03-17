@@ -48,9 +48,9 @@ function Home() {
         <h1 className="header-bottom">EXPLORER</h1>
       </header>
       {/* Map through stations and display their names in an unordered list */}
-      <ul>
+      <ul className="station-map">
         {stations.map((station) => (
-          <Link to={`/${station.stationKebab}`} key={station.sortId}>
+          <Link to={`/${station.stationKebab}`} key={station.sortId} className={station.stationKebab}>
             <li>{station.Name}</li>
           </Link>
         ))}
