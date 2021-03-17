@@ -42,7 +42,8 @@ function Station(props) {
     return (
       <div>
         <header>
-        <h1 className="header-top">{stationName}</h1>
+          <h1 className="header-top">{stationName.toUpperCase()}</h1>
+          <h1 className="header-bottom">RECOMMENDATIONS</h1>
         </header>
         <main>
           <p>No recommendations found</p>
@@ -56,6 +57,7 @@ function Station(props) {
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
+        <h1 className="header-bottom">RECOMMENDATIONS</h1>
       </header>
         {recommendations.map((recommendation) => (
           <Recommendation key={recommendation.id} name={recommendation.fields.name} content={recommendation.fields.content} />

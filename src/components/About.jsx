@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function About() {
   return (
     <div>
-      <header>
+      <header className="header-top">
         <h1>ABOUT</h1>
       </header>
       <p>

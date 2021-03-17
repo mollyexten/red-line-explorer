@@ -1,25 +1,37 @@
+body {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e6/Outbound_train_at_Charles_MGH_station%2C_May_2006.jpg");
+}
+
 .App {
   text-align: center;
+  background-color: rgba(238, 241, 241, 0.7)
 }
 
 nav {
   text-align: right;
-  background-color: red;
+  background-color: #eef1f1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
 }
 
 nav > a {
-  padding: 10px;
   text-decoration: none;
-  color: white;
+  color: black;
+  font-size: 10pt;
+}
+
+header {
+  background-color: #f50f0a;
+  /* margin: 0; */
 }
 
 .header-top {
-  background-color: red;
-  color: white;
+  color: #eef1f1;
 }
 
 .header-bottom {
-  background-color: white;
+  background-color: #eef1f1;
 }
 
 ul {

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 function Navbar() {
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contribute">Add a Recommendation</Link>
+      <Link to="/">HOME</Link>
+      <Link to="/about">ABOUT</Link>
+      <Link to="/contribute">CONTRIBUTE</Link>
     </nav>
   )
 }

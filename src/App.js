@@ -7,7 +7,6 @@ import Station from "./components/Station";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
-  // const [toggleFetch, setToggleFetch] = useState(false)
 
   return (
     <div className="App">

@@ -50,8 +50,8 @@ function Contribute(props) {
   return (
     <div>
       <header>
-        <h1>SHARE YOUR</h1>
-        <h1>IDEAS</h1>
+        <h1 className="header-top">SHARE YOUR</h1>
+        <h1 className="header-bottom">IDEAS</h1>
       </header>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
@@ -63,12 +63,11 @@ function Contribute(props) {
           onChange={(e) => setName(e.target.value)}
         />
         <select onChange={(e) => setStationId(e.target.value)}>
-          <option value="null" selected>Choose Station</option> 
+          <option value="default" disabled>Choose Station</option> 
           {stations.map((station) => (
             <option
               value={station.id}
               key={station.id}
-              // onChange={setStationId(station.id)}
             >
               {station.fields.Name}
             </option>
