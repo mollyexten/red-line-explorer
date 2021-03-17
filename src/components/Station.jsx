@@ -74,6 +74,7 @@ function Station() {
       {recommendations.map((recommendation) => (
         <Recommendation
           key={recommendation.id}
+          // Pass name and content as props into the recommendation component
           name={recommendation.fields.name}
           content={recommendation.fields.content}
         />
