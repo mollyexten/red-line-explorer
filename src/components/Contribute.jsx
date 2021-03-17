@@ -69,17 +69,22 @@ function Contribute(props) {
       </header>
       {/* When this form is submitted, call the handleSubmit function */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name" className="name-label">Name</label>
         {/* Set the value of the name to the value of this textbox */}
         <input
           required
           type="text"
           id="name"
+          className="name-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         {/* Set the value of this select element to the value of the option selected and stored as stationId */}
-        <select onChange={(e) => setStationId(e.target.value)}>
+        <label htmlFor="station">Station</label>
+        <select
+          className="select-input"
+          id="station"
+          onChange={(e) => setStationId(e.target.value)}>
           <option value="default" disabled>Choose Station</option> 
           {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
           {stations.map((station) => (
@@ -92,17 +97,18 @@ function Contribute(props) {
             </option>
           ))}
         </select>
-        <label htmlFor="recommendation">Recommendation</label>
+        <label htmlFor="recommendation" className="recommendation-label">Recommendation</label>
         {/* Set the value of content to the value of this textbox */}
         <input
           required
           type="text"
           id="recommendation"
+          className="recommendation-input"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
         {/* Make this a submit type button so that the onSubmit event listener triggers the handleSubmit function */}
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-button">Submit</button>
       </form>
     </div>
   )
