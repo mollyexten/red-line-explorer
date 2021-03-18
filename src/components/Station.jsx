@@ -79,7 +79,7 @@ function Station() {
           content={recommendation.fields.content}
         />
       ))}
-      <Link to="/share-ideas"><button>Share Ideas</button></Link>
+      <Link to="/share-ideas"><button className="share-ideas">Share Ideas</button></Link>
     </div>
   );
 }

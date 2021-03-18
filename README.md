@@ -38,7 +38,6 @@ Here is a data sample from the recommendations table. I will access data from th
 {
     "id": "recuElOvA7w4XZ23g",
     "fields": {
-        "date": "2021-03-13T16:42:00.000Z",
         "name": "Molly",
         "content": "On a nice, non-windy day, the nearby Esplanade is the most beautiful park in the city. Great place for runners. Have a picnic and watch the sailboats ...",
         "station": [
@@ -61,7 +60,7 @@ Here is a data sample from the recommendations table. I will access data from th
 - Make a mobile first design with a breakpoint for desktops
 - No errors or logs to the console
 - Add a dropdown for station IDs
-- Redirect user to station after submitting form
+- Redirect user to homepage after submitting form
 
 #### PostMVP
 - Make put request to fill in station data when user clicks on the share button from a specific station page

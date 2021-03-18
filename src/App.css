@@ -13,7 +13,7 @@ body {
 }
 
 /* ==========================================================================
-  Link Styles
+  Link/Button Styles
 ========================================================================== */
 a {
   text-decoration: none;
@@ -35,9 +35,12 @@ ul > a:hover {
   border: 1px solid #f50f0a;
 }
 
-button:hover {
+button:hover, button:active {
   text-decoration: underline;
-  border: none;
+}
+
+.share-ideas {
+  font-size: 14pt;
 }
 /* ==========================================================================
   Nav Styles
