@@ -30,8 +30,8 @@ button {
 }
 
 ul > a:hover {
-  color: #f50f0a;
-  border: 1px solid #f50f0a;
+  /* border: 1px solid #f50f0a; */
+  text-shadow: 3px 2px 2px #e88a58;
 }
 
 button:hover, button:active {
@@ -241,6 +241,11 @@ form {
   grid-gap: 10px;
   margin: 10px;
   text-align: left;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
 }
 
 .name-label,
