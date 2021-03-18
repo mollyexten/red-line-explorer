@@ -10,6 +10,7 @@ body::before {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  /* background-repeat: repeat; */
   position: absolute;
   top: 0px;
   right: 0px;
@@ -27,7 +28,7 @@ body::before {
 
 .station-div, .about-div, .share-ideas-div {
   position: relative;
-  height: 100vh;
+  height: 100%;
 }
 
 /* ==========================================================================
