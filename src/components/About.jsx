@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <div className="about-div">
-      <header className="header-top">
-        <h1>ABOUT</h1>
+    <div>
+      <header>
+        <h1 className="header-top">ABOUT</h1>
+        <h1 className="header-bottom"></h1>
       </header>
       <div>
         <div className="about-text">

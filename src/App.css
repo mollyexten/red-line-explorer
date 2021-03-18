@@ -65,15 +65,22 @@ nav > a {
 ========================================================================== */
 
 header {
-  background-color: #f50f0a;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: stretch;
 }
 
 .header-top {
   color: #eef1f1;
+  background-color: #f50f0a;
+  align-self: stretch;
+  margin-bottom: 0;
 }
 
 .header-bottom {
   background-color: #eef1f1;
+  align-self: stretch;
+  margin-top: 0;
 }
 
 /* ==========================================================================

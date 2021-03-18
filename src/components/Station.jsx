@@ -51,7 +51,7 @@ function Station() {
   // Display a "no recommendations found" page if the station has no recommendations
   if (recommendations.length === 0) {
     return (
-      <div className="station-div">
+      <div>
         <header>
           <h1 className="header-top">{stationName.toUpperCase()}</h1>
           <h1 className="header-bottom">RECOMMENDATIONS</h1>
@@ -66,7 +66,7 @@ function Station() {
 
   // Otherwise, display the station page with its corresponding recommendations
   return (
-    <div className="station-div">
+    <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
         <h1 className="header-bottom">RECOMMENDATIONS</h1>
