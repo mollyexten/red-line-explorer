@@ -88,6 +88,7 @@ function ShareIdeas(props) {
           id="name"
           className="name-input"
           value={name}
+          autoComplete="off"
           onChange={(e) => setName(e.target.value)}
         />
         {/* Set the value of this select element to the value of the option selected and stored as stationId */}
@@ -116,6 +117,7 @@ function ShareIdeas(props) {
           id="recommendation"
           className="recommendation-input"
           value={content}
+          autoComplete="off"
           onChange={(e) => setContent(e.target.value)}
         />
         {/* Make this a submit type button so that the onSubmit event listener triggers the handleSubmit function */}
