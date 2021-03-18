@@ -73,7 +73,7 @@ function ShareIdeas(props) {
   }
 
   return (
-    <div>
+    <div className="share-ideas-div">
       <header>
         <h1 className="header-top">SHARE YOUR</h1>
         <h1 className="header-bottom">IDEAS</h1>
