@@ -1,34 +1,14 @@
 body {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-body::before {
-  content: "";
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e6/Outbound_train_at_Charles_MGH_station%2C_May_2006.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* background-repeat: repeat; */
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.2
 }
 
 .App {
   text-align: center;
   padding-bottom: 30px;
-  position: relative;
-  height: 100%;
-}
-
-.station-div, .about-div, .share-ideas-div {
-  position: relative;
-  height: 100%;
+  background-color:rgba(238, 241, 241, 0.8)
 }
 
 /* ==========================================================================

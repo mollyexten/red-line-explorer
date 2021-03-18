@@ -42,7 +42,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home-div">
       <header>
         <h1 className="header-top">RED LINE</h1>
         <h1 className="header-bottom">EXPLORER</h1>
