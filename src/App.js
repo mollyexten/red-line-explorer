@@ -34,7 +34,7 @@ function App() {
         </Route>
       </Switch>
       <footer>
-        Background Photo credit: <a href=
+        Background photo credit: <a href=
           "https://commons.wikimedia.org/wiki/File:Outbound_train_at_Charles_MGH_station,_May_2006.jpg"
         >
           Adam E. Moreira
