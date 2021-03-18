@@ -53,7 +53,7 @@ function ShareIdeas(props) {
       const preselectedStation = stationEdit.id
       setStationId(preselectedStation)
     }
-  }, [stations, stationParam, stationId])
+  }, [stations, stationParam])
 
   const handleSubmit = async (e) => {
     // Stop the form from clearing when submit is pressed
