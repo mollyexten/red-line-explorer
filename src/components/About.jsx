@@ -8,20 +8,6 @@ function About() {
       </header>
       <div>
         <div className="about-text">
-          <h3>About Me</h3>
-          <p>
-            Hi, I’m Molly, and I am the creator of Red Line Explorer! Since
-            moving to Boston in 2013, I have spent more time than I care to
-            count waiting for and riding on MBTA vehicles. Throughout all my
-            experiences on different lines and routes, the Red Line has always
-            held a special place in my heart. As we move forward into the “new
-            normal”, I hope that we give public transportation the support it
-            needs. It is an essential part of society.
-          </p>
-          <p>
-            Never grateful when you’re on time, always annoyed when you’re
-            twenty minutes away, I dedicate this site to you, Red Line.
-          </p>
           <h3>About This Site</h3>
           <p>
             Red Line Explorer is a place for users to discover and contribute
@@ -39,6 +25,22 @@ function About() {
         <Link to="/share-ideas">
           <button className="share-ideas">Share Ideas</button>
         </Link>
+        <div className="about-text">
+        <h3>About Me</h3>
+          <p>
+            Hi, I’m Molly, and I am the creator of Red Line Explorer! Since
+            moving to Boston in 2013, I have spent more time than I care to
+            count waiting for and riding on MBTA vehicles. Throughout all my
+            experiences on different lines and routes, the Red Line has always
+            held a special place in my heart. As we move forward into the “new
+            normal”, I hope that we give public transportation the support it
+            needs. It is an essential part of society.
+          </p>
+          <p>
+            Never grateful when you’re on time, always annoyed when you’re
+            twenty minutes away, I dedicate this site to you, Red Line.
+          </p>
+        </div>
       </div>
     </div>
   );
