@@ -48,6 +48,7 @@ function ShareIdeas(props) {
   }, [])
 
   useEffect(() => {
+    // Check if this page has stationParams and has already set the station state
     if (stationParam && stations.length > 0) {
       const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
       const preselectedStation = stationEdit.id
