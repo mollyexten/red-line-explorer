@@ -14,4 +14,4 @@ Add a useEffect(() => {
     const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
     setStationId(stationEdit.id)
   }
-})
+}, [stationParam])

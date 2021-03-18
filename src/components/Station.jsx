@@ -58,7 +58,7 @@ function Station() {
         </header>
         <main>
           <p>No recommendations found</p>
-          <Link to="/share-ideas"><button>Share Ideas</button></Link>
+          <Link to={`/add/${stationParam}`}><button className="share-ideas">Share Ideas</button></Link>
         </main>
       </div>
     );

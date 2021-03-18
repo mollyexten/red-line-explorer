@@ -46,7 +46,15 @@ function ShareIdeas(props) {
     getStations();
   // Invoke this function whenever the ShareIdeas component mounts
   }, [])
-  
+
+  useEffect(() => {
+    if (stationParam && stations.length > 0) {
+      const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
+      const preselectedStation = stationEdit.id
+      setStationId(preselectedStation)
+    }
+  }, [stations, stationParam, stationId])
+
   const handleSubmit = async (e) => {
     // Stop the form from clearing when submit is pressed
     e.preventDefault();
@@ -86,8 +94,9 @@ function ShareIdeas(props) {
         <select
           className="station-input"
           id="station"
-          onChange={(e) => setStationId(e.target.value)}>
-          <option value="default" disabled>Choose Station</option> 
+          value={stationId}
+          onChange={(e) => setStationId(e.target.value)}
+        >
           {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
           {stations.map((station) => (
             <option
