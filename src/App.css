@@ -12,6 +12,9 @@ body {
   background-color:rgba(238, 241, 241, 0.8)
 }
 
+::selection {
+  background-color: #e88a58;
+}
 /* ==========================================================================
   Link/Button Styles
 ========================================================================== */
@@ -39,10 +42,6 @@ button:hover, button:active {
 
 ul > a:hover {
   text-shadow: 3px 2px 2px #e88a58;
-}
-
-.share-ideas {
-  font-size: 14pt;
 }
 /* ==========================================================================
   Nav Styles
@@ -239,7 +238,7 @@ ul > a {
 
 form {
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 30% 65%;
   grid-template-rows: repeat(3, 25px) 200px 1fr;
   grid-gap: 10px;
   margin: 10px;
@@ -251,6 +250,8 @@ input, select, textarea {
   font-size: 100%;
   box-shadow: 3px 2px 2px rgb(104, 100, 98);
 }
+
+
 
 .name-input:focus, .station-input:focus, .recommendation-input:focus {
   outline: none;
