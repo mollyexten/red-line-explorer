@@ -250,6 +250,7 @@ input, select, textarea {
   font-family: inherit;
   font-size: 100%;
   box-shadow: 3px 2px 2px rgb(104, 100, 98);
+  border-radius: 8px;
 }
 
 
@@ -319,6 +320,10 @@ footer {
   /* ==========================================================================
   Form Styles
 ========================================================================== */
+.header-top, .header-bottom {
+  font-size: 18pt;
+}
+
 body, button {
   font-size: 12pt;
 }  
