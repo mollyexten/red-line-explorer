@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { stationsURL, recommendationsURL, config } from "../services"
 
 function ShareIdeas(props) {
@@ -9,6 +9,8 @@ function ShareIdeas(props) {
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  // set up useParams to automatically fill in station
+  const { stationParam } = useParams();
   // set up useHistory to redirect user to main page after form submission
   const history = useHistory();
 

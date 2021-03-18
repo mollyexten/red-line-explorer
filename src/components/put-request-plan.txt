@@ -1,0 +1,17 @@
+In App component:
+After route path for "/share-ideas", add a new one:
+<Route path="/add/:station">
+<ShareIdeas />
+</Route>
+
+In Station component:
+Link to={`/add/${stationParam}`}
+
+In ShareIdeas component:
+const { stationParam } = useParams();
+Add a useEffect(() => {
+  if (addParams) {
+    const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
+    setStationId(stationEdit.id)
+  }
+})

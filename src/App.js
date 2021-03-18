@@ -26,6 +26,9 @@ function App() {
         <Route path="/share-ideas">
           <ShareIdeas />
         </Route>
+        <Route path="/add/:stationParam">
+          <ShareIdeas />
+        </Route>
         <Route path="/:stationParam">
           <Station />
         </Route>
