@@ -123,7 +123,7 @@ ul > a {
 .fields-corner,
 .shawmut,
 .ashmont {
-  grid-column: 2 / 5;
+  grid-column: 1 / 5;
 }
 
 .north-quincy,
@@ -131,7 +131,7 @@ ul > a {
 .quincy-center,
 .quincy-adams,
 .braintree {
-  grid-column: 6 / 9;
+  grid-column: 5 / 9;
 }
 
 .alewife {
@@ -411,11 +411,11 @@ form {
   }
 
   .downtown-crossing {
-    grid-column: 9 / span 5;
+    grid-column: 9 / span 9;
   }
 
   .south-station {
-    grid-column: 10 / span 5;
+    grid-column: 10 / span 8;
   }
 
   .broadway,
@@ -428,11 +428,11 @@ form {
   .fields-corner,
   .shawmut,
   .ashmont {
-    grid-column: 8 / span 5;
+    grid-column: 7 / span 6;
   }
 
   .north-quincy {
-    grid-column: 14 / span 5;
+    grid-column: 14 / span 8;
   }
 
   .wollaston {
@@ -440,15 +440,15 @@ form {
   }
 
   .quincy-center {
-    grid-column: 16 / span 5;
+    grid-column: 16 / span 8;
   }
 
   .quincy-adams {
-    grid-column: 17 / span 5;
+    grid-column: 17 / span 8;
   }
 
   .braintree {
-    grid-column: 18 / span 5;
+    grid-column: 18 / span 8;
   }
 
   .alewife {
@@ -504,19 +504,19 @@ form {
   }
 
   .savin-hill {
-    grid-row: 16 / 17;
+    grid-row: 15 / 16;
   }
 
   .fields-corner {
-    grid-row: 17 / 18;
+    grid-row: 16 / 17;
   }
 
   .shawmut {
-    grid-row: 18 / 19;
+    grid-row: 17 / 18;
   }
 
   .ashmont {
-    grid-row: 19 / 20;
+    grid-row: 18 / 19;
   }
 
   .north-quincy {
