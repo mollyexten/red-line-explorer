@@ -129,11 +129,11 @@ ul > a {
   grid-row: 1 / 2;
 }
 
-.porter {
+.davis {
   grid-row: 2 / 3;
 }
 
-.davis {
+.porter {
   grid-row: 3 / 4;
 }
 
@@ -364,11 +364,11 @@ form {
     grid-column: 1 / span 5;
   }
 
-  .porter {
+  .davis {
     grid-column: 2 / span 5;
   }
 
-  .davis {
+  .porter {
     grid-column: 3 / span 5;
   }
 
@@ -437,11 +437,11 @@ form {
     grid-row: 1 / 2;
   }
 
-  .porter {
+  .davis {
     grid-row: 2 / 3;
   }
 
-  .davis {
+  .porter {
     grid-row: 3 / 4;
   }
 
