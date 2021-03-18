@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-size: 14pt;
 }
 
 .App {
@@ -59,7 +60,7 @@ nav {
 nav > a {
   text-decoration: none;
   color: black;
-  font-size: 10pt;
+  font-size: 14pt;
 }
 
 /* ==========================================================================
@@ -238,7 +239,7 @@ ul > a {
 
 form {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 30% auto;
   grid-template-rows: repeat(3, 25px) 200px 1fr;
   grid-gap: 10px;
   margin: 10px;
