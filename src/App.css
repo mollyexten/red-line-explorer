@@ -27,14 +27,17 @@ button {
   text-transform: uppercase;
   outline: none;
   cursor: pointer;
+  box-shadow: 3px 2px 2px rgb(104, 100, 98);
+  font-size: 14pt;
+}
+
+button:hover, button:active {
+  box-shadow: 3px 2px 2px #e88a58;
+  font-size: 14pt;
 }
 
 ul > a:hover {
   text-shadow: 3px 2px 2px #e88a58;
-}
-
-button:hover, button:active {
-  text-decoration: underline;
 }
 
 .share-ideas {
