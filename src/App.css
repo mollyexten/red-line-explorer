@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e6/Outbound_train_at_Charles_MGH_station%2C_May_2006.jpg");
+  background-image: url("./images/opaque-background.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -9,7 +9,7 @@ body {
 .App {
   text-align: center;
   padding-bottom: 30px;
-  background-color:rgba(238, 241, 241, 0.8)
+  /* background-color:rgba(238, 241, 241, 0.8) */
 }
 
 ::selection {
@@ -49,19 +49,35 @@ ul > a:hover {
 ========================================================================== */
 
 nav {
-  text-align: right;
-  background-color: #eef1f1;
   display: flex;
   justify-content: space-around;
+}
+
+.mobile-nav {
+    width: 100%;
+    background-color: #eef1f1;
+    position: fixed;
+    bottom: 0;
+}
+
+.fas, .far {
+  color: black;
+}
+
+.desktop-nav {
+  text-align: right;
+  background-color: #eef1f1;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-nav > a {
+.desktop-nav > a {
   text-decoration: none;
   color: black;
   font-size: 14pt;
 }
+
+
 
 /* ==========================================================================
   Header Styles
@@ -304,13 +320,13 @@ input, select, textarea {
   Footer Styles
 ========================================================================== */
 
-footer {
+/* footer {
   width: 100%;
   background-color: #eef1f1;
   position: fixed;
   font-size: 0.5em;
   bottom: 0;
-}
+} */
 
 /* ==========================================================================
   Breakpoints

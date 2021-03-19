@@ -86,26 +86,26 @@ Here is a data sample from the recommendations table. I will access data from th
 | Proposal          | 2 hrs          | 4 hrs         | 4 hrs       |
 | Proposal revision | 3 hrs          | 3 hrs         | 3 hrs       |
 | Airtable          | 3 hrs          | 2 hrs         |             |
-| Form component    | 2 hrs          | 2 hrs         |             |
+| Form component    | 2 hrs          | 3 hrs         |             |
 | Rec. component    | 1 hrs          | .5 hr         |             |
 | Station component | 3 hrs          | 4 hrs         |             |
 | Home component    | 3 hrs          | 2 hrs         |             |
 | Nav component     | .5 hr          | .5 hr         |             |
 | About component   | .5 hr          | .5 hr         |             |
 | Commenting        | 3 hrs          | 1 hr          |             |
-| CSS color & font  | 2 hrs          | 2 hrs         |             |
+| CSS color & font  | 2 hrs          | 2.5 hrs       |             |
 | CSS icons/buttons | 1 hr           | .5 hrs        |             |
-| Advanced CSS      | 2 hrs          |               |             |
+| Advanced CSS      | 2 hrs          | 4 hrs         |             |
 | Flexbox/Grid-home | 3 hrs          | 2 hrs         |             |
 | Flex/Grid-station | 3 hrs          |               |             |
-| Flex/Grid-form    | 1 hr           | 1 hr          |             |
-| breakpoint-home   | 1 hr           | 1 hr          |             |
+| Flex/Grid-form    | 1 hr           | 2 hrs         |             |
+| breakpoint-home   | 1 hr           | 2 hrs         |             |
 | breakpoint-station| 1 hr           |               |             |
-| breakpoint-form   | 1 hr           | 1 hr          |             |
+| breakpoint-form   | 1 hr           | 2 hrs         |             |
 | Clean components  | 3 hrs          |               |             |
 | Organize CSS      | 2 hrs          |               |             |
 | Add form redirect | 1 hrs          | .5 hrs        |             |
-| TOTAL             | 42 hrs         | 27.5 hrs      |             |
+| TOTAL             | 42 hrs         | 36 hrs        |             |
 
 
 ## SWOT Analysis
