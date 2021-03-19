@@ -219,7 +219,7 @@ ul > a {
   }
 
   .downtown-crossing {
-    grid-column: 9 / span 12;
+    grid-column: 9 / span 13;
   }
 
   .south-station {
@@ -380,6 +380,10 @@ ul > a {
 
   .station {
     font-size: 16pt;
+  }
+
+  .downtown-crossing {
+    grid-column: 9 / span 9;
   }
 
   .savin-hill,
