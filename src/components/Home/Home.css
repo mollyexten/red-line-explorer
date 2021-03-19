@@ -1,5 +1,5 @@
 /* ==========================================================================
-  Home Styles (station map)
+  Home Styles for standard mobile phone (station map using CSS grid)
 ========================================================================== */
 
 .station-map {
@@ -143,15 +143,12 @@ ul > a {
   ============================================================== */
 
 @media screen and (max-width: 350px) {
-  .station-map {
-    grid-template-columns: 1fr repeat(2, 10%) 15% 10% 15% repeat(2, 10%) 1fr;
-    grid-template-rows: repeat(18, 25px);
-  }
-
+  /* Stations need smaller font so that all can fit on one line */
   .station {
     font-size: 10pt;
   }
 
+  /* Main column on stations moves to left to accommodate Downtown Crossing */
   .alewife,
   .porter,
   .davis,
@@ -174,6 +171,7 @@ ul > a {
   ============================================================== */
 
 @media screen and (min-width: 500px) {
+  /* Many more columns are needed to create a more realistic map of the stations */
   .station-map {
     grid-template-columns: repeat(23, 1fr);
     grid-template-rows: repeat(22, 30px);
@@ -208,9 +206,10 @@ ul > a {
   }
 
   .charles-mgh {
-    grid-column: 7 / span 5;
+    grid-column: 7 / span 6;
   }
 
+  /* Note that Park Street, Downtown Crossing, and South Station still need much more space */
   .park-street {
     grid-column: 8 / span 6;
   }
@@ -220,7 +219,7 @@ ul > a {
   }
 
   .south-station {
-    grid-column: 10 / span 8;
+    grid-column: 10 / span 7;
   }
 
   .broadway,
@@ -230,14 +229,17 @@ ul > a {
   }
 
   .savin-hill,
-  .fields-corner,
   .shawmut,
   .ashmont {
-    grid-column: 7 / span 6;
+    grid-column: 6 / span 6;
+  }
+
+  .fields-corner {
+    grid-column: 6 / span 7;
   }
 
   .north-quincy {
-    grid-column: 14 / span 8;
+    grid-column: 14 / span 7;
   }
 
   .wollaston {
@@ -344,6 +346,7 @@ ul > a {
     grid-row: 19 / 20;
   }
 
+  /* Make terminal stations bolder */
   .alewife,
   .ashmont,
   .braintree {
@@ -356,6 +359,7 @@ ul > a {
   ============================================================== */
 
 @media screen and (min-width: 750px) {
+  /* Space out stations to cover more screen area */
   .station-map {
     gap: 5px;
   }

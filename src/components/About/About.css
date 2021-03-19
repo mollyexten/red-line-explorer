@@ -1,14 +1,17 @@
+/* Give the paragraphs some margins and spacing */
 .about-text {
   text-align: left;
   padding: 15px;
   line-height: 1.6;
 }
 
+/* Make the credit for the background photo appear in smaller, italic font */
 .photo-credit {
   font-size: 10pt;
   font-style: italic;
 }
 
+/* Italicization repeated because some styling for a elements elsewhere overwrote the photo-credit styling */
 .photo-credit > a {
   text-decoration: underline;
   font-style: italic;
