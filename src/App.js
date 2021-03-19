@@ -44,20 +44,20 @@ function App() {
       {/* Other components render in separate views, hence the route paths */}
       <Switch>
         <Route exact path="/">
-          <Home stationList={stationList}/>
+          <Home stationList={stationList} />
         </Route>
         <Route path="/about">
           <About />
         </Route>
         {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
         <Route path="/share-ideas">
-          <ShareIdeas />
+          <ShareIdeas stationList={stationList} />
         </Route>
         <Route path="/add/:stationParam">
-          <ShareIdeas stationList={stationList}/>
+          <ShareIdeas stationList={stationList} />
         </Route>
         <Route path="/:stationParam">
-          <Station />
+          <Station stationList={stationList}/>
         </Route>
       </Switch>
     </div>

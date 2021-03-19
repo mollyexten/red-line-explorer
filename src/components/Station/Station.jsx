@@ -5,32 +5,56 @@ import { recommendationsURL, stationsURL, config } from "../../services";
 import axios from "axios";
 import Recommendation from "../Recommendation/Recommendation";
 
-function Station() {
+function Station(props) {
   // Store stationId, stationName, and recommendations as state variables
   const [stationId, setStationId] = useState("");
   const [stationName, setStationName] = useState("");
+  const [prevName, setPrevName] = useState("");
+  const [prevParam, setPrevParam] = useState("");
+  const [nextName, setNextName] = useState("");
+  const [nextParam, setNextParam] = useState("");
   const [recommendations, setRecommendations] = useState([]);
   // Save the parameter from the url in useParams
   const { stationParam } = useParams();
 
   useEffect(() => {
-    // get the id of the station in the parameters from the station table
-    const getId = async () => {
-      // Make axios get request
-      const resp = await axios.get(stationsURL, config);
-      const stationsData = resp.data.records;
-      // Use find method to match stationParam with the correct station in stations table
-      const stationObject = stationsData.find((stationDatum) => {
-        return stationDatum.fields.stationKebab === stationParam;
-      });
-      // Store the id of the matched station as stationId
-      setStationId(stationObject.id);
-      // Store the name of the matched station as stationName
-      setStationName(stationObject.fields.Name);
-    };
-    getId();
-    // Invoke this function whenever the station param changes
-  }, [stationParam]);
+    if (stationParam && props.stationList.length > 0) {
+      const stations = props.stationList;
+      const currentStation = stations.find(
+        (station) => station.fields.stationKebab === stationParam
+      );
+      setStationId(currentStation.id);
+      setStationName(currentStation.fields.Name);
+      const currentIndex = currentStation.fields.sortId;
+      let prevStation;
+      if (currentIndex != 27) {
+        prevStation = stations.find(
+          (station) => station.fields.sortId === currentIndex - 1
+        );
+      } else {
+        prevStation = stations.find(
+          (station) => station.fields.sortId === currentIndex - 5
+        );
+      }
+      if (currentIndex === 11) {
+        setPrevName("");
+        setPrevParam("");
+      } else {
+        const prevStationName = prevStation.fields.Name;
+        setPrevName(prevStationName);
+        const prevStationKebab = prevStation.fields.stationKebab;
+        setPrevParam(prevStationKebab);
+      }
+
+      const nextStation = stations.find(
+        (station) => station.fields.sortId === currentIndex + 1
+      );
+      const nextStationName = nextStation.fields.Name;
+      setNextName(nextStationName);
+      const nextStationKebab = nextStation.fields.stationKebab;
+      setNextParam(nextStationKebab);
+    }
+  }, [stationParam, props.stationList]);
 
   useEffect(() => {
     // get all recommendations from the recommendations table
@@ -54,23 +78,26 @@ function Station() {
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
-        <h1 className="header-bottom">RECOMMENDATIONS</h1>
+        <p className="station-header-bottom">
+          <Link to={`/${prevParam}`}>{prevName}</Link>
+          || {nextName}
+        </p>
       </header>
-        {/* If the station has recommendations, show the first view, otherwise show the second */}
-        {hasRecommendations ? (
-          <div>
-            {recommendations.map((recommendation) => (
-              <Recommendation
-                key={recommendation.id}
-                // Pass name and content as props into the recommendation component
-                name={recommendation.fields.name}
-                content={recommendation.fields.content}
-              />
-            ))}
-          </div>
-        ) : (
-          <p>No recommendations found!</p>
-        )}
+      {/* If the station has recommendations, show the first view, otherwise show the second */}
+      {hasRecommendations ? (
+        <div>
+          {recommendations.map((recommendation) => (
+            <Recommendation
+              key={recommendation.id}
+              // Pass name and content as props into the recommendation component
+              name={recommendation.fields.name}
+              content={recommendation.fields.content}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>No recommendations found!</p>
+      )}
       <Link to={`/add/${stationParam}`}>
         <button className="share-ideas">Share Ideas</button>
       </Link>

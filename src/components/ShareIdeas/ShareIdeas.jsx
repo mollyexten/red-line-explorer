@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { stationsURL, recommendationsURL, config } from "../../services"
+import { recommendationsURL, config } from "../../services"
 import "./ShareIdeas.css"
 
 function ShareIdeas(props) {
   // store stations, stationId, name, and content as state variables
-  const [stations, setStations] = useState([]);
+  // const [stations, setStations] = useState([]);
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
@@ -15,48 +15,18 @@ function ShareIdeas(props) {
   // set up useHistory to redirect user to main page after form submission
   const history = useHistory();
 
+  // PUT STATION NAME IN DROPDOWN IF COMING FROM THAT STATION'S PAGE
   useEffect(() => {
-    // Make an axios get request to get the list of stations for the dropdown menu
-    const getStations = async () => {
-      const resp = await axios.get(stationsURL, config)
-      const stationObjects = resp.data.records
-      // Push stationObjects into new array called unsortedStations
-      // QUESTION: Maybe I don't need this separate array? Maybe I could just use the sort method on stationObjects?
-      const unsortedStations = []
-      stationObjects.map((stationObject) => (
-        unsortedStations.push(stationObject)
-      ))
-      // Create a compare function to sort the stations by id
-      // QUESTION: Since I'm using this compare function in two components, could I find a way to store it elsewhere and use it here in a more succinct way?
-      function compare(a, b) {
-        const stationA = a.fields.sortId;
-        const stationB = b.fields.sortId;
-        let comparison = 0;
-        if (stationA > stationB) {
-          comparison = 1
-        } else if (stationA < stationB) {
-          comparison = -1
-        }
-        return comparison;
-      }
-      // Sort stations into new variable called sortedStations
-      const sortedStations = (unsortedStations.sort(compare))
-      // Set the sorted stations as the state variable stations
-      setStations(sortedStations)
-    }
-    getStations();
-  // Invoke this function whenever the ShareIdeas component mounts
-  }, [])
-
-  useEffect(() => {
-    // Check if this page has stationParams and has already set the station state
-    if (stationParam && stations.length > 0) {
+    // Check if this page has stationParams and has already passed the station list as props
+    if (stationParam && props.stationList.length > 0) {
+      const stations = props.stationList
       const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
       const preselectedStation = stationEdit.id
       setStationId(preselectedStation)
     }
-  }, [stations, stationParam])
+  }, [stationParam, props.stationList])
 
+  // POST DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     // Stop the form from clearing when submit is pressed
     e.preventDefault();
@@ -69,7 +39,7 @@ function ShareIdeas(props) {
     // Make a post request to Airtable
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
     // Redirect user to main page
-    // QUESTION: Could I use this to redirect the user to the specific station page for which they made a recommendation?
+    // POST MVP: redirect user to station page
     history.push(`/`)
   }
 
@@ -101,7 +71,7 @@ function ShareIdeas(props) {
           onChange={(e) => setStationId(e.target.value)}
         >
           {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
-          {stations.map((station) => (
+          {props.stationList.map((station) => (
             <option
               // Set the value as the station.id so that setStationId can get stationId
               value={station.id}
