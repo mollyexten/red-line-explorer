@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { stationsURL, recommendationsURL, config } from "../services"
+import { stationsURL, recommendationsURL, config } from "../../services"
+import "./ShareIdeas.css"
 
 function ShareIdeas(props) {
   // store stations, stationId, name, and content as state variables
   const [stations, setStations] = useState([]);
+  const [stationKebab, setStationKebab] = useState("");
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
@@ -69,7 +71,7 @@ function ShareIdeas(props) {
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
     // Redirect user to main page
     // QUESTION: Could I use this to redirect the user to the specific station page for which they made a recommendation?
-    history.push("/")
+    history.push(`/`)
   }
 
   return (

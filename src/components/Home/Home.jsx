@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { stationsURL, config } from "../services";
+import { stationsURL, config } from "../../services";
+import "./Home.css"
 
 function Home() {
   // Store list of stations in state variable stations
@@ -51,7 +52,7 @@ function Home() {
       <ul className="station-map">
         {stations.map((station) => (
           <Link to={`/${station.stationKebab}`} key={station.sortId} className={station.stationKebab}>
-            <li>{station.Name}</li>
+            <li className="station">{station.Name}</li>
           </Link>
         ))}
       </ul>

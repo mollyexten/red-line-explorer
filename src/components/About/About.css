@@ -1,0 +1,15 @@
+.about-text {
+  text-align: left;
+  padding: 15px;
+  line-height: 1.6;
+}
+
+.photo-credit {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+.photo-credit > a {
+  text-decoration: underline;
+  font-style: italic;
+}

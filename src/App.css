@@ -3,82 +3,14 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-size: 14pt;
 }
 
 .App {
   text-align: center;
-  padding-bottom: 30px;
-  /* background-color:rgba(238, 241, 241, 0.8) */
-}
-
-::selection {
-  background-color: #e88a58;
-}
-/* ==========================================================================
-  Link/Button Styles
-========================================================================== */
-a {
-  text-decoration: none;
-  color: black;
-  text-align: left;
-}
-
-button {
-  color: black;
-  border: none;
-  background-color:rgb(238, 241, 241);
-  text-transform: uppercase;
-  outline: none;
-  cursor: pointer;
-  box-shadow: 3px 2px 2px rgb(104, 100, 98);
   font-size: 14pt;
-  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 25px;
 }
-
-button:hover, button:active {
-  box-shadow: 3px 2px 2px #e88a58;
-  font-size: 14pt;
-}
-
-ul > a:hover {
-  text-shadow: 3px 2px 2px #e88a58;
-}
-/* ==========================================================================
-  Nav Styles
-========================================================================== */
-
-nav {
-  display: flex;
-  justify-content: space-around;
-}
-
-.mobile-nav {
-    width: 100%;
-    background-color: #eef1f1;
-    position: fixed;
-    padding: 5px;
-    bottom: 0;
-}
-
-.fas, .far {
-  color: black;
-}
-
-.desktop-nav {
-  text-align: right;
-  background-color: #eef1f1;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.desktop-nav > a {
-  text-decoration: none;
-  color: black;
-  font-size: 14pt;
-}
-
-
 
 /* ==========================================================================
   Header Styles
@@ -87,506 +19,96 @@ nav {
 header {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  justify-items: stretch;
 }
 
 .header-top {
   color: #eef1f1;
   background-color: #f50f0a;
-  align-self: stretch;
+  padding-top: 2px;
   margin-bottom: 0;
 }
 
 .header-bottom {
   background-color: #eef1f1;
-  align-self: stretch;
   margin-top: 0;
+  padding-top: 2px;
 }
 
 /* ==========================================================================
-  Homepage Styles
+  Link/Button Styles
 ========================================================================== */
 
-.station-map {
-  display: grid;
-  grid-template-columns: 1fr repeat(2, 10%) 15% 10% 15% repeat(2, 10%) 1fr;
-  grid-template-rows: repeat(18, 25px);
-  list-style-type: circle;
+button,
+a {
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-ul > a {
-  text-decoration: none;
-  color: black;
-  text-align: left;
-}
-
-.alewife,
-.porter,
-.davis,
-.harvard,
-.central,
-.kendall-mit,
-.charles-mgh,
-.park-street,
-.downtown-crossing,
-.south-station,
-.broadway,
-.andrew,
-.jfk-umass {
-  grid-column: 4 / 9;
-}
-
-.savin-hill,
-.fields-corner,
-.shawmut,
-.ashmont {
-  grid-column: 1 / 5;
-}
-
-.north-quincy,
-.wollaston,
-.quincy-center,
-.quincy-adams,
-.braintree {
-  grid-column: 5 / 9;
-}
-
-.alewife {
-  grid-row: 1 / 2;
-}
-
-.davis {
-  grid-row: 2 / 3;
-}
-
-.porter {
-  grid-row: 3 / 4;
-}
-
-.harvard {
-  grid-row: 4 / 5;
-}
-
-.central {
-  grid-row: 5 / 6;
-}
-
-.kendall-mit {
-  grid-row: 6 / 7;
-}
-
-.charles-mgh {
-  grid-row: 7 / 8;
-}
-
-.park-street {
-  grid-row: 8 / 9;
-}
-
-.downtown-crossing {
-  grid-row: 9 / 10;
-}
-
-.south-station {
-  grid-row: 10 / 11;
-}
-
-.broadway {
-  grid-row: 11 / 12;
-}
-
-.andrew {
-  grid-row: 12 / 13;
-}
-
-.jfk-umass {
-  grid-row: 13 / 14;
-}
-
-.savin-hill {
-  grid-row: 14 / 15;
-}
-
-.fields-corner {
-  grid-row: 15 / 16;
-}
-
-.shawmut {
-  grid-row: 16 / 17;
-}
-
-.ashmont {
-  grid-row: 17 / 18;
-}
-
-.north-quincy {
-  grid-row: 14 / 15;
-}
-
-.wollaston {
-  grid-row: 15 / 16;
-}
-
-.quincy-center {
-  grid-row: 16 / 17;
-}
-
-.quincy-adams {
-  grid-row: 17 / 18;
-}
-
-.braintree {
-  grid-row: 18 / 19;
-}
-
-/* ==========================================================================
-  Text Styles (About and Recommendations)
-========================================================================== */
-
-.rec-text,
-.about-text {
-  text-align: left;
-  padding: 15px;
-  line-height: 1.6;
-}
-
-.photo-credit {
-  font-size: 10pt;
-  font-style: italic;
-}
-
-.photo-credit > a {
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-  Form Styles
-========================================================================== */
-
-form {
-  display: grid;
-  grid-template-columns: 30% 65%;
-  grid-template-rows: repeat(3, 25px) 200px 1fr;
-  grid-gap: 10px;
-  margin: 10px;
-  text-align: left;
-}
-
-input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
+button {
+  border: none;
   box-shadow: 3px 2px 2px rgb(104, 100, 98);
+  background-color: rgb(238, 241, 241);
   border-radius: 8px;
+  padding: 3px;
 }
 
-
-
-.name-input:focus, .station-input:focus, .recommendation-input:focus {
-  outline: none;
+button:hover,
+button:active {
   box-shadow: 3px 2px 2px #e88a58;
 }
 
-.name-label,
-.station-label,
-.recommendation-label,
-.submit-button {
-  grid-column: 1 / 2;
+a:hover,
+a:active {
+  text-shadow: 3px 2px 2px #e88a58;
 }
-
-.name-input,
-.station-input {
-  grid-column: 2 / 3;
-}
-
-.recommendation-input {
-  grid-column: 1 / 3;
-}
-
-
-
-.name-label,
-.name-input {
-  grid-row: 1 / 2;
-}
-
-.station-label,
-.station-input {
-  grid-row: 2 / 3;
-}
-
-.recommendation-label {
-  grid-row: 3 / 4;
-}
-
-.recommendation-input {
-  grid-row: 4 / 5;
-}
-
-.submit-button {
-  grid-row: 5 / 6;
-}
-
-/* ==========================================================================
-  Footer Styles
-========================================================================== */
-
-/* footer {
-  width: 100%;
-  background-color: #eef1f1;
-  position: fixed;
-  font-size: 0.5em;
-  bottom: 0;
-} */
 
 /* ==========================================================================
   Breakpoints
 ========================================================================== */
 
 @media screen and (max-width: 350px) {
+  .header-top,
+  .header-bottom {
+    font-size: 18pt;
+  }
   /* ==========================================================================
-  Form Styles
-========================================================================== */
-.header-top, .header-bottom {
-  font-size: 18pt;
-}
-
-body, button {
-  font-size: 12pt;
-}  
-.downtown-crossing {
-  grid-column: 4 / 10;
-}
-}
-
-@media screen and (min-width: 400px) {
-  /* ==========================================================================
-  Form Styles
+  HomePage styles
 ========================================================================== */
 
-form {
-  display: grid;
-  grid-template-columns: 80px 200px auto;
-  grid-template-rows: repeat(3, 25px) 200px 1fr;
-  grid-gap: 10px;
-  margin: 30px;
-  text-align: left;
-}
-
-.name-label,
-.station-label,
-.recommendation-label,
-.submit-button {
-  grid-column: 1 / 2;
-}
-
-.name-input,
-.station-input {
-  grid-column: 2 / 3;
-}
-
-.recommendation-input {
-  grid-column: 1 / 4;
-}
-
-.name-label,
-.name-input {
-  grid-row: 1 / 2;
-}
-
-.station-label,
-.station-input {
-  grid-row: 2 / 3;
-}
-
-.recommendation-label {
-  grid-row: 3 / 4;
-}
-
-.recommendation-input {
-  grid-row: 4 / 5;
-}
-
-.submit-button {
-  grid-row: 5 / 6;
-}
-}
-
-@media screen and (min-width: 500px) {
-  /* ==========================================================================
-  Homepage Styles
-  ========================================================================== */
-
-  .station-map {
-    display: grid;
-    grid-template-columns: repeat(23, 1fr);
-    grid-template-rows: repeat(22, 30px);
-    list-style-type: circle;
+  body,
+  button,
+  .station {
+    font-size: 10pt;
   }
-
-  .alewife {
-    grid-column: 1 / span 5;
-  }
-
-  .davis {
-    grid-column: 2 / span 5;
-  }
-
-  .porter {
-    grid-column: 3 / span 5;
-  }
-
-  .harvard {
-    grid-column: 4 / span 5;
-  }
-
-  .central {
-    grid-column: 5 / span 5;
-  }
-
-  .kendall-mit {
-    grid-column: 6 / span 5;
-  }
-
-  .charles-mgh {
-    grid-column: 7 / span 5;
-  }
-
-  .park-street {
-    grid-column: 8 / span 5;
-  }
-
   .downtown-crossing {
-    grid-column: 9 / span 9;
+    grid-column: 4 / 10;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .header-top,
+  .header-bottom {
+    font-size: 26px;
   }
 
-  .south-station {
-    grid-column: 10 / span 8;
+  body,
+  button,
+  .station {
+    font-size: 12pt;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .header-top,
+  .header-bottom {
+    font-size: 40px;
   }
 
-  .broadway,
-  .andrew,
-  .jfk-umass {
-    grid-column: 11 / span 5;
+  .header-top {
+    padding-top: 10px;
   }
 
-  .savin-hill,
-  .fields-corner,
-  .shawmut,
-  .ashmont {
-    grid-column: 7 / span 6;
-  }
-
-  .north-quincy {
-    grid-column: 14 / span 8;
-  }
-
-  .wollaston {
-    grid-column: 15 / span 5;
-  }
-
-  .quincy-center {
-    grid-column: 16 / span 8;
-  }
-
-  .quincy-adams {
-    grid-column: 17 / span 8;
-  }
-
-  .braintree {
-    grid-column: 18 / span 8;
-  }
-
-  .alewife {
-    grid-row: 1 / 2;
-  }
-
-  .davis {
-    grid-row: 2 / 3;
-  }
-
-  .porter {
-    grid-row: 3 / 4;
-  }
-
-  .harvard {
-    grid-row: 4 / 5;
-  }
-
-  .central {
-    grid-row: 5 / 6;
-  }
-
-  .kendall-mit {
-    grid-row: 6 / 7;
-  }
-
-  .charles-mgh {
-    grid-row: 7 / 8;
-  }
-
-  .park-street {
-    grid-row: 8 / 9;
-  }
-
-  .downtown-crossing {
-    grid-row: 9 / 10;
-  }
-
-  .south-station {
-    grid-row: 10 / 11;
-  }
-
-  .broadway {
-    grid-row: 11 / 12;
-  }
-
-  .andrew {
-    grid-row: 12 / 13;
-  }
-
-  .jfk-umass {
-    grid-row: 13 / 14;
-  }
-
-  .savin-hill {
-    grid-row: 15 / 16;
-  }
-
-  .fields-corner {
-    grid-row: 16 / 17;
-  }
-
-  .shawmut {
-    grid-row: 17 / 18;
-  }
-
-  .ashmont {
-    grid-row: 18 / 19;
-  }
-
-  .north-quincy {
-    grid-row: 15 / 16;
-  }
-
-  .wollaston {
-    grid-row: 16 / 17;
-  }
-
-  .quincy-center {
-    grid-row: 17 / 18;
-  }
-
-  .quincy-adams {
-    grid-row: 18 / 19;
-  }
-
-  .braintree {
-    grid-row: 19 / 20;
-  }
-
-  .alewife,
-  .ashmont,
-  .braintree {
-    font-weight: 700;
+  .header-bottom {
+    padding-bottom: 3px;
   }
 }

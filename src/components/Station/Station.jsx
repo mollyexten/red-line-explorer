@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { recommendationsURL, stationsURL, config } from "../services";
+import { recommendationsURL, stationsURL, config } from "../../services";
 import axios from "axios";
-import Recommendation from "./Recommendation";
+import Recommendation from "../Recommendation/Recommendation";
 
 function Station() {
   // Store stationId, stationName, and recommendations as state variables

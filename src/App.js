@@ -1,10 +1,10 @@
 import "./App.css";
 // Import App components
-import About from "./components/About";
-import ShareIdeas from "./components/ShareIdeas";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import Station from "./components/Station";
+import About from "./components/About/About";
+import ShareIdeas from "./components/ShareIdeas/ShareIdeas";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Station from "./components/Station/Station";
 
 import { Route, Switch } from "react-router-dom";
 

@@ -1,3 +1,5 @@
+import "./Recommendation.css"
+
 // Variables from the station component are passed as props into this component
 function Recommendation(props) {
   return (
