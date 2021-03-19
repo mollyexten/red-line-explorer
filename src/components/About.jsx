@@ -27,7 +27,7 @@ function About() {
           <button className="share-ideas">Share Ideas</button>
         </Link>
         <div className="about-text">
-        <h3>About Me</h3>
+          <h3>About Me</h3>
           <p>
             Hi, I’m Molly, and I am the creator of Red Line Explorer! Since
             moving to Boston in 2013, I have spent more time than I care to
@@ -40,6 +40,17 @@ function About() {
           <p>
             Never grateful when you’re on time, always annoyed when you’re
             twenty minutes away, I dedicate this site to you, Red Line.
+          </p>
+          <p className="photo-credit">
+            Background photo credit:{" "}
+            <a href="https://commons.wikimedia.org/wiki/File:Outbound_train_at_Charles_MGH_station,_May_2006.jpg">
+              Adam E. Moreira
+            </a>
+            ,
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+              CC BY-SA 3.0
+            </a>
+            , via Wikimedia Commons
           </p>
         </div>
       </div>

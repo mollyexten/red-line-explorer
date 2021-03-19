@@ -57,6 +57,7 @@ nav {
     width: 100%;
     background-color: #eef1f1;
     position: fixed;
+    padding: 5px;
     bottom: 0;
 }
 
@@ -247,6 +248,15 @@ ul > a {
   text-align: left;
   padding: 15px;
   line-height: 1.6;
+}
+
+.photo-credit {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+.photo-credit > a {
+  text-decoration: underline;
 }
 
 /* ==========================================================================
