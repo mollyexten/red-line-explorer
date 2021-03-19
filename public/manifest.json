@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Red Line Explorer",
+  "name": "Red Line Explorer | An Airtable App",
   "icons": [
     {
       "src": "favicon.ico",
