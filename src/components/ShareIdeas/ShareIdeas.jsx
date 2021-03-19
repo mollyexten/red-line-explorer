@@ -7,7 +7,6 @@ import "./ShareIdeas.css"
 function ShareIdeas(props) {
   // store stations, stationId, name, and content as state variables
   const [stations, setStations] = useState([]);
-  const [stationKebab, setStationKebab] = useState("");
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");

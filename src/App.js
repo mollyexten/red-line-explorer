@@ -11,29 +11,30 @@ import { stationsURL, config } from "./services";
 import axios from "axios";
 
 function App() {
-    // Store stationId, stationName, and recommendations as state variables
-    const [stationId, setStationId] = useState("");
-    const [stationName, setStationName] = useState("");
-    const [recommendations, setRecommendations] = useState([]);
-    // Save the parameter from the url in useParams
+  const [stationList, setStationList] = useState([]);
   
     useEffect(() => {
-      // get the id of the station in the parameters from the station table
-      // const getId = async () => {
-      //   // Make axios get request
-      //   const resp = await axios.get(stationsURL, config);
-      //   const stationsData = resp.data.records;
-      //   // Use find method to match stationParam with the correct station in stations table
-      //   const stationObject = stationsData.find((stationDatum) => {
-      //     return stationDatum.fields.stationKebab === stationParam;
-      //   });
-      //   // Store the id of the matched station as stationId
-      //   setStationId(stationObject.id);
-      //   // Store the name of the matched station as stationName
-      //   setStationName(stationObject.fields.Name);
-      // };
-      // getId();
-      // Invoke this function whenever the station param changes
+      // get the list of stations
+      const getStations = async () => {
+        // Make axios get request
+        const resp = await axios.get(stationsURL, config);
+        const stations = resp.data.records;
+        function compare(a, b) {
+          const stationA = a.fields.sortId;
+          const stationB = b.fields.sortId;
+          let comparison = 0;
+          if (stationA > stationB) {
+            comparison = 1;
+          } else if (stationA < stationB) {
+            comparison = -1;
+          }
+          return comparison;
+        }
+        const sortedStations = stations.sort(compare);
+        setStationList(sortedStations);
+      };
+      getStations();
+      console.log(stationList)
     }, []);
   
   return (
@@ -43,7 +44,7 @@ function App() {
       {/* Other components render in separate views, hence the route paths */}
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home stationList={stationList}/>
         </Route>
         <Route path="/about">
           <About />
@@ -53,7 +54,7 @@ function App() {
           <ShareIdeas />
         </Route>
         <Route path="/add/:stationParam">
-          <ShareIdeas />
+          <ShareIdeas stationList={stationList}/>
         </Route>
         <Route path="/:stationParam">
           <Station />
