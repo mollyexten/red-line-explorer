@@ -4,16 +4,14 @@ import { Link } from "react-router-dom";
 import { recommendationsURL, stationsURL, config } from "../../services";
 import axios from "axios";
 import Recommendation from "../Recommendation/Recommendation";
+import "./Station.css"
 
 function Station(props) {
   // Store stationId, stationName, and recommendations as state variables
   const [stationId, setStationId] = useState("");
   const [stationName, setStationName] = useState("");
-  const [prevName, setPrevName] = useState("");
   const [prevParam, setPrevParam] = useState("");
-  const [nextName, setNextName] = useState("");
   const [nextParam, setNextParam] = useState("");
-  const [bonusName, setBonusName] = useState("");
   const [bonusParam, setBonusParam] = useState("");
   const [recommendations, setRecommendations] = useState([]);
   // Save the parameter from the url in useParams
@@ -38,28 +36,20 @@ function Station(props) {
           (station) => station.fields.sortId === currentIndex - 5
         );
       }
-      currentIndex === 10 ? setPrevName("") : setPrevName(prevStation.fields.Name);
-      currentIndex === 10 ? setPrevParam("") : setPrevParam(prevStation.fields.stationKebab);
-      const nextStation = stations.find((station) => station.fields.sortId === currentIndex + 1)
-      let bonusStation;
-      if (currentIndex === 22) {
-        bonusStation = stations.find((station) => (station.fields.sortId === 27))
+      currentIndex === 10
+        ? setPrevParam("")
+        : setPrevParam(prevStation.fields.stationKebab);
+      const nextStation = stations.find(
+        (station) => station.fields.sortId === currentIndex + 1
+      );
+      if (currentIndex === 26 || currentIndex === 31) {
+        setNextParam("");
+      } else if (currentIndex === 22) {
+        setNextParam("north-quincy");
       } else {
-        bonusStation = 0
+        setNextParam(nextStation.fields.stationKebab);
       }
-      currentIndex === 26 || 31 ? setNextName("") : setNextName(nextStation.fields.Name);
-      currentIndex === 26 || 31 ? setNextParam("") : setNextParam(nextStation.fields.stationKebab);
-      currentIndex === 22 ? setBonusName(bonusStation.fields.Name) : setBonusName("");
-      currentIndex === 22 ? setBonusParam(bonusStation.fields.stationKebab) : setBonusParam("")
-
-      // }
-      // const nextStation = stations.find(
-      //   (station) => station.fields.sortId === currentIndex + 1
-      // );
-      // const nextStationName = nextStation.fields.Name;
-      // setNextName(nextStationName);
-      // const nextStationKebab = nextStation.fields.stationKebab;
-      // setNextParam(nextStationKebab);
+      currentIndex === 22 ? setBonusParam("savin-hill") : setBonusParam("");
     }
   }, [stationParam, props.stationList]);
 
@@ -80,15 +70,33 @@ function Station(props) {
   }, [stationId]);
 
   const hasRecommendations = recommendations.length > 0;
+  const noPrev = prevParam === "";
+  const noBonus = bonusParam === "";
+  const noNext = nextParam === "";
 
   return (
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
-        <h1 className="header-bottom">
-          {prevName} || {prevParam}
-          || {nextName}
-        </h1>
+        <div className="header-bottom-station">
+          <div className="left">{noPrev ? (""
+          ): (<Link to={`/${prevParam}`}>
+            <i class="fas fa-arrow-left" /></Link>
+            )}
+          </div> <div className="bottom">
+            {noBonus ? ("") : (
+            <Link to={`${bonusParam}`}>
+            <i class="fas fa-arrow-down" />
+          </Link>
+          )}
+          </div> <div className="right">
+            {noNext ? ("") : (
+            <Link to={`${nextParam}`}>
+            <i class="fas fa-arrow-right" />
+          </Link>
+          )}
+          </div>
+        </div>
       </header>
       {/* If the station has recommendations, show the first view, otherwise show the second */}
       {hasRecommendations ? (
