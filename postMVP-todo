@@ -1,0 +1,10 @@
+When I come back to this app, I should prioritize the following 
+two pieces of functionality:
+
+1. Redirecting user to station-specific page after making a contribute 
+(I can use history.push() for this. I just need to figure out how to get 
+the stationKebab so that I can set it as params)
+
+2. Creating a modal (a pop up window, absolute positioning) for "review", 
+which a user could then either edit (put request), cancel (delete request), 
+or submit (post request)
