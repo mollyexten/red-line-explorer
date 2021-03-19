@@ -18,10 +18,10 @@ function Station() {
     const getId = async () => {
       // Make axios get request
       const resp = await axios.get(stationsURL, config);
-      const stations = resp.data.records;
+      const stationsData = resp.data.records;
       // Use find method to match stationParam with the correct station in stations table
-      const stationObject = stations.find((station) => {
-        return station.fields.stationKebab === stationParam;
+      const stationObject = stationsData.find((stationDatum) => {
+        return stationDatum.fields.stationKebab === stationParam;
       });
       // Store the id of the matched station as stationId
       setStationId(stationObject.id);
@@ -45,7 +45,7 @@ function Station() {
       setRecommendations(stationRecommendations);
     };
     getRecommendations();
-  // Invoke this function whenever the station id changes
+    // Invoke this function whenever the station id changes
   }, [stationId]);
 
   // Display a "no recommendations found" page if the station has no recommendations
@@ -58,7 +58,9 @@ function Station() {
         </header>
         <main>
           <p>No recommendations found</p>
-          <Link to={`/add/${stationParam}`}><button className="share-ideas">Share Ideas</button></Link>
+          <Link to={`/add/${stationParam}`}>
+            <button className="share-ideas">Share Ideas</button>
+          </Link>
         </main>
       </div>
     );
@@ -79,7 +81,9 @@ function Station() {
           content={recommendation.fields.content}
         />
       ))}
-      <Link to={`/add/${stationParam}`}><button className="share-ideas">Share Ideas</button></Link>
+      <Link to={`/add/${stationParam}`}>
+        <button className="share-ideas">Share Ideas</button>
+      </Link>
     </div>
   );
 }

@@ -5,7 +5,7 @@ function About() {
     <div>
       <header>
         <h1 className="header-top">ABOUT</h1>
-        <h1 className="header-bottom"></h1>
+        <h1 className="header-bottom"> </h1>
       </header>
       <div>
         <div className="about-text">
