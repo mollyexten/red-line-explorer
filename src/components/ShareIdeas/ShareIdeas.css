@@ -1,10 +1,10 @@
 /* ==========================================================================
-  Form Styles
+  Form Styles - Mobile-first grid layout
 ========================================================================== */
 
 form {
   display: grid;
-  grid-template-columns: 30% 65%;
+  grid-template-columns: 35% 60%;
   grid-template-rows: repeat(3, 25px) 200px 1fr;
   grid-gap: 10px;
   margin: 10px;
@@ -29,12 +29,8 @@ textarea {
 
 .name-label,
 .station-label,
-.recommendation-label {
+.recommendation-label, .submit-button {
   grid-column: 1 / 2;
-}
-
-.submit-button {
-  grid-column: 1 / span 2;
 }
 
 .name-input,
@@ -68,20 +64,17 @@ textarea {
   grid-row: 5 / 6;
 }
 
-@media screen and (min-width: 400px) {
-  /* ==========================================================================
-  Form Styles
+/* ==========================================================================
+  Breakpoint - Grid column changes for larger screen sizes
 ========================================================================== */
 
+@media screen and (min-width: 400px) {
+
   form {
-    display: grid;
     grid-template-columns: 80px 200px auto;
-    grid-template-rows: repeat(3, 25px) 200px 1fr;
-    grid-gap: 10px;
-    margin: 30px;
-    text-align: left;
   }
 
+  /* The first and second columns will remain the same width */
   .name-label,
   .station-label,
   .recommendation-label,
@@ -94,29 +87,8 @@ textarea {
     grid-column: 2 / 3;
   }
 
+  /* The recommendation textbox, however, will increase in width as screen size increases*/
   .recommendation-input {
     grid-column: 1 / 4;
-  }
-
-  .name-label,
-  .name-input {
-    grid-row: 1 / 2;
-  }
-
-  .station-label,
-  .station-input {
-    grid-row: 2 / 3;
-  }
-
-  .recommendation-label {
-    grid-row: 3 / 4;
-  }
-
-  .recommendation-input {
-    grid-row: 4 / 5;
-  }
-
-  .submit-button {
-    grid-row: 5 / 6;
   }
 }
