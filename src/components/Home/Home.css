@@ -15,6 +15,10 @@ ul > a {
   text-align: left;
 }
 
+.station {
+  font-size: 11pt;
+}
+
 .alewife,
 .porter,
 .davis,
@@ -167,10 +171,10 @@ ul > a {
 }
 
   /* ===========================================================
-  "Phablet" view (Sorry to use such a gross word)
+  Large smartphone view
   ============================================================== */
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 400px) {
   /* Many more columns are needed to create a more realistic map of the stations */
   .station-map {
     grid-template-columns: repeat(23, 1fr);
@@ -211,15 +215,15 @@ ul > a {
 
   /* Note that Park Street, Downtown Crossing, and South Station still need much more space */
   .park-street {
-    grid-column: 8 / span 6;
+    grid-column: 8 / span 10;
   }
 
   .downtown-crossing {
-    grid-column: 9 / span 9;
+    grid-column: 9 / span 12;
   }
 
   .south-station {
-    grid-column: 10 / span 7;
+    grid-column: 10 / span 10;
   }
 
   .broadway,
@@ -230,28 +234,25 @@ ul > a {
 
   .savin-hill,
   .shawmut,
-  .ashmont {
-    grid-column: 6 / span 6;
-  }
-
+  .ashmont,
   .fields-corner {
-    grid-column: 6 / span 7;
+    grid-column: 3 / span 9;
   }
 
   .north-quincy {
-    grid-column: 14 / span 7;
+    grid-column: 13 / span 8;
   }
 
   .wollaston {
-    grid-column: 15 / span 5;
+    grid-column: 14 / span 5;
   }
 
   .quincy-center {
-    grid-column: 16 / span 8;
+    grid-column: 15 / span 9;
   }
 
   .quincy-adams {
-    grid-column: 17 / span 8;
+    grid-column: 16 / span 8;
   }
 
   .braintree {
@@ -354,6 +355,19 @@ ul > a {
   }
 }
 
+/* ===========================================================
+  Phablet view (Sorry to use such a gross word)
+  ============================================================== */
+
+@media screen and (min-width: 550px) {
+  .savin-hill,
+  .shawmut,
+  .ashmont,
+  .fields-corner {
+    grid-column: 5 / span 7;
+  }
+}
+
   /* ===========================================================
   Tablet view
   ============================================================== */
@@ -367,6 +381,34 @@ ul > a {
   .station {
     font-size: 16pt;
   }
+
+  .savin-hill,
+  .shawmut,
+  .ashmont,
+  .fields-corner {
+    grid-column: 6 / span 6;
+  }
+
+  .north-quincy {
+    grid-column: 14 / span 6;
+  }
+
+  .wollaston {
+    grid-column: 15 / span 6;
+  }
+
+  .quincy-center {
+    grid-column: 16 / span 6;
+  }
+
+  .quincy-adams {
+    grid-column: 17 / span 6;
+  }
+
+  .braintree {
+    grid-column: 18 / span 6;
+  }
+
 }
 
   /* ===========================================================
