@@ -8,6 +8,10 @@ nav {
   padding: 5px;
 }
 
+.fas, .far {
+  color: black;
+}
+
 /* In screen sizes smaller than 641px, the navbar will appear at the bottom*/
 /* See Navbar.jsx to learn more about how this works*/
 .mobile-nav {
