@@ -70,7 +70,7 @@ a:active {
   Skinny smartphone view
   ================================================================== */
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
   .header-top,
   .header-bottom {
     font-size: 18pt;
@@ -85,10 +85,20 @@ a:active {
   Midsized smartphone view
   ================================================================== */
 
-@media screen and (max-width: 399px) {
+@media screen and (min-width: 371px) {
   .header-top,
   .header-bottom {
-    font-size: 26px;
+    font-size: 24pt;
+  }
+}
+
+/* ==================================================================
+  Large smartphone/phablet view
+  ================================================================== */
+
+@media screen and (min-width: 400px) {
+  .header-top, .header-bottom {
+    font-size: 28pt;
   }
 }
 
@@ -99,7 +109,7 @@ a:active {
 @media screen and (min-width: 641px) {
   .header-top,
   .header-bottom {
-    font-size: 40px;
+    font-size: 40pt;
   }
 
   .header-top {
