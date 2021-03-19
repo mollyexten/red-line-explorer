@@ -13,6 +13,8 @@ function Station(props) {
   const [prevParam, setPrevParam] = useState("");
   const [nextName, setNextName] = useState("");
   const [nextParam, setNextParam] = useState("");
+  const [bonusName, setBonusName] = useState("");
+  const [bonusParam, setBonusParam] = useState("");
   const [recommendations, setRecommendations] = useState([]);
   // Save the parameter from the url in useParams
   const { stationParam } = useParams();
@@ -36,16 +38,11 @@ function Station(props) {
           (station) => station.fields.sortId === currentIndex - 5
         );
       }
-      if (currentIndex === 11) {
-        setPrevName("");
-        setPrevParam("");
-      } else {
-        const prevStationName = prevStation.fields.Name;
-        setPrevName(prevStationName);
-        const prevStationKebab = prevStation.fields.stationKebab;
-        setPrevParam(prevStationKebab);
+      currentIndex === 10 ? setPrevName("") : setPrevName(prevStation.fields.Name);
+      let nextStation;
+      if (currentIndex === 22) {
+        
       }
-
       const nextStation = stations.find(
         (station) => station.fields.sortId === currentIndex + 1
       );
@@ -78,10 +75,10 @@ function Station(props) {
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
-        <p className="station-header-bottom">
-          <Link to={`/${prevParam}`}>{prevName}</Link>
+        <h1 className="header-bottom">
+          {prevName}
           || {nextName}
-        </p>
+        </h1>
       </header>
       {/* If the station has recommendations, show the first view, otherwise show the second */}
       {hasRecommendations ? (
