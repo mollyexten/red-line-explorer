@@ -30,6 +30,8 @@ function Navbar() {
 
   return (
     <div>
+      {/* If the screen size is equal or less than 640px, the mobile-view will render (See Navbar.css for more details) */}
+      {/* Otherwise the latter will render */}
       {isMobile ? (
         <nav className="mobile-nav">
           <Link to="/">
