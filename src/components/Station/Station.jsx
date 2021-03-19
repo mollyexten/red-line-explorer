@@ -39,17 +39,27 @@ function Station(props) {
         );
       }
       currentIndex === 10 ? setPrevName("") : setPrevName(prevStation.fields.Name);
-      let nextStation;
+      currentIndex === 10 ? setPrevParam("") : setPrevParam(prevStation.fields.stationKebab);
+      const nextStation = stations.find((station) => station.fields.sortId === currentIndex + 1)
+      let bonusStation;
       if (currentIndex === 22) {
-        
+        bonusStation = stations.find((station) => (station.fields.sortId === 27))
+      } else {
+        bonusStation = 0
       }
-      const nextStation = stations.find(
-        (station) => station.fields.sortId === currentIndex + 1
-      );
-      const nextStationName = nextStation.fields.Name;
-      setNextName(nextStationName);
-      const nextStationKebab = nextStation.fields.stationKebab;
-      setNextParam(nextStationKebab);
+      currentIndex === 26 || 31 ? setNextName("") : setNextName(nextStation.fields.Name);
+      currentIndex === 26 || 31 ? setNextParam("") : setNextParam(nextStation.fields.stationKebab);
+      currentIndex === 22 ? setBonusName(bonusStation.fields.Name) : setBonusName("");
+      currentIndex === 22 ? setBonusParam(bonusStation.fields.stationKebab) : setBonusParam("")
+
+      // }
+      // const nextStation = stations.find(
+      //   (station) => station.fields.sortId === currentIndex + 1
+      // );
+      // const nextStationName = nextStation.fields.Name;
+      // setNextName(nextStationName);
+      // const nextStationKebab = nextStation.fields.stationKebab;
+      // setNextParam(nextStationKebab);
     }
   }, [stationParam, props.stationList]);
 
@@ -76,7 +86,7 @@ function Station(props) {
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
         <h1 className="header-bottom">
-          {prevName}
+          {prevName} || {prevParam}
           || {nextName}
         </h1>
       </header>
