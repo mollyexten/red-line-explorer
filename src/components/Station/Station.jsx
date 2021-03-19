@@ -48,39 +48,29 @@ function Station() {
     // Invoke this function whenever the station id changes
   }, [stationId]);
 
-  // Display a "no recommendations found" page if the station has no recommendations
-  if (recommendations.length === 0) {
-    return (
-      <div>
-        <header>
-          <h1 className="header-top">{stationName.toUpperCase()}</h1>
-          <h1 className="header-bottom">RECOMMENDATIONS</h1>
-        </header>
-        <main>
-          <p>No recommendations found</p>
-          <Link to={`/add/${stationParam}`}>
-            <button className="share-ideas">Share Ideas</button>
-          </Link>
-        </main>
-      </div>
-    );
-  }
+  const hasRecommendations = recommendations.length > 0;
 
-  // Otherwise, display the station page with its corresponding recommendations
   return (
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
         <h1 className="header-bottom">RECOMMENDATIONS</h1>
       </header>
-      {recommendations.map((recommendation) => (
-        <Recommendation
-          key={recommendation.id}
-          // Pass name and content as props into the recommendation component
-          name={recommendation.fields.name}
-          content={recommendation.fields.content}
-        />
-      ))}
+        {/* If the station has recommendations, show the first view, otherwise show the second */}
+        {hasRecommendations ? (
+          <div>
+            {recommendations.map((recommendation) => (
+              <Recommendation
+                key={recommendation.id}
+                // Pass name and content as props into the recommendation component
+                name={recommendation.fields.name}
+                content={recommendation.fields.content}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>No recommendations found!</p>
+        )}
       <Link to={`/add/${stationParam}`}>
         <button className="share-ideas">Share Ideas</button>
       </Link>
