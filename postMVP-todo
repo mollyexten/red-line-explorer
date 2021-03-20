@@ -1,19 +1,15 @@
 When I come back to this app, I can focus on the following:
 
-1. Redirecting user to station-specific page after making a contribute 
-(I can use history.push() for this. I just need to figure out how to get 
-the stationKebab so that I can set it as params)
-
-2. Creating a modal (a pop up window, absolute positioning) for "review", 
+1. Creating a modal (a pop up window, absolute positioning) for "review", 
 which a user could then either edit (put request), cancel (delete request), 
 or submit (post request)
 
-3. Make p tags more formatted (grid? cards?)
+2. Make p tags more formatted (grid? cards?)
 
-4. Make recommendations appear from most recent to oldest
+3. Make recommendations appear from most recent to oldest
 
-5. format form for large screens (more grid)
+4. format form for large screens (more grid)
 
-6. Introduce categories for posts - station info, nearby places, miscellaneous thoughts
+5. Introduce categories for posts - station info, nearby places, miscellaneous thoughts
 
-7. Introduce "upvotes" to sort posts by popularity
+6. Introduce "upvotes" to sort posts by popularity

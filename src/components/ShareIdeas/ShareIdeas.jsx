@@ -39,9 +39,12 @@ function ShareIdeas(props) {
     }
     // Make a post request to Airtable
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
-    // Redirect user to main page
-    // POST MVP: redirect user to station page
-    history.push(`/`)
+    
+    // Redirect user to station page
+    const stations = props.stationList
+    const destination = stations.find(station => station.id === stationId)
+    const destinationPath = destination.fields.stationKebab
+    history.push(`/${destinationPath}`)
   }
 
   return (
