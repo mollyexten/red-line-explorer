@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
   background-image: url("./images/opaque-background.jpg");
   background-size: cover;
@@ -8,7 +10,7 @@ body {
 .App {
   text-align: center;
   font-size: 14pt;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding-bottom: 25px;
 }
 
@@ -19,6 +21,7 @@ body {
 header {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-top {
