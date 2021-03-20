@@ -86,8 +86,7 @@ function Station(props) {
     // Invoke this function whenever the station id changes
   }, [stationId]);
 
-  // Use these variables to render elements conditionally
-  const hasRecommendations = recommendations.length > 0;
+  // Use these variables to render the arrows depending on station
   const noPrev = prevParam === "";
   const noBonus = bonusParam === "";
   const noNext = nextParam === "";
@@ -117,8 +116,10 @@ function Station(props) {
           </div>
         </div>
       </header>
-      {/* If the station has recommendations, show the first view, otherwise show the second */}
-      {hasRecommendations ? (
+      <Link to={`/add/${stationParam}`}>
+        <button className="share-ideas">Share Ideas</button>
+      </Link>
+      {/* Pass station recommendations as props into the recommendation component */}
         <div>
           {recommendations && recommendations.map((recommendation) => (
             <Recommendation
@@ -129,12 +130,6 @@ function Station(props) {
             />
           ))}
         </div>
-      ) : (
-        <p>No recommendations found!</p>
-      )}
-      <Link to={`/add/${stationParam}`}>
-        <button className="share-ideas">Share Ideas</button>
-      </Link>
     </div>
   );
 }
