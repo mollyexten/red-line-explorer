@@ -120,7 +120,7 @@ function Station(props) {
       {/* If the station has recommendations, show the first view, otherwise show the second */}
       {hasRecommendations ? (
         <div>
-          {recommendations.map((recommendation) => (
+          {recommendations && recommendations.map((recommendation) => (
             <Recommendation
               key={recommendation.id}
               // Pass name and content as props into the recommendation component

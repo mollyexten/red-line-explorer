@@ -32,3 +32,7 @@ nav {
   text-decoration: none;
   color: black;
 }
+
+a > i {
+  padding-right: 5px;
+}
