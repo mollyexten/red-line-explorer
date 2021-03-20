@@ -1,18 +1,47 @@
-header {
+.header-station {
   display: grid;
-  grid-template-rows: 75% 25%;
+  grid-template-rows: 65% 35%;
 }
 
-.header-top {
+.header-top-station {
   color: #eef1f1;
   background-color: #e10c0c;
   padding-top: 2px;
   margin-bottom: 0;
 }
 
+/* Make the bottom part of the header a flex display to arrange arranges */
+
 .header-bottom-station {
   background-color: #eef1f1;
   padding-top: 2px;
   display: flex;
   justify-content: space-around;
+}
+
+.left, .bottom, .right {
+  font-size: 22pt;
+}
+
+/* Give the share ideas button some space in case the fixed navbar is at the bottom */
+
+.share-ideas {
+  margin: 30px;
+}
+
+/* Give the red part of the header more room if the screen is larger */
+
+@media screen and (min-width: 600px) {
+  .header-station {
+    grid-template-rows: 70% 30%;
+    padding-top: 10px;
+  }
+
+  .header-station-top, .header-station-bottom {
+    font-size: 40pt;
+  }
+
+  .header-station-top {
+    padding: 20px;
+  }
 }

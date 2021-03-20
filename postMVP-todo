@@ -8,3 +8,5 @@ the stationKebab so that I can set it as params)
 2. Creating a modal (a pop up window, absolute positioning) for "review", 
 which a user could then either edit (put request), cancel (delete request), 
 or submit (post request)
+
+3. Make p tags more formatted (grid? cards?)

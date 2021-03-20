@@ -11,6 +11,7 @@ import { stationsURL, config } from "./services";
 import axios from "axios";
 
 function App() {
+  // This will store the sorted list of stations to pass as props to different components
   const [stationList, setStationList] = useState([]);
   
     useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
         // Make axios get request
         const resp = await axios.get(stationsURL, config);
         const stations = resp.data.records;
+        // Set up a compare function
         function compare(a, b) {
           const stationA = a.fields.sortId;
           const stationB = b.fields.sortId;
@@ -30,11 +32,11 @@ function App() {
           }
           return comparison;
         }
+        // Use the compare function to sort the stations by sortId
         const sortedStations = stations.sort(compare);
         setStationList(sortedStations);
       };
       getStations();
-      console.log(stationList)
     }, []);
   
   return (

@@ -16,6 +16,8 @@ nav {
 /* See Navbar.jsx to learn more about how this works*/
 .mobile-nav {
   bottom: 0;
+  padding: 5px;
+  font-size: 18pt;
 }
 
 /* In screen sizes larger than 640px, the navbar will appear at the top*/

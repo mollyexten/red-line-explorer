@@ -5,13 +5,14 @@ import { recommendationsURL, config } from "../../services"
 import "./ShareIdeas.css"
 
 function ShareIdeas(props) {
-  // store stations, stationId, name, and content as state variables
-  // const [stations, setStations] = useState([]);
+  // store stationId, name, and content as state variables
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  
   // set up useParams to automatically fill in station
   const { stationParam } = useParams();
+  
   // set up useHistory to redirect user to main page after form submission
   const history = useHistory();
 
