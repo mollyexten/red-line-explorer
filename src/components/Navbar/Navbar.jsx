@@ -4,6 +4,7 @@ import "./Navbar.css";
 
 function Navbar() {
   // I referred to this website for creating a bottom navbar on mobile: https://jfelix.info/blog/create-a-mobile-friendly-navigation-with-react
+  // The hamburger menu workshop also helped - I put that code in saved-by-the-code
 
   // Save windowDimension in state variable
   const [windowDimension, setWindowDimension] = useState(null);

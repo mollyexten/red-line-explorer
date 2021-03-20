@@ -85,7 +85,7 @@ function Station(props) {
     getRecommendations();
     // Invoke this function whenever the station id changes
   }, [stationId]);
-
+  
   // Use these variables to render the arrows depending on station
   const noPrev = prevParam === "";
   const noBonus = bonusParam === "";

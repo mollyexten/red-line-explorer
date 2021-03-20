@@ -31,11 +31,11 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .header-station-top, .header-station-bottom {
+  .header-top, .header-station-bottom {
     font-size: 40pt;
   }
 
-  .header-station-top {
+  .header-top {
     padding: 20px;
   }
 }

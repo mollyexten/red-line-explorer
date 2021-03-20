@@ -20,6 +20,8 @@ function App() {
         // Make axios get request
         const resp = await axios.get(stationsURL, config);
         const stations = resp.data.records;
+        // Sort through the stations to organize from north to south.
+        // I used this website to figure out how to sort: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
         // Set up a compare function
         function compare(a, b) {
           const stationA = a.fields.sortId;

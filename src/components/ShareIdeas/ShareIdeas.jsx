@@ -19,6 +19,7 @@ function ShareIdeas(props) {
   // PUT STATION NAME IN DROPDOWN IF COMING FROM THAT STATION'S PAGE
   useEffect(() => {
     // Check if this page has stationParams and has already passed the station list as props
+    // Saved-by-the-code helped me figure this part out
     if (stationParam && props.stationList.length > 0) {
       const stations = props.stationList
       const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
@@ -39,7 +40,7 @@ function ShareIdeas(props) {
     }
     // Make a post request to Airtable
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
-    
+
     // Redirect user to station page
     const stations = props.stationList
     const destination = stations.find(station => station.id === stationId)

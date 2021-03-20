@@ -91,7 +91,7 @@ a:active {
 @media screen and (min-width: 371px) {
   .header-top,
   .header-bottom {
-    font-size: 24pt;
+    font-size: 23pt;
   }
 }
 
@@ -101,7 +101,7 @@ a:active {
 
 @media screen and (min-width: 400px) {
   .header-top, .header-bottom {
-    font-size: 28pt;
+    font-size: 25pt;
   }
   button {
     font-size: 16px;
