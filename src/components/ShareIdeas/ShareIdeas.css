@@ -72,6 +72,8 @@ textarea {
 
   form {
     grid-template-columns: 80px 200px auto;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   /* The first and second columns will remain the same width */
