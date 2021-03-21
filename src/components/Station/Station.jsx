@@ -94,7 +94,7 @@ function Station(props) {
   return (
     <div>
       <header className="header-station">
-        <h1 className="header-top">{stationName.toUpperCase()}</h1>
+        <h1 className="header-top-station">{stationName.toUpperCase()}</h1>
         {/* The next part specifies when linked arrows should be displayed according to prev, next, and bonus station info */}
         <div className="header-bottom-station">
           <div className="left">{noPrev ? (""
