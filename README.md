@@ -1,6 +1,6 @@
 # Red Line Explorer
 
-![Red Line Explorer](https://admiring-khorana-4fddb6.netlify.app/)
+[Red Line Explorer](https://admiring-khorana-4fddb6.netlify.app/)
 
 ## Project Description
 
