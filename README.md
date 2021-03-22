@@ -73,10 +73,10 @@ Here is a data sample from the recommendations table. I will access data from th
 | --------- | --------------------------------- | ---------- |
 | Mar 15    | Proposal approval/Airtable setup  | Complete   |
 | Mar 16    | Create components/get & post data | Complete   |
-| Mar 17    | Get & post cont'd/Basic CSS       | Incomplete |
-| Mar 18    | Grid, flexbox, responsive CSS/MVP | Incomplete |
-| Mar 19    | Advanced styling/post MVP         | Incomplete |
-| Mar 20-21 | Post MVP                          | Incomplete |
+| Mar 17    | Get & post cont'd/Basic CSS       | Complete   |
+| Mar 18    | Grid, flexbox, responsive CSS/MVP | Complete   |
+| Mar 19    | Advanced styling/post MVP         | Complete   |
+| Mar 20-21 | Post MVP                          | Complete   |
 | Mar 22    | Presentations                     | Incomplete |
 
 ## Timeframes
@@ -85,27 +85,27 @@ Here is a data sample from the recommendations table. I will access data from th
 | ----------------- | -------------- | ------------- | ----------- |
 | Proposal          | 2 hrs          | 4 hrs         | 4 hrs       |
 | Proposal revision | 3 hrs          | 3 hrs         | 3 hrs       |
-| Airtable          | 3 hrs          | 2 hrs         |             |
-| Form component    | 2 hrs          | 3 hrs         |             |
-| Rec. component    | 1 hrs          | .5 hr         |             |
-| Station component | 3 hrs          | 8 hrs         |             |
-| Home component    | 3 hrs          | 2 hrs         |             |
-| Nav component     | .5 hr          | .5 hr         |             |
-| About component   | .5 hr          | .5 hr         |             |
-| Commenting        | 3 hrs          | 1 hr          |             |
-| CSS color & font  | 2 hrs          | 3 hrs         |             |
-| CSS icons/buttons | 1 hr           | 1 hr          |             |
-| Advanced CSS      | 2 hrs          | 4 hrs         |             |
-| Flexbox/Grid-home | 3 hrs          | 4 hrs         |             |
-| Flex/Grid-station | 3 hrs          |               |             |
-| Flex/Grid-form    | 1 hr           | 2 hrs         |             |
-| breakpoint-home   | 1 hr           | 3 hrs         |             |
-| breakpoint-station| 1 hr           |               |             |
-| breakpoint-form   | 1 hr           | 2 hrs         |             |
-| Clean components  | 3 hrs          | 2 hrs         |             |
-| Organize CSS      | 2 hrs          |               |             |
-| Add form redirect | 1 hrs          | .5 hrs        |             |
-| TOTAL             | 42 hrs         | 46 hrs        |             |
+| Airtable          | 3 hrs          | 2 hrs         | 2 hrs       |
+| Form component    | 2 hrs          | 3 hrs         | 3 hrs       |
+| Rec. component    | 1 hrs          | .5 hr         | .5 hr       |
+| Station component | 3 hrs          | 8 hrs         | 8 hrs       |
+| Home component    | 3 hrs          | 2 hrs         | 2 hrs       |
+| Nav component     | .5 hr          | .5 hr         | .5 hr       |
+| About component   | .5 hr          | .5 hr         | .5 hr       |
+| Commenting        | 3 hrs          | 1 hr          | 1 hr        |
+| CSS color & font  | 2 hrs          | 3 hrs         | 3 hrs       |
+| CSS icons/buttons | 1 hr           | 1 hr          | 1 hr        |
+| Advanced CSS      | 2 hrs          | 4 hrs         | 4 hrs       |
+| Flexbox/Grid-home | 3 hrs          | 4 hrs         | 4 hrs       |
+| Flex/Grid-station | 3 hrs          | 0 hrs         | 0 hrs       |
+| Flex/Grid-form    | 1 hr           | 2 hrs         | 2 hrs       |
+| breakpoint-home   | 1 hr           | 3 hrs         | 3 hrs       |
+| breakpoint-station| 1 hr           | 0 hrs         | 0 hrs       |
+| breakpoint-form   | 1 hr           | 2 hrs         | 2 hrs       |
+| Clean components  | 3 hrs          | 2 hrs         | 2 hrs       |
+| Organize CSS      | 2 hrs          | 1 hr          | 1 hr        |
+| Add form redirect | 1 hrs          | .5 hrs        | .5 hrs      |
+| TOTAL             | 42 hrs         | 47 hrs        | 47 hrs      |
 
 
 ## SWOT Analysis
