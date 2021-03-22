@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { recommendationsURL, config } from "../../services";
 import axios from "axios";
 import Recommendation from "../Recommendation/Recommendation";
-import "./Station.css"
+import "./Station.css";
 
 function Station(props) {
   // Store stationId, stationName, ids for nearby stations, and recommendations as state variables
@@ -14,7 +14,7 @@ function Station(props) {
   const [nextParam, setNextParam] = useState("");
   const [bonusParam, setBonusParam] = useState("");
   const [recommendations, setRecommendations] = useState([]);
-  
+
   // Save the parameter from the url in useParams
   const { stationParam } = useParams();
 
@@ -22,7 +22,7 @@ function Station(props) {
   useEffect(() => {
     if (stationParam && props.stationList.length > 0) {
       const stations = props.stationList;
-      
+
       // Find current station info
       const currentStation = stations.find(
         (station) => station.fields.stationKebab === stationParam
@@ -30,7 +30,7 @@ function Station(props) {
       setStationId(currentStation.id);
       setStationName(currentStation.fields.Name);
       const currentIndex = currentStation.fields.sortId;
-      
+
       // Find previous station info
       let prevStation;
       // Every previous station is currentIndex - 1 except for North Quincy because of the fork
@@ -43,17 +43,17 @@ function Station(props) {
           (station) => station.fields.sortId === currentIndex - 5
         );
       }
-      
+
       // Set the current station (and put an empty string if it is the first stop - Alewife)
       currentIndex === 10
         ? setPrevParam("")
         : setPrevParam(prevStation.fields.stationKebab);
-      
+
       // Find next station info
       const nextStation = stations.find(
         (station) => station.fields.sortId === currentIndex + 1
       );
-      
+
       // Set the next station
       // Put an empty string if it is the last stop (Ashmont or Braintree))
       if (currentIndex === 26 || currentIndex === 31) {
@@ -71,21 +71,24 @@ function Station(props) {
   }, [stationParam, props.stationList]);
 
   useEffect(() => {
-    // get all recommendations from the recommendations table
-    const getRecommendations = async () => {
-      const resp = await axios.get(recommendationsURL, config);
-      const recs = resp.data.records;
-      // Use filter method to find recommendations for the matching station, store in an variable called stationRecommendations
-      const stationRecommendations = recs.filter(
-        (rec) => rec.fields.station[0] === stationId
-      );
-      // Store the stationRecommendations from filter method as the recommendations for this page
-      setRecommendations(stationRecommendations);
-    };
-    getRecommendations();
+    if (stationId) {
+      // get all recommendations from the recommendations table
+      const getRecommendations = async () => {
+        const resp = await axios.get(recommendationsURL, config);
+        const recs = resp.data.records;
+        // Use filter method to find recommendations for the matching station, store in an variable called stationRecommendations
+        const stationRecommendations = recs.filter(
+          (rec) => rec.fields.station[0] === stationId
+        );
+        console.log(stationRecommendations);
+        // Store the stationRecommendations from filter method as the recommendations for this page
+        setRecommendations(stationRecommendations);
+      };
+      getRecommendations();
+    }
     // Invoke this function whenever the station id changes
   }, [stationId]);
-  
+
   // Use these variables to render the arrows depending on station
   const noPrev = prevParam === "";
   const noBonus = bonusParam === "";
@@ -97,22 +100,32 @@ function Station(props) {
         <h1 className="header-top-station">{stationName.toUpperCase()}</h1>
         {/* The next part specifies when linked arrows should be displayed according to prev, next, and bonus station info */}
         <div className="header-bottom-station">
-          <div className="left">{noPrev ? (""
-          ): (<Link to={`/${prevParam}`}>
-            <i className="fas fa-arrow-left" /></Link>
+          <div className="left">
+            {noPrev ? (
+              ""
+            ) : (
+              <Link to={`/${prevParam}`}>
+                <i className="fas fa-arrow-left" />
+              </Link>
             )}
-          </div> <div className="bottom">
-            {noBonus ? ("") : (
-            <Link to={`${bonusParam}`}>
-            <i className="fas fa-arrow-down" />
-          </Link>
-          )}
-          </div> <div className="right">
-            {noNext ? ("") : (
-            <Link to={`${nextParam}`}>
-            <i className="fas fa-arrow-right" />
-          </Link>
-          )}
+          </div>{" "}
+          <div className="bottom">
+            {noBonus ? (
+              ""
+            ) : (
+              <Link to={`${bonusParam}`}>
+                <i className="fas fa-arrow-down" />
+              </Link>
+            )}
+          </div>{" "}
+          <div className="right">
+            {noNext ? (
+              ""
+            ) : (
+              <Link to={`${nextParam}`}>
+                <i className="fas fa-arrow-right" />
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -120,8 +133,9 @@ function Station(props) {
         <button className="share-ideas">Share Ideas</button>
       </Link>
       {/* Pass station recommendations as props into the recommendation component */}
-        <div>
-          {recommendations && recommendations.map((recommendation) => (
+      <div>
+        {recommendations &&
+          recommendations.map((recommendation) => (
             <Recommendation
               key={recommendation.id}
               // Pass name and content as props into the recommendation component
@@ -129,7 +143,7 @@ function Station(props) {
               content={recommendation.fields.content}
             />
           ))}
-        </div>
+      </div>
     </div>
   );
 }
