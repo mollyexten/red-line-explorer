@@ -80,7 +80,6 @@ function Station(props) {
         const stationRecommendations = recs.filter(
           (rec) => rec.fields.station[0] === stationId
         );
-        console.log(stationRecommendations);
         // Store the stationRecommendations from filter method as the recommendations for this page
         setRecommendations(stationRecommendations);
       };
