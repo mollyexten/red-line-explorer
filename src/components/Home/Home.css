@@ -4,7 +4,7 @@
 
 .station-map {
   display: grid;
-  grid-template-columns: 1fr repeat(2, 10%) 15% 10% 15% repeat(2, 10%) 1fr;
+  grid-template-columns: 15% 15% 15% 10% 10% 10% 10% 10% 15%;
   grid-template-rows: repeat(18, 25px);
   list-style-type: circle;
 }
@@ -16,7 +16,7 @@ ul > a {
 }
 
 .station {
-  font-size: 11pt;
+  font-size: 1em;
   text-transform: lowercase;
 }
 
@@ -150,7 +150,7 @@ ul > a {
 @media screen and (max-width: 350px) {
   /* Stations need smaller font so that all can fit on one line */
   .station {
-    font-size: 10pt;
+    font-size: 1em;
   }
 
   /* Main column on stations moves to left to accommodate Downtown Crossing */
@@ -183,7 +183,7 @@ ul > a {
   }
 
   .station {
-    font-size: 12pt;
+    font-size: 1.25em;
   }
 
   .alewife {
@@ -248,16 +248,8 @@ ul > a {
     grid-column: 14 / span 5;
   }
 
-  .quincy-center {
+  .quincy-center, .quincy-adams, .braintree {
     grid-column: 15 / span 9;
-  }
-
-  .quincy-adams {
-    grid-column: 16 / span 8;
-  }
-
-  .braintree {
-    grid-column: 18 / span 8;
   }
 
   .alewife {
@@ -380,7 +372,7 @@ ul > a {
   }
 
   .station {
-    font-size: 16pt;
+    font-size: 1.5em;
   }
 
   .downtown-crossing {
@@ -426,6 +418,6 @@ ul > a {
   }
 
   .station {
-    font-size: 20pt;
+    font-size: 2em;
   }
 }
