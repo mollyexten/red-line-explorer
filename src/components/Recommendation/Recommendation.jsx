@@ -4,8 +4,8 @@ import "./Recommendation.css"
 function Recommendation(props) {
   return (
     <div className="rec-text">
-      <h3>{props.name}</h3>
-      <p>{props.content}</p>
+      <h3 className="rec-name">{props.name}</h3>
+      <p className="rec-content">{props.content}</p>
     </div>
   )
 }

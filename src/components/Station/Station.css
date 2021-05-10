@@ -23,6 +23,18 @@
   font-size: 22pt;
 }
 
+/* Give the recommendations section a flexbox layout */
+.recommendations-div {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .recommendations-div {
+    flex-flow: row wrap;
+  }
+}
+
 /* Give the share ideas button some space in case the fixed navbar is at the bottom */
 
 .share-ideas {

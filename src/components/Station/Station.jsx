@@ -132,7 +132,7 @@ function Station(props) {
         <button className="share-ideas">Share Ideas</button>
       </Link>
       {/* Pass station recommendations as props into the recommendation component */}
-      <div>
+      <div className="recommendations-div">
         {recommendations &&
           recommendations.map((recommendation) => (
             <Recommendation
