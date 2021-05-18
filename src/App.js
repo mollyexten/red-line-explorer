@@ -1,9 +1,9 @@
 import "./App.css";
 // Import App components
-import About from "./components/About/About";
-import ShareIdeas from "./components/ShareIdeas/ShareIdeas";
-import Home from "./components/Home/Home";
-import Navbar from "./components/Navbar/Navbar";
+import Layout from "./components/shared/Layout/Layout"
+import About from "./screens/About/About";
+import ShareIdeas from "./screens/ShareIdeas/ShareIdeas";
+import Home from "./screens/Home/Home";
 import Station from "./components/Station/Station";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react"
@@ -30,27 +30,26 @@ function App() {
   
   return (
     <div className="App">
-      {/* Navbar appears on all paths */}
-      <Navbar />
-      {/* Other components render in separate views, hence the route paths */}
-      <Switch>
-        <Route exact path="/">
-          <Home stationList={stationList} />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
-        <Route path="/share-ideas">
-          <ShareIdeas stationList={stationList} />
-        </Route>
-        <Route path="/add/:stationParam">
-          <ShareIdeas stationList={stationList} />
-        </Route>
-        <Route path="/:stationParam">
-          <Station stationList={stationList}/>
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/">
+            <Home stationList={stationList} />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
+          <Route path="/share-ideas">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/add/:stationParam">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/:stationParam">
+            <Station stationList={stationList}/>
+          </Route>
+        </Switch>
+      </Layout>
     </div>
   );
 }
