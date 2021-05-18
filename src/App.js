@@ -8,6 +8,7 @@ import Station from "./components/Station/Station";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { stationsURL, config } from "./services";
+import { compare } from "./services/helpers.js"
 import axios from "axios";
 
 function App() {
@@ -20,20 +21,6 @@ function App() {
         // Make axios get request
         const resp = await axios.get(stationsURL, config);
         const stations = resp.data.records;
-        // Sort through the stations to organize from north to south.
-        // I used this website to figure out how to sort: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        // Set up a compare function
-        function compare(a, b) {
-          const stationA = a.fields.sortId;
-          const stationB = b.fields.sortId;
-          let comparison = 0;
-          if (stationA > stationB) {
-            comparison = 1;
-          } else if (stationA < stationB) {
-            comparison = -1;
-          }
-          return comparison;
-        }
         // Use the compare function to sort the stations by sortId
         const sortedStations = stations.sort(compare);
         setStationList(sortedStations);
