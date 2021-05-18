@@ -1,0 +1,43 @@
+.popup-cover {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.popup-box {
+  position: relative;
+  width: 70%;
+  margin: 150px auto;
+  height: auto;
+  background-color: var(--flashy-light-blue);
+  border-radius: 8px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.popup-message {
+  color: var(--flashy-blue);
+}
+
+.popup-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.popup-cancel, .popup-confirm {
+  padding: 5px 10px;
+}
+
+@media (min-width: 641px) {
+  .popup-box {
+    width: 550px;
+  }
+
+  .popup-message, .popup-cancel, .popup-confirm {
+    font-size: 1.5em;
+  }
+}

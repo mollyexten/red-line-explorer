@@ -3,12 +3,20 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { recommendationsURL, config } from "../../services"
 import "./ShareIdeas.css"
+import Popup from "../../components/Popup/Popup"
 
 function ShareIdeas(props) {
   // store stationId, name, and content as state variables
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+
+  // State and function for managing the popup component:
+  const [isOpen, setIsOpen] = useState(false)
+  const togglePopup = () => {
+    setIsOpen(!isOpen)
+  }
+  const [destinationPath, setDestinationPath] = ("")
   
   // set up useParams to automatically fill in station
   const { stationParam } = useParams();
@@ -41,11 +49,13 @@ function ShareIdeas(props) {
     // Make a post request to Airtable
     await axios.post(recommendationsURL, { fields: newRecommendation }, config)
 
+    togglePopup()
     // Redirect user to station page
     const stations = props.stationList
     const destination = stations.find(station => station.id === stationId)
     const destinationPath = destination.fields.stationKebab
-    history.push(`/${destinationPath}`)
+    // setDestinationPath(destinationPath)
+    // history.push(`/${destinationPath}`)
   }
 
   return (
@@ -97,8 +107,17 @@ function ShareIdeas(props) {
           onChange={(e) => setContent(e.target.value)}
         />
         {/* Make this a submit type button so that the onSubmit event listener triggers the handleSubmit function */}
-        <button type="submit" className="submit-button">Submit</button>
+        <button
+          type="submit"
+          className="submit-button"
+          // onClick={togglePopup}
+        >
+          Submit
+        </button>
       </form>
+      {isOpen && (
+        <Popup/>
+      )}
     </div>
   )
 }
