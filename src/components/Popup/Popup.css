@@ -12,7 +12,7 @@
   width: 70%;
   margin: 150px auto;
   height: auto;
-  background-color: var(--flashy-light-blue);
+  background-color: #eef1f1;
   border-radius: 8px;
   padding: 20px;
   overflow: auto;
@@ -28,16 +28,12 @@
   justify-content: space-evenly;
 }
 
-.popup-cancel, .popup-confirm {
-  padding: 5px 10px;
+.popup-buttons>button {
+  background-color: white;
 }
 
 @media (min-width: 641px) {
   .popup-box {
     width: 550px;
-  }
-
-  .popup-message, .popup-cancel, .popup-confirm {
-    font-size: 1.5em;
   }
 }

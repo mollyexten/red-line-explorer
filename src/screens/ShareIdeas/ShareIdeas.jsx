@@ -116,7 +116,12 @@ function ShareIdeas(props) {
         </button>
       </form>
       {isOpen && (
-        <Popup/>
+        <Popup
+          stations={props.stationList}
+          stationId={stationId}
+          name={name}
+          content={content}
+        />
       )}
     </div>
   )
