@@ -14,10 +14,8 @@ export default function Popup(props) {
   useEffect(() => {
     const findStationName = (stations, id) => {
       const destination = stations.find(station => station.id === id)
-      const destinationPath = destination.fields.stationKebab
-      const destinationName = destination.fields.Name
-      setStationPath(destinationPath)
-      setStationName(destinationName)
+      setStationPath(destination.fields.stationKebab)
+      setStationName(destination.fields.Name)
     }
     if (stations) {
       findStationName(stations, stationId)

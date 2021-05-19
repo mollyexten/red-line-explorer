@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 // Variables from the station component are passed as props into this component
 function Recommendation(props) {
   const { name, date, content } = props
-  // const { name, content } = props
   const [formattedDate, setFormattedDate] = useState("")
 
   useEffect(() => {

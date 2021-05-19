@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.css"
 
-function Home(props) {
+function Home({ stationList }) {
   return (
     <div >
       <header>
@@ -10,9 +10,17 @@ function Home(props) {
       </header>
       {/* Map through stations and display their names in an unordered list */}
       <ul className="station-map">
-        {props.stationList.map((station) => (
-          <Link to={`/${station.fields.stationKebab}`} key={station.fields.sortId} className={station.fields.stationKebab}>
-            <li className="station">{station.fields.Name}</li>
+        {stationList.map((station) => (
+          <Link
+            to={`/${station.fields.stationKebab}`}
+            key={station.fields.sortId}
+            className={station.fields.stationKebab}
+          >
+            <li
+              className="station"
+            >
+              {station.fields.Name}
+            </li>
           </Link>
         ))}
       </ul>

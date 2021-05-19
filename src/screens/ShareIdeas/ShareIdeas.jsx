@@ -1,50 +1,53 @@
+import "./ShareIdeas.css"
+import Popup from "../../components/Popup/Popup"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { recommendationsURL, config } from "../../services"
-import "./ShareIdeas.css"
-import Popup from "../../components/Popup/Popup"
 
-function ShareIdeas(props) {
-  // store stationId, name, and content as state variables
+
+function ShareIdeas({ stationList }) {
+  const { stationParam, id } = useParams();
+
+  // const { name, stationId, content } = formData
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [recId, setRecId] = useState("");
+
+  useEffect(() => {
+    if (stationList.length) {
+      setStationId(stationList[0].id)
+    }
+  }, [stationList])
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
   const togglePopup = () => {
     setIsOpen(!isOpen)
   }
-  
-  // set up useParams to automatically fill in station
-  const { stationParam, id } = useParams();
 
-  // PUT STATION NAME IN DROPDOWN IF COMING FROM THAT STATION'S PAGE
+  // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
-    // Check if this page has stationParams and has already passed the station list as props
-    // Saved-by-the-code helped me figure this part out
-    if (stationParam && props.stationList.length > 0) {
-      const stations = props.stationList
-      const stationEdit = stations.find((station) => station.fields.stationKebab === stationParam)
+    if (stationParam && stationList.length) {
+      const stationEdit = stationList.find((station) =>
+        station.fields.stationKebab === stationParam)
       const preselectedStation = stationEdit.id
       setStationId(preselectedStation)
     }
-  }, [stationParam, props.stationList])
+  }, [stationParam, stationList])
 
-  // POST DATA TO AIRTABLE
+  // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
-    // Stop the form from clearing when submit is pressed
     e.preventDefault();
-    // Create a new object with data for the post request
     const newRecommendation = {
       name: name,
       content: content,
       station: [stationId],
     }
-    // Make a post request to Airtable
+    // Make a post or put request to Airtable
     if (!id) {
+      console.log(newRecommendation)
       const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
       setRecId(resp.data.id)
     } else {
@@ -82,9 +85,8 @@ function ShareIdeas(props) {
           onChange={(e) => setStationId(e.target.value)}
         >
           {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
-          {props.stationList.map((station) => (
+          {stationList.map((station) => (
             <option
-              // Set the value as the station.id so that setStationId can get stationId
               value={station.id}
               key={station.id}
             >
@@ -93,7 +95,6 @@ function ShareIdeas(props) {
           ))}
         </select>
         <label htmlFor="recommendation" className="recommendation-label">Recommendation</label>
-        {/* Set the value of content to the value of this textbox */}
         <textarea
           required
           id="recommendation"
@@ -102,7 +103,6 @@ function ShareIdeas(props) {
           autoComplete="off"
           onChange={(e) => setContent(e.target.value)}
         />
-        {/* Make this a submit type button so that the onSubmit event listener triggers the handleSubmit function */}
         <button
           type="submit"
           className="submit-button"
@@ -112,7 +112,7 @@ function ShareIdeas(props) {
       </form>
       {isOpen && (
         <Popup
-          stations={props.stationList}
+          stations={stationList}
           stationId={stationId}
           name={name}
           content={content}

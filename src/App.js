@@ -8,7 +8,7 @@ import Station from "./screens/Station/Station";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { stationsURL, config } from "./services";
-import { compare } from "./services/helpers.js"
+import { compareStations } from "./services/helpers.js"
 import axios from "axios";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         const resp = await axios.get(stationsURL, config);
         const stations = resp.data.records;
         // Use the compare function to sort the stations by sortId
-        const sortedStations = stations.sort(compare);
+        const sortedStations = stations.sort(compareStations);
         setStationList(sortedStations);
       };
       getStations();

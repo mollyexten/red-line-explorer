@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { recommendationsURL, config } from "../../services";
+import { compareRecommendations } from "../../services/helpers.js"
 import axios from "axios";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import "./Station.css";
 
-function Station(props) {
+function Station({ stationList }) {
   // Store stationId, stationName, ids for nearby stations, and recommendations as state variables
   const [stationId, setStationId] = useState("");
   const [stationName, setStationName] = useState("");
@@ -20,55 +21,37 @@ function Station(props) {
 
   // Get info about the current station and those nearby
   useEffect(() => {
-    if (stationParam && props.stationList.length > 0) {
-      const stations = props.stationList;
-
-      // Find current station info
-      const currentStation = stations.find(
+    if (stationParam && stationList.length) {
+      const currentStation = stationList.find(
         (station) => station.fields.stationKebab === stationParam
       );
       setStationId(currentStation.id);
       setStationName(currentStation.fields.Name);
       const currentIndex = currentStation.fields.sortId;
 
-      // Find previous station info
       let prevStation;
-      // Every previous station is currentIndex - 1 except for North Quincy because of the fork
-      if (currentIndex !== 27) {
-        prevStation = stations.find(
-          (station) => station.fields.sortId === currentIndex - 1
-        );
-      } else {
-        prevStation = stations.find(
-          (station) => station.fields.sortId === currentIndex - 5
-        );
-      }
+      currentIndex !== 27 ?
+        prevStation = stationList.find(station => station.fields.sortId === currentIndex - 1):
+        prevStation = stationList.find(station => station.fields.sortId === currentIndex - 5)
 
-      // Set the current station (and put an empty string if it is the first stop - Alewife)
-      currentIndex === 10
-        ? setPrevParam("")
-        : setPrevParam(prevStation.fields.stationKebab);
+      currentIndex === 10 ?
+        setPrevParam(null) :
+        setPrevParam(prevStation.fields.stationKebab);
 
-      // Find next station info
-      const nextStation = stations.find(
-        (station) => station.fields.sortId === currentIndex + 1
-      );
+      const nextStation = stationList.find(
+        (station) => station.fields.sortId === currentIndex + 1);
 
-      // Set the next station
-      // Put an empty string if it is the last stop (Ashmont or Braintree))
       if (currentIndex === 26 || currentIndex === 31) {
-        setNextParam("");
+        setNextParam(null);
       }
-      // Hardcode "north-quincy" for JFK/UMass because of the fork
       else if (currentIndex === 22) {
         setNextParam("north-quincy");
       } else {
         setNextParam(nextStation.fields.stationKebab);
       }
-      // Only JFK/UMass gets the bonus param, and it is set to "savin-hill" because of the fork
-      currentIndex === 22 ? setBonusParam("savin-hill") : setBonusParam("");
+      currentIndex === 22 ? setBonusParam("savin-hill") : setBonusParam(null);
     }
-  }, [stationParam, props.stationList]);
+  }, [stationParam, stationList]);
 
   useEffect(() => {
     if (stationId) {
@@ -80,18 +63,7 @@ function Station(props) {
         const stationRecommendations = recs.filter(
           (rec) => rec.fields.station[0] === stationId
         );
-        const compare = (a, b) => {
-          const recA = a.createdTime;
-          const recB = b.createdTime;
-          let comparison = 0;
-          if (recA > recB) {
-            comparison = -1;
-          } else if (recA < recB) {
-            comparison = 1;
-          }
-          return comparison
-        }
-        const chronoRecs = stationRecommendations.sort(compare);
+        const chronoRecs = stationRecommendations.sort(compareRecommendations);
         setRecommendations(chronoRecs);
       };
       getRecommendations();
