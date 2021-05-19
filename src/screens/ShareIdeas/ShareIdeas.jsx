@@ -19,7 +19,7 @@ function ShareIdeas(props) {
   }
   
   // set up useParams to automatically fill in station
-  const { stationParam } = useParams();
+  const { stationParam, id } = useParams();
 
   // PUT STATION NAME IN DROPDOWN IF COMING FROM THAT STATION'S PAGE
   useEffect(() => {
@@ -44,10 +44,13 @@ function ShareIdeas(props) {
       station: [stationId],
     }
     // Make a post request to Airtable
-    const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
-    console.log(resp.data.id)
-    setRecId(resp.data.id)
-
+    if (!id) {
+      const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
+      setRecId(resp.data.id)
+    } else {
+      const editURL = `${recommendationsURL}/${id}`
+      await axios.put(editURL, { fields: newRecommendation }, config)
+    }
     togglePopup()
   }
 
@@ -103,7 +106,6 @@ function ShareIdeas(props) {
         <button
           type="submit"
           className="submit-button"
-          // onClick={togglePopup}
         >
           Submit
         </button>
@@ -115,6 +117,7 @@ function ShareIdeas(props) {
           name={name}
           content={content}
           recId={recId}
+          setIsOpen={setIsOpen}
         />
       )}
     </div>

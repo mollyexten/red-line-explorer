@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Popup(props) {
   const history = useHistory();
-  const { stations, stationId, name, content, recId } = props
+  const { stations, stationId, name, content, recId, setIsOpen } = props
   const [stationName, setStationName] = useState("")
   const [stationPath, setStationPath] = useState("")
 
@@ -23,6 +23,11 @@ export default function Popup(props) {
       findStationName(stations, stationId)
     }
   }, [stations, stationId])
+
+  const editRec = () => {
+    setIsOpen(false)
+    history.push(`/edit/${recId}`)
+  }
 
   const handleRedirect = () => {
     history.push(`/${stationPath}`)
@@ -43,7 +48,12 @@ export default function Popup(props) {
           content={content}
         />
         <div className="popup-buttons">
-          <button className="popup-edit">edit</button>
+          <button
+            className="popup-edit"
+            onClick={editRec}
+          >
+            edit
+          </button>
           <button
             className="popup-submit"
             onClick={handleRedirect}
