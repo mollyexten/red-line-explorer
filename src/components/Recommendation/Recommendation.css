@@ -1,5 +1,33 @@
 .rec-text {
   text-align: left;
-  padding: 15px;
   line-height: 1.6;
+  background-color: white;
+  margin: 20px auto;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.red-bar {
+  background-color: #e10c0c;
+  color: white;
+  padding: 10px;
+  margin: 0px;
+  border-radius: 8px 8px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.red-bar>* {
+  margin: 0px;
+}
+
+.rec-content {
+  padding: 10px;
+}
+
+@media (min-width: 640px) {
+  .rec-text {
+    width: 400px;
+  }
 }

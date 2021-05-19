@@ -2,6 +2,11 @@
   Form Styles - Mobile-first grid layout
 ========================================================================== */
 
+.share-div {
+  display: flex;
+  flex-direction: column;
+}
+
 form {
   display: grid;
   grid-template-columns: 35% 60%;
@@ -9,6 +14,7 @@ form {
   grid-gap: 10px;
   margin: 10px;
   text-align: left;
+  align-self: center;
 }
 
 input,
@@ -72,8 +78,6 @@ textarea {
 
   form {
     grid-template-columns: 80px 200px auto;
-    margin-left: 50px;
-    margin-right: 50px;
   }
 
   /* The first and second columns will remain the same width */
@@ -92,5 +96,11 @@ textarea {
   /* The recommendation textbox, however, will increase in width as screen size increases*/
   .recommendation-input {
     grid-column: 1 / 4;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  form {
+    grid-template-columns: 80px 200px 620px;
   }
 }

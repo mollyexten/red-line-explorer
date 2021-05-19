@@ -1,13 +1,14 @@
 import "./App.css";
 // Import App components
-import About from "./components/About/About";
-import ShareIdeas from "./components/ShareIdeas/ShareIdeas";
-import Home from "./components/Home/Home";
-import Navbar from "./components/Navbar/Navbar";
-import Station from "./components/Station/Station";
+import Layout from "./components/shared/Layout/Layout"
+import About from "./screens/About/About";
+import ShareIdeas from "./screens/ShareIdeas/ShareIdeas";
+import Home from "./screens/Home/Home";
+import Station from "./screens/Station/Station";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { stationsURL, config } from "./services";
+import { compareStations } from "./services/helpers.js"
 import axios from "axios";
 
 function App() {
@@ -20,22 +21,8 @@ function App() {
         // Make axios get request
         const resp = await axios.get(stationsURL, config);
         const stations = resp.data.records;
-        // Sort through the stations to organize from north to south.
-        // I used this website to figure out how to sort: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-        // Set up a compare function
-        function compare(a, b) {
-          const stationA = a.fields.sortId;
-          const stationB = b.fields.sortId;
-          let comparison = 0;
-          if (stationA > stationB) {
-            comparison = 1;
-          } else if (stationA < stationB) {
-            comparison = -1;
-          }
-          return comparison;
-        }
         // Use the compare function to sort the stations by sortId
-        const sortedStations = stations.sort(compare);
+        const sortedStations = stations.sort(compareStations);
         setStationList(sortedStations);
       };
       getStations();
@@ -43,27 +30,29 @@ function App() {
   
   return (
     <div className="App">
-      {/* Navbar appears on all paths */}
-      <Navbar />
-      {/* Other components render in separate views, hence the route paths */}
-      <Switch>
-        <Route exact path="/">
-          <Home stationList={stationList} />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
-        <Route path="/share-ideas">
-          <ShareIdeas stationList={stationList} />
-        </Route>
-        <Route path="/add/:stationParam">
-          <ShareIdeas stationList={stationList} />
-        </Route>
-        <Route path="/:stationParam">
-          <Station stationList={stationList}/>
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/">
+            <Home stationList={stationList} />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
+          <Route path="/share-ideas">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/edit/:id">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/add/:stationParam">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/:stationParam">
+            <Station stationList={stationList}/>
+          </Route>
+        </Switch>
+      </Layout>
     </div>
   );
 }

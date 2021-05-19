@@ -1,0 +1,35 @@
+.popup-cover {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.popup-box {
+  position: relative;
+  width: 70%;
+  margin: 150px auto;
+  height: auto;
+  background-color: #eef1f1;
+  border-radius: 8px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.popup-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.popup-buttons>button {
+  background-color: white;
+}
+
+@media (min-width: 641px) {
+  .popup-box {
+    width: 550px;
+  }
+}

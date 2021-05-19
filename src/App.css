@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root {
+  --redline-red: #e10c0c;
+  --redline-white: #eef1f1;
+  --redline-orange: #e88a58;
+}
+
 body {
   background-image: url("./images/opaque-background.jpg");
   background-size: cover;
@@ -9,7 +15,7 @@ body {
 
 .App {
   text-align: center;
-  font-size: 14pt;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
   padding-bottom: 25px;
 }
@@ -25,14 +31,14 @@ header {
 }
 
 .header-top {
-  color: #eef1f1;
-  background-color: #e10c0c;
+  color: var(--redline-white);
+  background-color: var(--redline-red);
   padding-top: 2px;
   margin-bottom: 0;
 }
 
 .header-bottom {
-  background-color: #eef1f1;
+  background-color: var(--redline-white);
   margin-top: 0;
   padding-top: 2px;
 }
@@ -57,12 +63,12 @@ button {
 
 button:hover,
 button:active {
-  box-shadow: 3px 2px 2px #e88a58;
+  box-shadow: 3px 2px 2px var(--redline-orange);
 }
 
 a:hover,
 a:active {
-  text-shadow: 3px 2px 2px #e88a58;
+  text-shadow: 3px 2px 2px var(--redline-orange);
 }
 
 /* ==========================================================================
