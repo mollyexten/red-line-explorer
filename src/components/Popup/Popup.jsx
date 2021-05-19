@@ -1,17 +1,23 @@
 import "./Popup.css";
+import Recommendation from "../Recommendation/Recommendation"
+import { recommendationsURL, config } from "../../services"
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react"
+import axios from "axios";
 
 export default function Popup(props) {
   const history = useHistory();
-  const { stations, stationId, name, content } = props
+  const { stations, stationId, name, content, recId } = props
+  const [stationName, setStationName] = useState("")
   const [stationPath, setStationPath] = useState("")
 
   useEffect(() => {
     const findStationName = (stations, id) => {
       const destination = stations.find(station => station.id === id)
       const destinationPath = destination.fields.stationKebab
+      const destinationName = destination.fields.Name
       setStationPath(destinationPath)
+      setStationName(destinationName)
     }
     if (stations) {
       findStationName(stations, stationId)
@@ -22,14 +28,20 @@ export default function Popup(props) {
     history.push(`/${stationPath}`)
   }
 
+  const deleteRec = async () => {
+    const recURL = `${recommendationsURL}/${recId}`
+    await axios.delete(recURL, config)
+    history.push("/")
+  }
+
   return (
     <div className="popup-cover">
       <div className="popup-box">
-        <p className="popup-station">Review your submission for {stationId}</p>
-        <div className="rec-text">
-          <h3 className="rec-name">{name}</h3>
-          <p className="rec-content">{content}</p>
-        </div>
+        <p className="popup-station">Review your submission for {stationName}</p>
+        <Recommendation
+          name={name}
+          content={content}
+        />
         <div className="popup-buttons">
           <button className="popup-edit">edit</button>
           <button
@@ -38,7 +50,12 @@ export default function Popup(props) {
           >
             submit
           </button>
-          <button className="popup-delete">delete</button>
+          <button
+            className="popup-delete"
+            onClick={deleteRec}
+          >
+            delete
+          </button>
         </div>
       </div>
     </div>

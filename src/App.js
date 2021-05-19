@@ -4,7 +4,7 @@ import Layout from "./components/shared/Layout/Layout"
 import About from "./screens/About/About";
 import ShareIdeas from "./screens/ShareIdeas/ShareIdeas";
 import Home from "./screens/Home/Home";
-import Station from "./components/Station/Station";
+import Station from "./screens/Station/Station";
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react"
 import { stationsURL, config } from "./services";
@@ -40,6 +40,9 @@ function App() {
           </Route>
           {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
           <Route path="/share-ideas">
+            <ShareIdeas stationList={stationList} />
+          </Route>
+          <Route path="/edit/:id">
             <ShareIdeas stationList={stationList} />
           </Route>
           <Route path="/add/:stationParam">

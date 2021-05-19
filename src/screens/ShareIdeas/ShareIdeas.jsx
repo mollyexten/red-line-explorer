@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { recommendationsURL, config } from "../../services"
 import "./ShareIdeas.css"
 import Popup from "../../components/Popup/Popup"
@@ -10,19 +10,16 @@ function ShareIdeas(props) {
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const [recId, setRecId] = useState("");
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
   const togglePopup = () => {
     setIsOpen(!isOpen)
   }
-  const [destinationPath, setDestinationPath] = ("")
   
   // set up useParams to automatically fill in station
   const { stationParam } = useParams();
-  
-  // set up useHistory to redirect user to main page after form submission
-  const history = useHistory();
 
   // PUT STATION NAME IN DROPDOWN IF COMING FROM THAT STATION'S PAGE
   useEffect(() => {
@@ -47,15 +44,11 @@ function ShareIdeas(props) {
       station: [stationId],
     }
     // Make a post request to Airtable
-    await axios.post(recommendationsURL, { fields: newRecommendation }, config)
+    const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
+    console.log(resp.data.id)
+    setRecId(resp.data.id)
 
     togglePopup()
-    // Redirect user to station page
-    const stations = props.stationList
-    const destination = stations.find(station => station.id === stationId)
-    const destinationPath = destination.fields.stationKebab
-    // setDestinationPath(destinationPath)
-    // history.push(`/${destinationPath}`)
   }
 
   return (
@@ -121,6 +114,7 @@ function ShareIdeas(props) {
           stationId={stationId}
           name={name}
           content={content}
+          recId={recId}
         />
       )}
     </div>

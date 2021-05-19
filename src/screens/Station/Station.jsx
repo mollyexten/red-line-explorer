@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { recommendationsURL, config } from "../../services";
 import axios from "axios";
-import Recommendation from "../../screens/Recommendation/Recommendation";
+import Recommendation from "../../components/Recommendation/Recommendation";
 import "./Station.css";
 
 function Station(props) {
