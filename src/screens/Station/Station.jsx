@@ -80,8 +80,19 @@ function Station(props) {
         const stationRecommendations = recs.filter(
           (rec) => rec.fields.station[0] === stationId
         );
-        // Store the stationRecommendations from filter method as the recommendations for this page
-        setRecommendations(stationRecommendations);
+        const compare = (a, b) => {
+          const recA = a.createdTime;
+          const recB = b.createdTime;
+          let comparison = 0;
+          if (recA > recB) {
+            comparison = -1;
+          } else if (recA < recB) {
+            comparison = 1;
+          }
+          return comparison
+        }
+        const chronoRecs = stationRecommendations.sort(compare);
+        setRecommendations(chronoRecs);
       };
       getRecommendations();
     }
