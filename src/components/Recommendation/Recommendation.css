@@ -7,12 +7,19 @@
   border-radius: 8px;
 }
 
-.rec-name {
+.red-bar {
   background-color: #e10c0c;
   color: white;
   padding: 10px;
   margin: 0px;
   border-radius: 8px 8px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.red-bar>* {
+  margin: 0px;
 }
 
 .rec-content {

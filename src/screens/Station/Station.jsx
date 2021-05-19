@@ -88,11 +88,6 @@ function Station(props) {
     // Invoke this function whenever the station id changes
   }, [stationId]);
 
-  // Use these variables to render the arrows depending on station
-  const noPrev = prevParam === "";
-  const noBonus = bonusParam === "";
-  const noNext = nextParam === "";
-
   return (
     <div>
       <header className="header-station">
@@ -100,27 +95,21 @@ function Station(props) {
         {/* The next part specifies when linked arrows should be displayed according to prev, next, and bonus station info */}
         <div className="header-bottom-station">
           <div className="left">
-            {noPrev ? (
-              ""
-            ) : (
+            {prevParam && (
               <Link to={`/${prevParam}`}>
                 <i className="fas fa-arrow-left" />
               </Link>
             )}
           </div>{" "}
           <div className="bottom">
-            {noBonus ? (
-              ""
-            ) : (
+            {bonusParam && (
               <Link to={`${bonusParam}`}>
                 <i className="fas fa-arrow-down" />
               </Link>
             )}
           </div>{" "}
           <div className="right">
-            {noNext ? (
-              ""
-            ) : (
+            {nextParam && (
               <Link to={`${nextParam}`}>
                 <i className="fas fa-arrow-right" />
               </Link>
@@ -139,6 +128,7 @@ function Station(props) {
               key={recommendation.id}
               // Pass name and content as props into the recommendation component
               name={recommendation.fields.name}
+              date={recommendation.createdTime}
               content={recommendation.fields.content}
             />
           ))}
