@@ -47,7 +47,6 @@ function ShareIdeas({ stationList }) {
     }
     // Make a post or put request to Airtable
     if (!id) {
-      console.log(newRecommendation)
       const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
       setRecId(resp.data.id)
     } else {
