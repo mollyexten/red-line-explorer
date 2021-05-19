@@ -73,24 +73,24 @@ function Station({ stationList }) {
 
   return (
     <div>
-      <header className="header-station">
-        <h1 className="header-top-station">{stationName.toUpperCase()}</h1>
+      <header>
+        <h1 className="header-top">{stationName.toUpperCase()}</h1>
         {/* The next part specifies when linked arrows should be displayed according to prev, next, and bonus station info */}
-        <div className="header-bottom-station">
+        <div className="header-bottom-station header-bottom">
           <div className="left">
             {prevParam && (
               <Link to={`/${prevParam}`}>
                 <i className="fas fa-arrow-left" />
               </Link>
             )}
-          </div>{" "}
+          </div>
           <div className="bottom">
             {bonusParam && (
               <Link to={`${bonusParam}`}>
                 <i className="fas fa-arrow-down" />
               </Link>
             )}
-          </div>{" "}
+          </div>
           <div className="right">
             {nextParam && (
               <Link to={`${nextParam}`}>

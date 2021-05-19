@@ -17,7 +17,6 @@ body {
   text-align: center;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
-  padding-bottom: 25px;
 }
 
 /* ==========================================================================
@@ -25,8 +24,9 @@ body {
 ========================================================================== */
 
 header {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -34,12 +34,12 @@ header {
   color: var(--redline-white);
   background-color: var(--redline-red);
   padding-top: 2px;
-  margin-bottom: 0;
+  margin: 0px;
 }
 
 .header-bottom {
   background-color: var(--redline-white);
-  margin-top: 0;
+  margin: 0px;
   padding-top: 2px;
 }
 
@@ -58,7 +58,7 @@ button {
   box-shadow: 3px 2px 2px rgb(104, 100, 98);
   background-color: rgb(238, 241, 241);
   border-radius: 8px;
-  padding: 3px;
+  padding: 20px;
 }
 
 button:hover,
@@ -76,41 +76,16 @@ a:active {
 ========================================================================== */
 
 /* ==================================================================
-  Skinny smartphone view
-  ================================================================== */
-
-@media screen and (max-width: 370px) {
-  .header-top,
-  .header-bottom {
-    font-size: 18pt;
-  }
-
-  .App {
-    font-size: 12pt;
-  }
-}
-
-/* ==================================================================
-  Midsized smartphone view
-  ================================================================== */
-
-@media screen and (min-width: 371px) {
-  .header-top,
-  .header-bottom {
-    font-size: 23pt;
-  }
-}
-
-/* ==================================================================
   Large smartphone/phablet view
   ================================================================== */
 
 @media screen and (min-width: 400px) {
-  .header-top, .header-bottom {
-    font-size: 25pt;
+  .header-top, 
+  .header-bottom {
+    font-size: 2em;
   }
   button {
-    font-size: 16px;
+    font-size: 1.5em;
   }
 }
 
@@ -119,16 +94,8 @@ a:active {
   ================================================================== */
 
 @media screen and (min-width: 641px) {
-  .header-top,
-  .header-bottom {
-    font-size: 40pt;
-  }
-
   .header-top {
-    padding-top: 10px;
-  }
-
-  .header-bottom {
-    padding-bottom: 3px;
+    font-size: 3em;
+    margin-top: 30px;
   }
 }
