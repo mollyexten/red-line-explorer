@@ -70,3 +70,22 @@ textarea {
   font-size: 1.25em;
   align-self: center;
 }
+
+@media screen and (min-width: 500px) {
+  .name-row, .station-row {
+    grid-template-columns: 150px 300px;
+  }
+}
+
+@media screen and (min-width: 730px) {
+  form {
+    width: 715px;
+    align-self: center;
+  }
+  label {
+    font-size: 1.25em;
+  }
+  .recommendation-input {
+    width: 660px;
+  }
+}
