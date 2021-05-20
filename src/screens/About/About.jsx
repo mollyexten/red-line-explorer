@@ -7,7 +7,7 @@ function About() {
       <header>
         <h1 className="header-top">ABOUT</h1>
         {/* Leave an empty header to maintain the white line look */}
-        <h1 className="header-bottom"> </h1>
+        <h1 className="header-bottom">&nbsp;</h1>
       </header>
       <div>
         {/* About the site section */}
