@@ -7,8 +7,9 @@ import axios from "axios";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import "./Station.css";
 
-function Station({ stationList }) {
+function Station(props) {
   // Store stationId, stationName, ids for nearby stations, and recommendations as state variables
+  const { stationList, getStationRecs, allRecs } = props;
   const [stationId, setStationId] = useState("");
   const [stationName, setStationName] = useState("");
   const [prevParam, setPrevParam] = useState("");
@@ -53,23 +54,30 @@ function Station({ stationList }) {
     }
   }, [stationParam, stationList]);
 
+  // useEffect(() => {
+  //   if (stationId) {
+  //     // get all recommendations from the recommendations table
+  //     const getRecommendations = async () => {
+  //       const resp = await axios.get(recommendationsURL, config);
+  //       const recs = resp.data.records;
+  //       // Use filter method to find recommendations for the matching station, store in an variable called stationRecommendations
+  //       const stationRecommendations = recs.filter(
+  //         (rec) => rec.fields.station[0] === stationId
+  //       );
+  //       const chronoRecs = stationRecommendations.sort(compareRecommendations);
+  //       setRecommendations(chronoRecs);
+  //     };
+  //     getRecommendations();
+  //   }
+  //   // Invoke this function whenever the station id changes
+  // }, [stationId]);
+
   useEffect(() => {
-    if (stationId) {
-      // get all recommendations from the recommendations table
-      const getRecommendations = async () => {
-        const resp = await axios.get(recommendationsURL, config);
-        const recs = resp.data.records;
-        // Use filter method to find recommendations for the matching station, store in an variable called stationRecommendations
-        const stationRecommendations = recs.filter(
-          (rec) => rec.fields.station[0] === stationId
-        );
-        const chronoRecs = stationRecommendations.sort(compareRecommendations);
-        setRecommendations(chronoRecs);
-      };
-      getRecommendations();
+    if (stationId && allRecs.length) {
+      const recs = getStationRecs(allRecs, stationId)
+      setRecommendations(recs)
     }
-    // Invoke this function whenever the station id changes
-  }, [stationId]);
+  }, [allRecs, stationId])
 
   return (
     <div>

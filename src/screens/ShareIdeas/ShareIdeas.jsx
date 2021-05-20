@@ -1,25 +1,19 @@
 import "./ShareIdeas.css"
 import Popup from "../../components/Popup/Popup"
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { recommendationsURL, config } from "../../services"
+// import { recommendationsURL, config } from "../../services"
 
 
-function ShareIdeas({ stationList }) {
+function ShareIdeas(props) {
+  const { postRec, stationList, updateRec } = props
   const { stationParam, id } = useParams();
 
-  // const { name, stationId, content } = formData
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [recId, setRecId] = useState("");
-
-  useEffect(() => {
-    if (stationList.length) {
-      setStationId(stationList[0].id)
-    }
-  }, [stationList])
 
   // State and function for managing the popup component:
   const [isOpen, setIsOpen] = useState(false)
@@ -32,8 +26,9 @@ function ShareIdeas({ stationList }) {
     if (stationParam && stationList.length) {
       const stationEdit = stationList.find((station) =>
         station.fields.stationKebab === stationParam)
-      const preselectedStation = stationEdit.id
-      setStationId(preselectedStation)
+      setStationId(stationEdit.id)
+    } else {
+      setStationId(stationList[0].id)
     }
   }, [stationParam, stationList])
 
@@ -47,12 +42,15 @@ function ShareIdeas({ stationList }) {
     }
     // Make a post or put request to Airtable
     if (!id) {
-      const resp = await axios.post(recommendationsURL, { fields: newRecommendation }, config)
-      setRecId(resp.data.id)
+      const newRec = postRec(newRecommendation)
+      console.log(newRec)
+      setRecId(newRec.id)
     } else {
-      const editURL = `${recommendationsURL}/${id}`
-      await axios.put(editURL, { fields: newRecommendation }, config)
+      updateRec(id, newRecommendation)
+      // const editURL = `${recommendationsURL}/${id}`
+      // await axios.put(editURL, { fields: newRecommendation }, config)
     }
+    
     togglePopup()
   }
 
