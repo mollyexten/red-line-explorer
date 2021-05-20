@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 
 function ShareIdeas(props) {
-  const { postRec, stationList, updateRec } = props
+  const { postRec, stationList, updateRec, allRecs, getOneRec } = props
   const { stationParam, id } = useParams();
 
   const [stationId, setStationId] = useState("");
@@ -23,7 +23,7 @@ function ShareIdeas(props) {
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
-    if (stationParam && stationList.length) {
+    if (stationParam && stationList.length > 0) {
       const stationEdit = stationList.find((station) =>
         station.fields.stationKebab === stationParam)
       setStationId(stationEdit.id)
@@ -42,9 +42,9 @@ function ShareIdeas(props) {
     }
     // Make a post or put request to Airtable
     if (!id) {
-      const newRec = postRec(newRecommendation)
-      console.log(newRec)
-      setRecId(newRec.id)
+      // const newRec = postRec(newRecommendation)
+      postRec(newRecommendation)
+      // setRecId(newRec)
     } else {
       updateRec(id, newRecommendation)
       // const editURL = `${recommendationsURL}/${id}`
@@ -118,10 +118,12 @@ function ShareIdeas(props) {
         <Popup
           stations={stationList}
           stationId={stationId}
+          allRecs={allRecs}
           name={name}
           content={content}
-          recId={recId}
+          // recId={recId}
           setIsOpen={setIsOpen}
+          getOneRec={getOneRec}
         />
       )}
     </div>

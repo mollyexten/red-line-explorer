@@ -8,7 +8,8 @@ export const readRecommendations = async () => {
 
 export const createRecommendation = async (data) => {
   const resp = await axios.post(recommendationsURL, { fields: data }, config)
-  return resp.data
+  console.log(resp.data.id)
+  return resp.data.id
 }
 
 export const putRecommendation = async (id, data) => {

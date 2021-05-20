@@ -7,9 +7,10 @@ import axios from "axios";
 
 export default function Popup(props) {
   const history = useHistory();
-  const { stations, stationId, name, content, recId, setIsOpen } = props
+  const { stations, stationId, name, content, setIsOpen, allRecs, getOneRec } = props
   const [stationName, setStationName] = useState("")
   const [stationPath, setStationPath] = useState("")
+  const [recId, setRecId] = useState([])
 
   useEffect(() => {
     const findStationName = (stations, id) => {
@@ -21,6 +22,13 @@ export default function Popup(props) {
       findStationName(stations, stationId)
     }
   }, [stations, stationId])
+
+  useEffect(() => {
+    if (allRecs.length && name && content) {
+      const foundRec = getOneRec(allRecs, name, content)
+      setRecId(foundRec.id)
+    }
+  }, [allRecs, name, content, getOneRec])
 
   const editRec = () => {
     setIsOpen(false)
@@ -41,27 +49,15 @@ export default function Popup(props) {
     <div className="popup-cover">
       <div className="popup-box">
         <p className="popup-station">Review your submission for {stationName}</p>
-        <Recommendation
-          name={name}
-          content={content}
-        />
+        <Recommendation name={name} content={content}/>
         <div className="popup-buttons">
-          <button
-            className="popup-edit"
-            onClick={editRec}
-          >
+          <button className="popup-edit" onClick={editRec}>
             edit
           </button>
-          <button
-            className="popup-submit"
-            onClick={handleRedirect}
-          >
+          <button className="popup-submit" onClick={handleRedirect}>
             submit
           </button>
-          <button
-            className="popup-delete"
-            onClick={deleteRec}
-          >
+          <button className="popup-delete" onClick={deleteRec}>
             delete
           </button>
         </div>

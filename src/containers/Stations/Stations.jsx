@@ -33,6 +33,13 @@ export default function Stations(props) {
     return chronoRecs;
   }
 
+  const getOneRec = (allRecs, name, content) => {
+    const oneRec = allRecs.find(rec => {
+      return (rec.fields.name) === name && (rec.fields.content) === content
+    })
+    return oneRec;
+  }
+
   const postRec = async (data) => {
     const newRec = await createRecommendation(data);
     setAllRecs((prevState) => [...prevState, newRec])
@@ -58,18 +65,24 @@ export default function Stations(props) {
         <ShareIdeas
           stationList={stationList}
           postRec={postRec}
+          allRecs={allRecs}
+          getOneRec={getOneRec}
         />
       </Route>
       <Route path="/edit/:id">
         <ShareIdeas
           stationList={stationList}
           updateRec={updateRec}
+          allRecs={allRecs}
+          getOneRec={getOneRec}
         />
       </Route>
       <Route path="/add/:stationParam">
         <ShareIdeas
           stationList={stationList}
           postRec={postRec}
+          allRecs={allRecs}
+          getOneRec={getOneRec}
         />
       </Route>
       <Route path="/:stationParam">
