@@ -64,44 +64,51 @@ function ShareIdeas({ stationList }) {
       </header>
       {/* When this form is submitted, call the handleSubmit function */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name" className="name-label">Name</label>
-        {/* Set the value of the name to the value of this textbox */}
-        <input
-          required
-          type="text"
-          id="name"
-          className="name-input"
-          value={name}
-          autoComplete="off"
-          onChange={(e) => setName(e.target.value)}
-        />
+        <div className="name-row">
+          <label htmlFor="name" className="name-label">Name</label>
+          {/* Set the value of the name to the value of this textbox */}
+          <input
+            required
+            type="text"
+            id="name"
+            className="name-input"
+            value={name}
+            autoComplete="off"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         {/* Set the value of this select element to the value of the option selected and stored as stationId */}
-        <label htmlFor="station" className="station-label">Station</label>
-        <select
-          className="station-input"
-          id="station"
-          value={stationId}
-          onChange={(e) => setStationId(e.target.value)}
-        >
-          {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
-          {stationList.map((station) => (
-            <option
-              value={station.id}
-              key={station.id}
-            >
-              {station.fields.Name}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="recommendation" className="recommendation-label">Recommendation</label>
-        <textarea
-          required
-          id="recommendation"
-          className="recommendation-input"
-          value={content}
-          autoComplete="off"
-          onChange={(e) => setContent(e.target.value)}
-        />
+        <div className="station-row">
+          <label htmlFor="station" className="station-label">Station</label>
+          <select
+            className="station-input"
+            id="station"
+            value={stationId}
+            onChange={(e) => setStationId(e.target.value)}
+          >
+            {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
+            {stationList.map((station) => (
+              <option
+                value={station.id}
+                key={station.id}
+              >
+                {station.fields.Name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="recommendation-row">
+          <label htmlFor="recommendation" className="recommendation-label">Recommendation</label>
+          <textarea
+            required
+            id="recommendation"
+            className="recommendation-input"
+            value={content}
+            autoComplete="off"
+            rows="6"
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
         <button
           type="submit"
           className="submit-button"
