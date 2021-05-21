@@ -12,8 +12,7 @@ function ShareIdeas(props) {
     stationList,
     updateRec,
     allRecs,
-    getOneRec,
-    // removeRec
+    getOneRec
   } = props
   const { stationParam, id } = useParams();
 
@@ -37,6 +36,16 @@ function ShareIdeas(props) {
       setStationId(stationList[0].id)
     }
   }, [stationParam, stationList])
+
+  useEffect(() => {
+    if (id) {
+      const foundRec = getOneRec(allRecs, id)
+      console.log(foundRec)
+      setName(foundRec.fields.name)
+      setContent(foundRec.fields.content)
+      setStationId(foundRec.fields.station[0])
+    }
+  }, [id, allRecs, getOneRec])
 
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {

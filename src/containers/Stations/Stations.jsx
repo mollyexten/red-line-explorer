@@ -11,8 +11,11 @@ import {
   putRecommendation,
   deleteRecommendation
 } from "../../services/recommendations.js"
-import { compareStations } from "../../services/helpers.js"
-import { compareRecommendations } from "../../services/helpers.js"
+import {
+  compareStations,
+  compareRecommendations,
+  convertKebab
+} from "../../services/helpers.js"
 
 export default function Stations() {
   const history = useHistory()
@@ -32,6 +35,13 @@ export default function Stations() {
     fetchStations();
     fetchRecommendations();
   }, [])
+
+  const getOneStation = (stations, id) => {
+    const oneStation = stations.find(station => {
+      return (station.id === id)
+    })
+    return oneStation
+  }
 
   const getStationRecs = (allRecs, stationId) => {
     const stationRecs = allRecs.filter(rec => rec.fields.station[0] === stationId)
@@ -57,6 +67,7 @@ export default function Stations() {
     setAllRecs(prevState => prevState.map(rec => {
       return rec.id === Number(id) ? updatedRec : rec;
     }))
+    history.push(`/preview/${updatedRec.id}`)
   }
 
   const removeRec = async (id) => {
@@ -77,9 +88,6 @@ export default function Stations() {
         <ShareIdeas
           stationList={stationList}
           postRec={postRec}
-          allRecs={allRecs}
-          getOneRec={getOneRec}
-          removeRec={removeRec}
         />
       </Route>
       <Route path="/edit/:id">
@@ -88,24 +96,22 @@ export default function Stations() {
           updateRec={updateRec}
           allRecs={allRecs}
           getOneRec={getOneRec}
-          removeRec={removeRec}
         />
       </Route>
       <Route path="/add/:stationParam">
         <ShareIdeas
           stationList={stationList}
           postRec={postRec}
-          allRecs={allRecs}
-          getOneRec={getOneRec}
-          removeRec={removeRec}
         />
       </Route>
       <Route path="/preview/:recId">
         <PreviewPost
           stationList={stationList}
+          getOneStation={getOneStation}
           allRecs={allRecs}
           getOneRec={getOneRec}
           removeRec={removeRec}
+          convertKebab={convertKebab}
         />
       </Route>
       <Route path="/:stationParam">
