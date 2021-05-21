@@ -1,5 +1,5 @@
 import "./ShareIdeas.css"
-import Popup from "../../components/Popup/Popup"
+// import Popup from "../../components/Popup/Popup"
 // import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -7,25 +7,31 @@ import { useParams } from "react-router-dom";
 
 
 function ShareIdeas(props) {
-  const { postRec, stationList, updateRec, allRecs, getOneRec } = props
+  const {
+    postRec,
+    stationList,
+    updateRec,
+    allRecs,
+    getOneRec,
+    // removeRec
+  } = props
   const { stationParam, id } = useParams();
 
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [recId, setRecId] = useState("");
+  const [rec, setRec] = useState({})
 
   // State and function for managing the popup component:
-  const [isOpen, setIsOpen] = useState(false)
-  const togglePopup = () => {
-    setIsOpen(!isOpen)
-  }
+  // const [isOpen, setIsOpen] = useState(false)
+  // const togglePopup = () => {
+  //   setIsOpen(!isOpen)
+  // }
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
     if (stationParam && stationList.length > 0) {
-      const stationEdit = stationList.find((station) =>
-        station.fields.stationKebab === stationParam)
+      const stationEdit = stationList.find((station) => station.fields.stationKebab === stationParam)
       setStationId(stationEdit.id)
     } else {
       setStationId(stationList[0].id)
@@ -35,23 +41,19 @@ function ShareIdeas(props) {
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newRecommendation = {
+    const formRecommendation = {
       name: name,
       content: content,
       station: [stationId],
     }
-    // Make a post or put request to Airtable
     if (!id) {
-      // const newRec = postRec(newRecommendation)
-      postRec(newRecommendation)
-      // setRecId(newRec)
+      postRec(formRecommendation)
+      // console.log(resp)
+      // setRec(resp)
     } else {
-      updateRec(id, newRecommendation)
-      // const editURL = `${recommendationsURL}/${id}`
-      // await axios.put(editURL, { fields: newRecommendation }, config)
+      updateRec(id, formRecommendation)
     }
-    
-    togglePopup()
+    // togglePopup()
   }
 
   return (
@@ -114,18 +116,20 @@ function ShareIdeas(props) {
           Submit
         </button>
       </form>
-      {isOpen && (
+      {/* {isOpen && (
         <Popup
           stations={stationList}
           stationId={stationId}
           allRecs={allRecs}
           name={name}
           content={content}
-          // recId={recId}
           setIsOpen={setIsOpen}
           getOneRec={getOneRec}
+          // removeRec={removeRec}
+          rec={rec}
+          id={id}
         />
-      )}
+      )} */}
     </div>
   )
 }

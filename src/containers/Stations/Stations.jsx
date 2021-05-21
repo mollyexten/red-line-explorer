@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react"
-import { Route, Switch } from "react-router-dom"
-import { useHistory } from "react-router-dom"
+import { Route, Switch, useHistory } from "react-router-dom"
 import Home from "../../screens/Home/Home"
 import ShareIdeas from "../../screens/ShareIdeas/ShareIdeas"
+import PreviewPost from "../../screens/PreviewPost/PreviewPost"
 import Station from "../../screens/Station/Station"
 import { readStations } from "../../services/stations.js"
-import { readRecommendations, createRecommendation, putRecommendation } from "../../services/recommendations.js"
+import {
+  readRecommendations,
+  createRecommendation,
+  putRecommendation,
+  deleteRecommendation
+} from "../../services/recommendations.js"
 import { compareStations } from "../../services/helpers.js"
 import { compareRecommendations } from "../../services/helpers.js"
 
-export default function Stations(props) {
+export default function Stations() {
+  const history = useHistory()
   const [stationList, setStationList] = useState([]);
   const [allRecs, setAllRecs] = useState([])
   
@@ -33,9 +39,9 @@ export default function Stations(props) {
     return chronoRecs;
   }
 
-  const getOneRec = (allRecs, name, content) => {
+  const getOneRec = (allRecs, id) => {
     const oneRec = allRecs.find(rec => {
-      return (rec.fields.name) === name && (rec.fields.content) === content
+      return (rec.id) === id
     })
     return oneRec;
   }
@@ -43,7 +49,7 @@ export default function Stations(props) {
   const postRec = async (data) => {
     const newRec = await createRecommendation(data);
     setAllRecs((prevState) => [...prevState, newRec])
-    return newRec;
+    history.push(`/preview/${newRec.id}`)
   }
 
   const updateRec = async (id, data) => {
@@ -51,6 +57,12 @@ export default function Stations(props) {
     setAllRecs(prevState => prevState.map(rec => {
       return rec.id === Number(id) ? updatedRec : rec;
     }))
+  }
+
+  const removeRec = async (id) => {
+    await deleteRecommendation(id)
+    setAllRecs(prevState => prevState.filter(rec => rec.id !== id))
+    history.push("/")
   }
 
   return (
@@ -67,6 +79,7 @@ export default function Stations(props) {
           postRec={postRec}
           allRecs={allRecs}
           getOneRec={getOneRec}
+          removeRec={removeRec}
         />
       </Route>
       <Route path="/edit/:id">
@@ -75,6 +88,7 @@ export default function Stations(props) {
           updateRec={updateRec}
           allRecs={allRecs}
           getOneRec={getOneRec}
+          removeRec={removeRec}
         />
       </Route>
       <Route path="/add/:stationParam">
@@ -83,6 +97,15 @@ export default function Stations(props) {
           postRec={postRec}
           allRecs={allRecs}
           getOneRec={getOneRec}
+          removeRec={removeRec}
+        />
+      </Route>
+      <Route path="/preview/:recId">
+        <PreviewPost
+          stationList={stationList}
+          allRecs={allRecs}
+          getOneRec={getOneRec}
+          removeRec={removeRec}
         />
       </Route>
       <Route path="/:stationParam">

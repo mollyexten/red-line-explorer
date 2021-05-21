@@ -7,10 +7,17 @@ import axios from "axios";
 
 export default function Popup(props) {
   const history = useHistory();
-  const { stations, stationId, name, content, setIsOpen, allRecs, getOneRec } = props
+  const {
+    stations,
+    stationId,
+    setIsOpen,
+    allRecs,
+    getOneRec,
+    rec
+  } = props
   const [stationName, setStationName] = useState("")
   const [stationPath, setStationPath] = useState("")
-  const [recId, setRecId] = useState([])
+  const [recInfo, setRecInfo] = useState ({})
 
   useEffect(() => {
     const findStationName = (stations, id) => {
@@ -24,23 +31,24 @@ export default function Popup(props) {
   }, [stations, stationId])
 
   useEffect(() => {
-    if (allRecs.length && name && content) {
-      const foundRec = getOneRec(allRecs, name, content)
-      setRecId(foundRec.id)
+    if (rec) {
+      const foundRec = getOneRec(allRecs, rec.id)
+      setRecInfo(foundRec)
     }
-  }, [allRecs, name, content, getOneRec])
+  }, [allRecs, getOneRec, rec])
 
   const editRec = () => {
     setIsOpen(false)
-    history.push(`/edit/${recId}`)
+    history.push(`/edit/${recInfo.id}`)
   }
 
   const handleRedirect = () => {
     history.push(`/${stationPath}`)
   }
 
-  const deleteRec = async () => {
-    const recURL = `${recommendationsURL}/${recId}`
+  const deleteRec = async (recInfo) => {
+    // removeRec(recId)
+    const recURL = `${recommendationsURL}/${recInfo.id}`
     await axios.delete(recURL, config)
     history.push("/")
   }
@@ -49,7 +57,7 @@ export default function Popup(props) {
     <div className="popup-cover">
       <div className="popup-box">
         <p className="popup-station">Review your submission for {stationName}</p>
-        <Recommendation name={name} content={content}/>
+        <Recommendation name={recInfo.fields.name} content={recInfo.fields.content}/>
         <div className="popup-buttons">
           <button className="popup-edit" onClick={editRec}>
             edit
