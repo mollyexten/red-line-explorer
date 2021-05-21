@@ -19,6 +19,6 @@ export const putRecommendation = async (id, data) => {
 
 export const deleteRecommendation = async (id) => {
   const deleteURL = `${recommendationsURL}/${id}`
-  const resp = await axios.delete(deleteURL)
+  const resp = await axios.delete(deleteURL, config)
   return resp
 }

@@ -22,14 +22,14 @@ export default function PreviewPost(props) {
   const [stationName, setStationName] = useState("")
   
   useEffect(() => {
-    if (recId) {
+    if (recId && allRecs && getOneRec) {
       const recInfo = getOneRec(allRecs, recId)
-      const id = recInfo.id
+      // const id = recInfo.id
       const recName = recInfo.fields.name
       const recContent = recInfo.fields.content
       const recDate = recInfo.createdTime
       const recStation = recInfo.fields.station[0]
-      setId(id)
+      // setId(id)
       setName(recName)
       setContent(recContent)
       setDate(recDate)
