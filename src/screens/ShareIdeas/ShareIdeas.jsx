@@ -22,7 +22,8 @@ function ShareIdeas(props) {
   useEffect(() => {
     if (stationParam && stationList.length > 0) {
       const stationEdit = stationList.find((station) => {
-        convertKebab(station.fields.Name) === stationParam
+        const reformattedStation = convertKebab(station.fields.Name)
+        return reformattedStation === stationParam
       })
       setStationId(stationEdit.id)
     } else {

@@ -1,9 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { recommendationsURL, config } from "../../services";
-// import { compareRecommendations } from "../../services/helpers.js"
-// import axios from "axios";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import "./Station.css";
 
@@ -54,30 +51,21 @@ function Station(props) {
     }
   }, [stationParam, stationList]);
 
-  // useEffect(() => {
-  //   if (stationId) {
-  //     // get all recommendations from the recommendations table
-  //     const getRecommendations = async () => {
-  //       const resp = await axios.get(recommendationsURL, config);
-  //       const recs = resp.data.records;
-  //       // Use filter method to find recommendations for the matching station, store in an variable called stationRecommendations
-  //       const stationRecommendations = recs.filter(
-  //         (rec) => rec.fields.station[0] === stationId
-  //       );
-  //       const chronoRecs = stationRecommendations.sort(compareRecommendations);
-  //       setRecommendations(chronoRecs);
-  //     };
-  //     getRecommendations();
-  //   }
-  //   // Invoke this function whenever the station id changes
-  // }, [stationId]);
-
   useEffect(() => {
     if (stationId && allRecs.length) {
       const recs = getStationRecs(allRecs, stationId)
       setRecommendations(recs)
     }
   }, [allRecs, stationId, getStationRecs])
+
+  const recommendationsJSX = recommendations.map((recommendation) => (
+    <Recommendation
+      key={recommendation.id}
+      name={recommendation.fields.name}
+      date={recommendation.createdTime}
+      content={recommendation.fields.content}
+    />
+  ))
 
   return (
     <div>
@@ -111,18 +99,8 @@ function Station(props) {
       <Link to={`/add/${stationParam}`}>
         <button className="share-ideas">Share Ideas</button>
       </Link>
-      {/* Pass station recommendations as props into the recommendation component */}
       <div className="recommendations-div">
-        {recommendations &&
-          recommendations.map((recommendation) => (
-            <Recommendation
-              key={recommendation.id}
-              // Pass name and content as props into the recommendation component
-              name={recommendation.fields.name}
-              date={recommendation.createdTime}
-              content={recommendation.fields.content}
-            />
-          ))}
+        {recommendations && recommendationsJSX}
       </div>
     </div>
   );
