@@ -65,7 +65,7 @@ export default function Stations() {
   const updateRec = async (id, data) => {
     const updatedRec = await putRecommendation(id, data);
     setAllRecs(prevState => prevState.map(rec => {
-      return rec.id === Number(id) ? updatedRec : rec;
+      return rec.id === id ? updatedRec : rec;
     }))
     history.push(`/preview/${updatedRec.id}`)
   }
@@ -73,7 +73,6 @@ export default function Stations() {
   const removeRec = async (id) => {
     await deleteRecommendation(id)
     setAllRecs(prevState => prevState.filter(rec => rec.id !== id))
-    // history.push("/")
   }
 
   return (

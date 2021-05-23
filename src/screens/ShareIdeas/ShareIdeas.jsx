@@ -1,9 +1,9 @@
 import "./ShareIdeas.css"
 // import Popup from "../../components/Popup/Popup"
-// import axios from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import { recommendationsURL, config } from "../../services"
+import { useParams, useHistory } from "react-router-dom";
+import { recommendationsURL, config } from "../../services"
 
 
 function ShareIdeas(props) {
@@ -15,6 +15,7 @@ function ShareIdeas(props) {
     getOneRec
   } = props
   const { stationParam, id } = useParams();
+  const history = useHistory();
 
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
@@ -50,15 +51,18 @@ function ShareIdeas(props) {
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formRecommendation = {
+    const newRecommendation = {
       name: name,
       content: content,
       station: [stationId],
     }
     if (id) {
-      updateRec(id, formRecommendation)
+      updateRec(id, newRecommendation)
+      // const editURL = `${recommendationsURL}/${id}`
+      // await axios.put(editURL, { fields: newRecommendation }, config)
+      // history.push(`/preview/${id}`)
     } else {
-      postRec(formRecommendation)
+      postRec(newRecommendation)
     }
     // togglePopup()
   }
