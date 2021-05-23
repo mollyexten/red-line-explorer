@@ -1,9 +1,6 @@
 import "./ShareIdeas.css"
-// import Popup from "../../components/Popup/Popup"
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
-import { recommendationsURL, config } from "../../services"
+import { useParams } from "react-router-dom";
 
 
 function ShareIdeas(props) {
@@ -15,18 +12,10 @@ function ShareIdeas(props) {
     getOneRec
   } = props
   const { stationParam, id } = useParams();
-  const history = useHistory();
 
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  // const [rec, setRec] = useState({})
-
-  // State and function for managing the popup component:
-  // const [isOpen, setIsOpen] = useState(false)
-  // const togglePopup = () => {
-  //   setIsOpen(!isOpen)
-  // }
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
@@ -58,13 +47,9 @@ function ShareIdeas(props) {
     }
     if (id) {
       updateRec(id, newRecommendation)
-      // const editURL = `${recommendationsURL}/${id}`
-      // await axios.put(editURL, { fields: newRecommendation }, config)
-      // history.push(`/preview/${id}`)
     } else {
       postRec(newRecommendation)
     }
-    // togglePopup()
   }
 
   return (
@@ -127,20 +112,6 @@ function ShareIdeas(props) {
           Submit
         </button>
       </form>
-      {/* {isOpen && (
-        <Popup
-          stations={stationList}
-          stationId={stationId}
-          allRecs={allRecs}
-          name={name}
-          content={content}
-          setIsOpen={setIsOpen}
-          getOneRec={getOneRec}
-          // removeRec={removeRec}
-          rec={rec}
-          id={id}
-        />
-      )} */}
     </div>
   )
 }

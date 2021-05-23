@@ -14,7 +14,6 @@ export default function PreviewPost(props) {
   } = props
   const { recId } = useParams();
   const history = useHistory();
-  // const [id, setId] = useState("")
   const [name, setName] = useState("")
   const [content, setContent] = useState("")
   const [date, setDate] = useState("")
