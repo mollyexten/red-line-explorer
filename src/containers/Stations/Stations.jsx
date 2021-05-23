@@ -119,6 +119,7 @@ export default function Stations() {
           stationList={stationList}
           getStationRecs={getStationRecs}
           allRecs={allRecs}
+          convertKebab={convertKebab}
         />
       </Route>
     </Switch>
