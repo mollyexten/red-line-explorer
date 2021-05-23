@@ -27,6 +27,7 @@ function ShareIdeas(props) {
     }
   }, [stationParam, stationList])
 
+  // Fill out form if coming from the "edit" button
   useEffect(() => {
     if (id) {
       const foundRec = getOneRec(allRecs, id)
@@ -37,6 +38,16 @@ function ShareIdeas(props) {
     }
   }, [id, allRecs, getOneRec])
 
+  // Map out all stations and pass their names into the options tag
+  const stationsJSX = stationList.map((station) => (
+    <option
+      value={station.id}
+      key={station.id}
+    >
+      {station.fields.Name}
+    </option>
+  ))
+
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,11 +56,7 @@ function ShareIdeas(props) {
       content: content,
       station: [stationId],
     }
-    if (id) {
-      updateRec(id, newRecommendation)
-    } else {
-      postRec(newRecommendation)
-    }
+    id ? updateRec(id, newRecommendation) : postRec(newRecommendation)
   }
 
   return (
@@ -58,11 +65,9 @@ function ShareIdeas(props) {
         <h1 className="header-top">SHARE YOUR</h1>
         <h1 className="header-bottom">IDEAS</h1>
       </header>
-      {/* When this form is submitted, call the handleSubmit function */}
       <form onSubmit={handleSubmit}>
         <div className="name-row">
           <label htmlFor="name" className="name-label">Name</label>
-          {/* Set the value of the name to the value of this textbox */}
           <input
             required
             type="text"
@@ -73,7 +78,6 @@ function ShareIdeas(props) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        {/* Set the value of this select element to the value of the option selected and stored as stationId */}
         <div className="station-row">
           <label htmlFor="station" className="station-label">Station</label>
           <select
@@ -82,15 +86,7 @@ function ShareIdeas(props) {
             value={stationId}
             onChange={(e) => setStationId(e.target.value)}
           >
-            {/* Map through the sorted list of stations and display them as option elements in the dropdown menu */}
-            {stationList.map((station) => (
-              <option
-                value={station.id}
-                key={station.id}
-              >
-                {station.fields.Name}
-              </option>
-            ))}
+            {stationList.length > 0 && stationsJSX}
           </select>
         </div>
         <div className="recommendation-row">
@@ -105,10 +101,7 @@ function ShareIdeas(props) {
             onChange={(e) => setContent(e.target.value)}
           />
         </div>
-        <button
-          type="submit"
-          className="submit-button"
-        >
+        <button type="submit" className="submit-button">
           Submit
         </button>
       </form>
