@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Route, Switch, useHistory } from "react-router-dom"
 import Home from "../../screens/Home/Home"
 import ShareIdeas from "../../screens/ShareIdeas/ShareIdeas"
-import PreviewPost from "../../screens/PreviewPost/PreviewPost"
+import ReviewPost from "../../screens/ReviewPost/ReviewPost"
 import Station from "../../screens/Station/Station"
 import { readStations } from "../../services/stations.js"
 import {
@@ -105,7 +105,7 @@ export default function Stations() {
         />
       </Route>
       <Route path="/preview/:recId">
-        <PreviewPost
+        <ReviewPost
           stationList={stationList}
           getOneStation={getOneStation}
           allRecs={allRecs}

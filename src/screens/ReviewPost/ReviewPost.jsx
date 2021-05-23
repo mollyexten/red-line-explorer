@@ -1,9 +1,9 @@
-import "./PreviewPost.css";
+import "./ReviewPost.css";
 import Recommendation from "../../components/Recommendation/Recommendation"
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function PreviewPost(props) {
+export default function ReviewPost(props) {
   const {
     stationList,
     getOneStation,
@@ -55,7 +55,7 @@ export default function PreviewPost(props) {
   return (
     <>
       <header>
-        <h1 className="header-top">PREVIEW YOUR</h1>
+        <h1 className="header-top">REVIEW YOUR</h1>
         <h1 className="header-bottom">POST</h1>
       </header>
       <p className="popup-station">Review your submission for {stationName} Station</p>
@@ -65,7 +65,7 @@ export default function PreviewPost(props) {
             edit
           </button>
           <button className="popup-submit" onClick={submitRec}>
-            submit
+            looks good!
           </button>
         <button value={recId} className="popup-delete" onClick={(e) => deleteRec(e)}>
             delete
