@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { recommendationsURL, config } from "../../services";
-import { compareRecommendations } from "../../services/helpers.js"
-import axios from "axios";
+// import { recommendationsURL, config } from "../../services";
+// import { compareRecommendations } from "../../services/helpers.js"
+// import axios from "axios";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import "./Station.css";
 
@@ -77,7 +77,7 @@ function Station(props) {
       const recs = getStationRecs(allRecs, stationId)
       setRecommendations(recs)
     }
-  }, [allRecs, stationId])
+  }, [allRecs, stationId, getStationRecs])
 
   return (
     <div>

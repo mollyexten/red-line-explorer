@@ -14,7 +14,7 @@ export default function PreviewPost(props) {
   } = props
   const { recId } = useParams();
   const history = useHistory();
-  const [id, setId] = useState("")
+  // const [id, setId] = useState("")
   const [name, setName] = useState("")
   const [content, setContent] = useState("")
   const [date, setDate] = useState("")
@@ -22,18 +22,12 @@ export default function PreviewPost(props) {
   const [stationName, setStationName] = useState("")
   
   useEffect(() => {
-    if (recId && allRecs && getOneRec) {
+    if (recId) {
       const recInfo = getOneRec(allRecs, recId)
-      // const id = recInfo.id
-      const recName = recInfo.fields.name
-      const recContent = recInfo.fields.content
-      const recDate = recInfo.createdTime
-      const recStation = recInfo.fields.station[0]
-      // setId(id)
-      setName(recName)
-      setContent(recContent)
-      setDate(recDate)
-      setStationId(recStation)
+      setName(recInfo.fields.name)
+      setContent(recInfo.fields.content)
+      setDate(recInfo.createdTime)
+      setStationId(recInfo.fields.station[0])
     }
   }, [recId, allRecs, getOneRec])
 
@@ -43,7 +37,7 @@ export default function PreviewPost(props) {
       const stationName = foundStation.fields.Name
       setStationName(stationName)
     }
-  }, [stationId, stationList, getOneRec])
+  }, [stationId, stationList, getOneStation])
 
   const editRec = () => {
     history.push(`/edit/${recId}`)
@@ -56,6 +50,7 @@ export default function PreviewPost(props) {
 
   const deleteRec = async (e) => {
     removeRec(e.target.value)
+    history.push("/")
   }
 
   return (

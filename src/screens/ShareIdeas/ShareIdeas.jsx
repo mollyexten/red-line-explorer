@@ -19,7 +19,7 @@ function ShareIdeas(props) {
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [rec, setRec] = useState({})
+  // const [rec, setRec] = useState({})
 
   // State and function for managing the popup component:
   // const [isOpen, setIsOpen] = useState(false)
@@ -55,12 +55,10 @@ function ShareIdeas(props) {
       content: content,
       station: [stationId],
     }
-    if (!id) {
-      postRec(formRecommendation)
-      // console.log(resp)
-      // setRec(resp)
-    } else {
+    if (id) {
       updateRec(id, formRecommendation)
+    } else {
+      postRec(formRecommendation)
     }
     // togglePopup()
   }
