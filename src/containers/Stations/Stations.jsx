@@ -101,6 +101,7 @@ export default function Stations() {
         <ShareIdeas
           stationList={stationList}
           postRec={postRec}
+          convertKebab={convertKebab}
         />
       </Route>
       <Route path="/preview/:recId">

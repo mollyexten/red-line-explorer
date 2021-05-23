@@ -9,7 +9,8 @@ function ShareIdeas(props) {
     stationList,
     updateRec,
     allRecs,
-    getOneRec
+    getOneRec,
+    convertKebab
   } = props
   const { stationParam, id } = useParams();
 
@@ -20,18 +21,19 @@ function ShareIdeas(props) {
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
     if (stationParam && stationList.length > 0) {
-      const stationEdit = stationList.find((station) => station.fields.stationKebab === stationParam)
+      const stationEdit = stationList.find((station) => {
+        convertKebab(station.fields.Name) === stationParam
+      })
       setStationId(stationEdit.id)
     } else {
       setStationId(stationList[0].id)
     }
-  }, [stationParam, stationList])
+  }, [stationParam, stationList, convertKebab])
 
   // Fill out form if coming from the "edit" button
   useEffect(() => {
     if (id) {
       const foundRec = getOneRec(allRecs, id)
-      console.log(foundRec)
       setName(foundRec.fields.name)
       setContent(foundRec.fields.content)
       setStationId(foundRec.fields.station[0])
