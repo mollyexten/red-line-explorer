@@ -70,7 +70,7 @@ export default function ReviewPost(props) {
         <button value={recId} className="popup-delete" onClick={(e) => deleteRec(e)}>
             delete
           </button>
-        </div>
+      </div>
     </>
   )
 }
