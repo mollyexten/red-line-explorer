@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Home.css"
 
-function Home({ stationList }) {
+function Home(props) {
+  const { stationList, convertKebab } = props
+  
   const stationsJSX = stationList.map((station) => (
     <Link
-      to={`/${station.fields.stationKebab}`}
+      to={`/${convertKebab(station.fields.Name)}`}
       key={station.fields.sortId}
-      className={station.fields.stationKebab}
+      className={convertKebab(station.fields.Name)}
     >
       <li className="station">
         {station.fields.Name}

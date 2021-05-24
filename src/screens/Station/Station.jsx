@@ -49,6 +49,7 @@ function Station(props) {
       name={recommendation.fields.name}
       date={recommendation.createdTime}
       content={recommendation.fields.content}
+      activity={recommendation.fields.activity}
     />
   ))
 

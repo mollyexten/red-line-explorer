@@ -80,6 +80,7 @@ export default function Stations() {
       <Route exact path="/">
         <Home
           stationList={stationList}
+          convertKebab={convertKebab}
         />
       </Route>
       {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}

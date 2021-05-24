@@ -5,6 +5,8 @@
   margin: 20px auto;
   width: 90%;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .red-bar {
@@ -22,10 +24,48 @@
   margin: 0px;
 }
 
-.rec-content {
-  padding: 10px;
+/* * {
+  border: 1px solid black;
+} */
+
+.activities-div {
+  display: flex;
+  padding: 0px 10px;
+  margin: 10px 0px;
 }
 
+.rec-activity {
+  margin: 0px 10px 0px 0px;
+  padding: 2px 5px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+}
+
+.food {
+  background-color: #9496cd;
+}
+
+.outdoors {
+  background-color: #94cacd;
+}
+
+.shopping {
+  background-color: #94cd96;
+}
+
+.entertainment {
+  background-color: #cd94c0;
+}
+
+.miscellaneous {
+  background-color: #cec474;
+}
+
+.rec-content {
+  padding: 10px;
+  margin: 0px;
+}
 @media (min-width: 640px) {
   .rec-text {
     width: 400px;
