@@ -13,18 +13,15 @@ function ShareIdeas(props) {
     convertKebab
   } = props
   const { stationParam, id } = useParams();
-  // const [activityData, setActivityData] = ([])
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   station: "",
-  //   content: "",
-  //   activity: []
-  // })
-  // const { name, station, content, activity } = formData;
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [activities, setActivities] = useState([])
+  const [food, setFood] = useState(false)
+  const [outdoors, setOutdoors] = useState(false)
+  const [shopping, setShopping] = useState(false)
+  const [entertainment, setEntertainment] = useState(false)
+  const [miscellaneous, setMiscellaneous] = useState(false)
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
@@ -34,20 +31,8 @@ function ShareIdeas(props) {
         return reformattedStation === stationParam
       })
       setStationId(stationEdit.id)
-      // setFormData({
-      //   name: "",
-      //   station: stationEdit.id,
-      //   content: "",
-      //   activity: []
-      // })
     } else {
       setStationId(stationList[0].id)
-      // setFormData({
-      //   name: "",
-      //   station: stationList[0].id,
-      //   content: "",
-      //   activity: []
-      // })
     }
   }, [stationParam, stationList, convertKebab])
 
@@ -58,14 +43,16 @@ function ShareIdeas(props) {
       setName(foundRec.fields.name)
       setContent(foundRec.fields.content)
       setStationId(foundRec.fields.station[0])
-      // setFormData({
-      //   name: foundRec.fields.name,
-      //   station: foundRec.fields.station[0],
-      //   content: foundRec.fields.content,
-      //   activity: foundRec.fields.activity
-      // })
+      setActivities(foundRec.fields.activity)
     }
-  }, [id, allRecs, getOneRec])
+    if (activities.length > 0) {
+      if (activities.includes("food")) setFood(true)
+      if (activities.includes("outdoors")) setOutdoors(true)
+      if (activities.includes("shopping")) setShopping(true)
+      if (activities.includes("entertainment")) setEntertainment(true)
+      if (activities.includes("miscellaneous")) setMiscellaneous(true)
+    }
+  }, [id, allRecs, getOneRec, activities])
 
   // Map out all stations and pass their names into the options tag
   const stationsJSX = stationList.map((station) => (
@@ -77,23 +64,14 @@ function ShareIdeas(props) {
     </option>
   ))
 
-  // const handleChange = (e) => {
-  //   const { name, type } = e.target
-  //   const value = type === 'checkbox' ? e.target.checked : e.target.value;
-  //   // if (name === "activity") { 
-  //   //   if (e.target.checked) {
-  //   //     console.log()
-  //   //   }
-  //   // }
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }))
-  // }
-
   const handleActivities = (e) => {
     const { name, checked } = e.target;
     let updatedActivities = activities
+    if (name === "food") setFood(!food)
+    if (name === "outdoors") setOutdoors(!outdoors)
+    if (name === "shopping") setShopping(!shopping)
+    if (name === "entertainment") setEntertainment(!entertainment)
+    if (name === "miscellaneous") setMiscellaneous(!miscellaneous)
     if (checked) {
       updatedActivities.push(name)
     } else {
@@ -114,7 +92,6 @@ function ShareIdeas(props) {
     }
     console.log(newRecommendation)
     id ? updateRec(id, newRecommendation) : postRec(newRecommendation)
-    // id ? updateRed(id, formData) : postRed(formData)
   }
 
   return (
@@ -169,6 +146,7 @@ function ShareIdeas(props) {
             id="food"
             name="food"
             value="food"
+            checked={food}
             onChange={handleActivities}
           />
           <label htmlFor="food">food</label>
@@ -177,6 +155,7 @@ function ShareIdeas(props) {
             id="outdoors"
             name="outdoors"
             value="outdoors"
+            checked={outdoors}
             onChange={handleActivities}
           />
           <label htmlFor="outdoors">outdoors</label>
@@ -185,6 +164,7 @@ function ShareIdeas(props) {
             id="shopping"
             name="shopping"
             value="shopping"
+            checked={shopping}
             onChange={handleActivities}
           />
           <label htmlFor="shopping">shopping</label>
@@ -193,6 +173,7 @@ function ShareIdeas(props) {
             id="entertainment"
             name="entertainment"
             value="entertainment"
+            checked={entertainment}
             onChange={handleActivities}
           />
           <label htmlFor="entertainment">entertainment</label>
@@ -201,6 +182,7 @@ function ShareIdeas(props) {
             id="miscellaneous"
             name="miscellaneous"
             value="miscellaneous"
+            checked={miscellaneous}
             onChange={handleActivities}
           />
           <label htmlFor="miscellaneous">miscellaneous</label>
