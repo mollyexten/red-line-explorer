@@ -13,10 +13,18 @@ function ShareIdeas(props) {
     convertKebab
   } = props
   const { stationParam, id } = useParams();
-
+  // const [activityData, setActivityData] = ([])
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   station: "",
+  //   content: "",
+  //   activity: []
+  // })
+  // const { name, station, content, activity } = formData;
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  const [activities, setActivities] = useState([])
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
@@ -26,8 +34,20 @@ function ShareIdeas(props) {
         return reformattedStation === stationParam
       })
       setStationId(stationEdit.id)
+      // setFormData({
+      //   name: "",
+      //   station: stationEdit.id,
+      //   content: "",
+      //   activity: []
+      // })
     } else {
       setStationId(stationList[0].id)
+      // setFormData({
+      //   name: "",
+      //   station: stationList[0].id,
+      //   content: "",
+      //   activity: []
+      // })
     }
   }, [stationParam, stationList, convertKebab])
 
@@ -38,6 +58,12 @@ function ShareIdeas(props) {
       setName(foundRec.fields.name)
       setContent(foundRec.fields.content)
       setStationId(foundRec.fields.station[0])
+      // setFormData({
+      //   name: foundRec.fields.name,
+      //   station: foundRec.fields.station[0],
+      //   content: foundRec.fields.content,
+      //   activity: foundRec.fields.activity
+      // })
     }
   }, [id, allRecs, getOneRec])
 
@@ -51,6 +77,32 @@ function ShareIdeas(props) {
     </option>
   ))
 
+  // const handleChange = (e) => {
+  //   const { name, type } = e.target
+  //   const value = type === 'checkbox' ? e.target.checked : e.target.value;
+  //   // if (name === "activity") { 
+  //   //   if (e.target.checked) {
+  //   //     console.log()
+  //   //   }
+  //   // }
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }))
+  // }
+
+  const handleActivities = (e) => {
+    const { name, checked } = e.target;
+    let updatedActivities = activities
+    if (checked) {
+      updatedActivities.push(name)
+    } else {
+      const index = updatedActivities.indexOf(name)
+      updatedActivities.splice(index, 1)
+    }
+    setActivities(updatedActivities)
+  }
+
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,8 +110,11 @@ function ShareIdeas(props) {
       name: name,
       content: content,
       station: [stationId],
+      activity: activities
     }
+    console.log(newRecommendation)
     id ? updateRec(id, newRecommendation) : postRec(newRecommendation)
+    // id ? updateRed(id, formData) : postRed(formData)
   }
 
   return (
@@ -75,6 +130,7 @@ function ShareIdeas(props) {
             required
             type="text"
             id="name"
+            name="name"
             className="name-input"
             value={name}
             autoComplete="off"
@@ -86,6 +142,7 @@ function ShareIdeas(props) {
           <select
             className="station-input"
             id="station"
+            name="station"
             value={stationId}
             onChange={(e) => setStationId(e.target.value)}
           >
@@ -97,12 +154,56 @@ function ShareIdeas(props) {
           <textarea
             required
             id="recommendation"
+            name="content"
             className="recommendation-input"
             value={content}
             autoComplete="off"
             rows="6"
             onChange={(e) => setContent(e.target.value)}
           />
+        </div>
+        <div className="activity-row">
+          <p>Choose categories:</p>
+          <input
+            type="checkbox"
+            id="food"
+            name="food"
+            value="food"
+            onChange={handleActivities}
+          />
+          <label htmlFor="food">food</label>
+          <input
+            type="checkbox"
+            id="outdoors"
+            name="outdoors"
+            value="outdoors"
+            onChange={handleActivities}
+          />
+          <label htmlFor="outdoors">outdoors</label>
+          <input
+            type="checkbox"
+            id="shopping"
+            name="shopping"
+            value="shopping"
+            onChange={handleActivities}
+          />
+          <label htmlFor="shopping">shopping</label>
+          <input
+            type="checkbox"
+            id="entertainment"
+            name="entertainment"
+            value="entertainment"
+            onChange={handleActivities}
+          />
+          <label htmlFor="entertainment">entertainment</label>
+          <input
+            type="checkbox"
+            id="miscellaneous"
+            name="miscellaneous"
+            value="miscellaneous"
+            onChange={handleActivities}
+          />
+          <label htmlFor="miscellaneous">miscellaneous</label>
         </div>
         <button type="submit" className="submit-button">
           Submit

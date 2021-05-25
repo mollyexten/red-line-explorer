@@ -19,6 +19,7 @@ export default function ReviewPost(props) {
   const [date, setDate] = useState("")
   const [stationId, setStationId] = useState("")
   const [stationName, setStationName] = useState("")
+  const [activity, setActivity] = useState([])
   
   useEffect(() => {
     if (recId) {
@@ -27,6 +28,7 @@ export default function ReviewPost(props) {
       setContent(recInfo.fields.content)
       setDate(recInfo.createdTime)
       setStationId(recInfo.fields.station[0])
+      setActivity(recInfo.fields.activity)
     }
   }, [recId, allRecs, getOneRec])
 
@@ -59,7 +61,7 @@ export default function ReviewPost(props) {
         <h1 className="header-bottom">POST</h1>
       </header>
       <p className="popup-station">Review your submission for {stationName} Station</p>
-      <Recommendation name={name} date={date} content={content}/>
+      <Recommendation name={name} date={date} content={content} activity={activity}/>
         <div className="popup-buttons">
           <button className="popup-edit" onClick={editRec}>
             edit
