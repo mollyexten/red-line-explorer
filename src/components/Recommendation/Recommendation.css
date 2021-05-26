@@ -24,23 +24,16 @@
   margin: 0px;
 }
 
-.activities-div {
-  display: flex;
-  padding: 0px 10px;
-  margin: 10px 0px;
-}
-
-.rec-activity {
-  margin: 0px 10px 0px 0px;
+.rec-date {
+  background-color: #dcb85c;
+  color: black;
   padding: 2px 5px;
-  border-radius: 8px;
-  font-weight: 600;
-  color: white;
+  border-radius: 4px;
 }
 
 .rec-content {
   padding: 10px;
-  margin: 0px;
+  margin-bottom: 20px;
 }
 @media (min-width: 640px) {
   .rec-text {

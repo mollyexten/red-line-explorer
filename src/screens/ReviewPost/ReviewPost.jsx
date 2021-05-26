@@ -68,12 +68,6 @@ export default function ReviewPost(props) {
           content={content}
         />
         <div className="review-buttons">
-          <button className="review-edit" onClick={editRec}>
-            edit
-          </button>
-          <button className="review-submit" onClick={submitRec}>
-            looks good!
-          </button>
           <button
             value={recId}
             className="review-delete"
@@ -81,6 +75,13 @@ export default function ReviewPost(props) {
           >
             delete
           </button>
+          <button className="review-edit" onClick={editRec}>
+            edit
+          </button>
+          <button className="review-submit" onClick={submitRec}>
+            looks good!
+          </button>
+
         </div>
       </main>
     </>

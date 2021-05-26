@@ -20,7 +20,7 @@ function Recommendation(props) {
     <div className="rec-text">
       <div className="red-bar">
         <h2 className="rec-name">{name}</h2>
-        {date && (<p className="rec-name">{formattedDate}</p>)}
+        {date && (<p className="rec-date">{formattedDate}</p>)}
       </div>
       <p className="rec-content">{content}</p>
     </div>

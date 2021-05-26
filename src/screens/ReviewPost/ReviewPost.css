@@ -11,15 +11,33 @@
 .review-buttons {
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.review-edit, .review-submit, .review-delete {
+  transition: background-color 0.75s;
+  font-size: 1em;
 }
 
 .review-edit {
   background-color: #dcb85c;
 }
 
+.review-edit:hover {
+  background-color: var(--redline-orange);
+}
+
 .review-submit {
   background-color: var(--redline-red);
+}
+
+.review-submit:hover {
+  background-color: var(--flash-red)
+}
+
+.delete-div {
+  display: flex;
+  padding: 10px;
 }
 
 .review-delete {
@@ -27,8 +45,18 @@
   color: black;
 }
 
+.review-delete:hover {
+  background-color: white;
+}
+
 @media (min-width: 640px) {
   .review-buttons {
     width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .review-station {
+    font-size: 1em;
   }
 }

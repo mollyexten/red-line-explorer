@@ -66,6 +66,11 @@ textarea {
   font-size: 1.25em;
   align-self: center;
   background-color: var(--redline-orange);
+  transition: background-color 0.75s;
+}
+
+.submit-button:hover {
+  background-color: var(--flash-red)
 }
 
 @media screen and (min-width: 500px) {
