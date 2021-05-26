@@ -1,5 +1,8 @@
 .about-container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Give the paragraphs some margins and spacing */
@@ -13,7 +16,8 @@
 }
 
 .about-header {
-  background-color: var(--bus-yellow)
+  background-color: var(--bus-yellow);
+  margin: 0px;
 }
 
 .about-header, .about-paragraph, .photo-credit {
@@ -30,4 +34,11 @@
 .photo-credit > a {
   text-decoration: underline;
   font-style: italic;
+}
+
+@media screen and (min-width: 900px) {
+  .about-div {
+    width: 44em;
+    margin: 0 auto;
+  }
 }
