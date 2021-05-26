@@ -5,6 +5,7 @@
   --flash-red: #e14c0c;
   --redline-white: #eef1f1;
   --redline-orange: #e88a58;
+  --bus-yellow: #FFC72C;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
 
 .App {
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -61,17 +62,20 @@ button {
   border-radius: 0px;
   padding: 10px;
   transition: border-radius .5s;
+  font-weight: 800;
+  font-size: 1.5em;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .share-ideas {
   padding: 20px;
-  background-color: var(--redline-red);
+  background-color: var(--bus-yellow);
+  color: black;
   transition: background-color 1s;
 }
 
 .share-ideas:hover {
-  background-color: var(--flash-red)
+  background-color: var(--redline-orange)
 }
 
 a:hover,
@@ -92,9 +96,9 @@ a:active {
   .header-bottom {
     font-size: 2em;
   }
-  button {
+  /* button {
     font-size: 1.5em;
-  }
+  } */
 }
 
 /* ==================================================================

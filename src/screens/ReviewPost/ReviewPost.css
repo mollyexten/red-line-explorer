@@ -20,7 +20,8 @@
 }
 
 .review-edit {
-  background-color: #dcb85c;
+  background-color: var(--bus-yellow);
+  color: black;
 }
 
 .review-edit:hover {
@@ -28,11 +29,11 @@
 }
 
 .review-submit {
-  background-color: var(--redline-red);
+  background-color: var(--flash-red);
 }
 
 .review-submit:hover {
-  background-color: var(--flash-red)
+  background-color: var(--redline-red)
 }
 
 .delete-div {

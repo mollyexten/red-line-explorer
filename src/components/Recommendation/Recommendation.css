@@ -25,8 +25,9 @@
 }
 
 .rec-date {
-  background-color: #dcb85c;
+  background-color: var(--bus-yellow);
   color: black;
+  font-weight: 800;
   padding: 2px 5px;
   border-radius: 4px;
 }
