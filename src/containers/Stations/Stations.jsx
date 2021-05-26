@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Route, Switch, useHistory } from "react-router-dom"
 import Home from "../../screens/Home/Home"
+import About from "../../screens/About/About"
 import ShareIdeas from "../../screens/ShareIdeas/ShareIdeas"
 import ReviewPost from "../../screens/ReviewPost/ReviewPost"
 import Station from "../../screens/Station/Station"
@@ -75,13 +76,22 @@ export default function Stations() {
     setAllRecs(prevState => prevState.filter(rec => rec.id !== id))
   }
 
+  const getRecsByActivity = (allRecs, activity) => {
+    return allRecs.filter(rec => rec.fields.activity.includes(activity))
+  }
+
   return (
     <Switch>
       <Route exact path="/">
         <Home
           stationList={stationList}
           convertKebab={convertKebab}
+          allRecs={allRecs}
+          getRecsByActivity={getRecsByActivity}
         />
+      </Route>
+      <Route path="/about">
+        <About />
       </Route>
       {/* Putting <ShareIdeas /> above <Station /> to prevent router from replacing <Component /> route with the <Station /> route */}
       <Route path="/share-ideas">

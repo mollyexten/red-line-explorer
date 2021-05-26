@@ -49,7 +49,6 @@ function Station(props) {
       name={recommendation.fields.name}
       date={recommendation.createdTime}
       content={recommendation.fields.content}
-      activity={recommendation.fields.activity}
     />
   ))
 
@@ -57,28 +56,22 @@ function Station(props) {
     <div>
       <header>
         <h1 className="header-top">{stationName.toUpperCase()}</h1>
-        <div className="header-bottom-station header-bottom">
-          <div className="left">
+        <div className={`header-bottom-station header-bottom ${stationName.toLowerCase()}-arrows`}>
             {prevParam && (
               <Link to={`/${prevParam}`}>
                 <i className="fas fa-arrow-left" />
               </Link>
             )}
-          </div>
-          <div className="bottom">
             {bonusParam && (
               <Link to={`${bonusParam}`}>
                 <i className="fas fa-arrow-down" />
               </Link>
             )}
-          </div>
-          <div className="right">
             {nextParam && (
               <Link to={`${nextParam}`}>
                 <i className="fas fa-arrow-right" />
               </Link>
             )}
-          </div>
         </div>
       </header>
       <Link to={`/add/${stationParam}`}>

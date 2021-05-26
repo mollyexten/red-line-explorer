@@ -1,9 +1,12 @@
 import "./Recommendation.css"
 import { useEffect, useState } from "react"
 
-// Variables from the station component are passed as props into this component
 function Recommendation(props) {
-  const { name, date, content, activity } = props
+  const {
+    name,
+    date,
+    content,
+  } = props
   const [formattedDate, setFormattedDate] = useState("")
 
   useEffect(() => {
@@ -13,8 +16,6 @@ function Recommendation(props) {
     }
   }, [date])
 
-  const activityJSX = activity.map(item => <p className={`rec-activity ${item}`}>{item}</p>)
-
   return (
     <div className="rec-text">
       <div className="red-bar">
@@ -22,9 +23,6 @@ function Recommendation(props) {
         {date && (<p className="rec-name">{formattedDate}</p>)}
       </div>
       <p className="rec-content">{content}</p>
-      <div className="activities-div">
-        {activity && activityJSX}
-      </div>
     </div>
   )
 }

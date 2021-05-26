@@ -16,12 +16,6 @@ function ShareIdeas(props) {
   const [stationId, setStationId] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [activities, setActivities] = useState([])
-  const [food, setFood] = useState(false)
-  const [outdoors, setOutdoors] = useState(false)
-  const [shopping, setShopping] = useState(false)
-  const [entertainment, setEntertainment] = useState(false)
-  const [miscellaneous, setMiscellaneous] = useState(false)
 
   // Put station's name in dropdown if coming from that station's page
   useEffect(() => {
@@ -41,18 +35,10 @@ function ShareIdeas(props) {
     if (id) {
       const foundRec = getOneRec(allRecs, id)
       setName(foundRec.fields.name)
+      setStationId(foundRec.fields.station)
       setContent(foundRec.fields.content)
-      setStationId(foundRec.fields.station[0])
-      setActivities(foundRec.fields.activity)
     }
-    if (activities.length > 0) {
-      if (activities.includes("food")) setFood(true)
-      if (activities.includes("outdoors")) setOutdoors(true)
-      if (activities.includes("shopping")) setShopping(true)
-      if (activities.includes("entertainment")) setEntertainment(true)
-      if (activities.includes("miscellaneous")) setMiscellaneous(true)
-    }
-  }, [id, allRecs, getOneRec, activities])
+  }, [id, allRecs, getOneRec])
 
   // Map out all stations and pass their names into the options tag
   const stationsJSX = stationList.map((station) => (
@@ -64,34 +50,15 @@ function ShareIdeas(props) {
     </option>
   ))
 
-  const handleActivities = (e) => {
-    const { name, checked } = e.target;
-    let updatedActivities = activities
-    if (name === "food") setFood(!food)
-    if (name === "outdoors") setOutdoors(!outdoors)
-    if (name === "shopping") setShopping(!shopping)
-    if (name === "entertainment") setEntertainment(!entertainment)
-    if (name === "miscellaneous") setMiscellaneous(!miscellaneous)
-    if (checked) {
-      updatedActivities.push(name)
-    } else {
-      const index = updatedActivities.indexOf(name)
-      updatedActivities.splice(index, 1)
-    }
-    setActivities(updatedActivities)
-  }
-
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newRecommendation = {
+    const formRecommendation = {
       name: name,
       content: content,
       station: [stationId],
-      activity: activities
     }
-    console.log(newRecommendation)
-    id ? updateRec(id, newRecommendation) : postRec(newRecommendation)
+    id ? updateRec(id, formRecommendation) : postRec(formRecommendation)
   }
 
   return (
@@ -138,54 +105,6 @@ function ShareIdeas(props) {
             rows="6"
             onChange={(e) => setContent(e.target.value)}
           />
-        </div>
-        <div className="activity-row">
-          <p>Choose categories:</p>
-          <input
-            type="checkbox"
-            id="food"
-            name="food"
-            value="food"
-            checked={food}
-            onChange={handleActivities}
-          />
-          <label htmlFor="food">food</label>
-          <input
-            type="checkbox"
-            id="outdoors"
-            name="outdoors"
-            value="outdoors"
-            checked={outdoors}
-            onChange={handleActivities}
-          />
-          <label htmlFor="outdoors">outdoors</label>
-          <input
-            type="checkbox"
-            id="shopping"
-            name="shopping"
-            value="shopping"
-            checked={shopping}
-            onChange={handleActivities}
-          />
-          <label htmlFor="shopping">shopping</label>
-          <input
-            type="checkbox"
-            id="entertainment"
-            name="entertainment"
-            value="entertainment"
-            checked={entertainment}
-            onChange={handleActivities}
-          />
-          <label htmlFor="entertainment">entertainment</label>
-          <input
-            type="checkbox"
-            id="miscellaneous"
-            name="miscellaneous"
-            value="miscellaneous"
-            checked={miscellaneous}
-            onChange={handleActivities}
-          />
-          <label htmlFor="miscellaneous">miscellaneous</label>
         </div>
         <button type="submit" className="submit-button">
           Submit
