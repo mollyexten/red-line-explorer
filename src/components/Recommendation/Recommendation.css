@@ -24,10 +24,6 @@
   margin: 0px;
 }
 
-/* * {
-  border: 1px solid black;
-} */
-
 .activities-div {
   display: flex;
   padding: 0px 10px;
@@ -40,26 +36,6 @@
   border-radius: 8px;
   font-weight: 600;
   color: white;
-}
-
-.food {
-  background-color: #9496cd;
-}
-
-.outdoors {
-  background-color: #94cacd;
-}
-
-.shopping {
-  background-color: #94cd96;
-}
-
-.entertainment {
-  background-color: #cd94c0;
-}
-
-.miscellaneous {
-  background-color: #cec474;
 }
 
 .rec-content {

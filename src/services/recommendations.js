@@ -7,11 +7,14 @@ export const readRecommendations = async () => {
 }
 
 export const createRecommendation = async (data) => {
+  console.log(data)
   const resp = await axios.post(recommendationsURL, { fields: data }, config)
   return resp.data
 }
 
 export const putRecommendation = async (id, data) => {
+  console.log(id)
+  console.log(data)
   const editURL = `${recommendationsURL}/${id}`
   const resp = await axios.put(editURL, { fields: data }, config)
   return resp.data

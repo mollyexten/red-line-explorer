@@ -50,21 +50,24 @@ header>* {
 
 button,
 a {
-  text-transform: uppercase;
+  text-transform: lowercase;
   cursor: pointer;
 }
 
 button {
   border: none;
-  box-shadow: 3px 2px 2px rgb(104, 100, 98);
-  background-color: rgb(238, 241, 241);
-  border-radius: 8px;
-  padding: 20px;
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  transition: border-radius .5s;
 }
 
-button:hover,
-button:active {
-  box-shadow: 3px 2px 2px var(--redline-orange);
+button:hover {
+  border-radius: 24px;
+}
+
+.share-ideas {
+  background-color: #434343;
 }
 
 a:hover,

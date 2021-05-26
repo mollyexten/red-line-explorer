@@ -58,29 +58,31 @@ export default function ReviewPost(props) {
         <h1 className="header-top">REVIEW YOUR</h1>
         <h1 className="header-bottom">POST</h1>
       </header>
-      <p className="popup-station">
-        Review your submission for {stationName} Station
-      </p>
-      <Recommendation
-        name={name}
-        date={date}
-        content={content}
-      />
-        <div className="popup-buttons">
-          <button className="popup-edit" onClick={editRec}>
+      <main className="review-container">
+        <p className="review-station">
+          {`Review your submission for ${stationName.toUpperCase()}`}
+        </p>
+        <Recommendation
+          name={name}
+          date={date}
+          content={content}
+        />
+        <div className="review-buttons">
+          <button className="review-edit" onClick={editRec}>
             edit
           </button>
-          <button className="popup-submit" onClick={submitRec}>
+          <button className="review-submit" onClick={submitRec}>
             looks good!
           </button>
-        <button
-          value={recId}
-          className="popup-delete"
-          onClick={(e) => deleteRec(e)}
-        >
+          <button
+            value={recId}
+            className="review-delete"
+            onClick={(e) => deleteRec(e)}
+          >
             delete
           </button>
-      </div>
+        </div>
+      </main>
     </>
   )
 }

@@ -35,7 +35,7 @@ function ShareIdeas(props) {
     if (id) {
       const foundRec = getOneRec(allRecs, id)
       setName(foundRec.fields.name)
-      setStationId(foundRec.fields.station)
+      setStationId(foundRec.fields.station[0])
       setContent(foundRec.fields.content)
     }
   }, [id, allRecs, getOneRec])
@@ -53,12 +53,12 @@ function ShareIdeas(props) {
   // POST/PUT DATA TO AIRTABLE
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formRecommendation = {
+    const newRecommendation = {
       name: name,
       content: content,
       station: [stationId],
     }
-    id ? updateRec(id, formRecommendation) : postRec(formRecommendation)
+    id ? updateRec(id, newRecommendation) : postRec(newRecommendation)
   }
 
   return (

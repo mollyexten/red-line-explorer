@@ -1,0 +1,34 @@
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-station {
+  font-size: 1.5em;
+}
+
+.review-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-edit {
+  background-color: #dcb85c;
+}
+
+.review-submit {
+  background-color: var(--redline-red);
+}
+
+.review-delete {
+  background-color: var(--redline-white);
+  color: black;
+}
+
+@media (min-width: 640px) {
+  .review-buttons {
+    width: 400px;
+  }
+}

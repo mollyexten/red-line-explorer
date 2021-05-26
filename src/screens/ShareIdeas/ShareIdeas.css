@@ -65,6 +65,7 @@ textarea {
 .submit-button {
   font-size: 1.25em;
   align-self: center;
+  background-color: var(--redline-orange);
 }
 
 @media screen and (min-width: 500px) {
