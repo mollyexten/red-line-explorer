@@ -1,0 +1,63 @@
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-station {
+  font-size: 1.5em;
+}
+
+.review-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.review-edit, .review-submit, .review-delete {
+  transition: background-color 0.75s;
+  font-size: 1em;
+}
+
+.review-edit {
+  background-color: var(--bus-yellow);
+  color: black;
+}
+
+.review-edit:hover {
+  background-color: var(--redline-orange);
+}
+
+.review-submit {
+  background-color: var(--flash-red);
+}
+
+.review-submit:hover {
+  background-color: var(--redline-red)
+}
+
+.delete-div {
+  display: flex;
+  padding: 10px;
+}
+
+.review-delete {
+  background-color: var(--redline-white);
+  color: black;
+}
+
+.review-delete:hover {
+  background-color: white;
+}
+
+@media (min-width: 640px) {
+  .review-buttons {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .review-station {
+    font-size: 1em;
+  }
+}

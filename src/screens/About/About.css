@@ -1,8 +1,23 @@
+.about-container {
+  padding: 20px;
+}
+
 /* Give the paragraphs some margins and spacing */
-.about-text {
+.about-div {
   text-align: left;
   padding: 15px;
   line-height: 1.6;
+  background-color: white;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.about-header {
+  background-color: var(--bus-yellow)
+}
+
+.about-header, .about-paragraph, .photo-credit {
+  padding: .5em 1em;
 }
 
 /* Make the credit for the background photo appear in smaller, italic font */

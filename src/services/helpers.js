@@ -21,3 +21,7 @@ export const compareRecommendations = (a, b) => {
   }
   return comparison
 }
+
+export const convertKebab = (string) => {
+  return string.replace(/\s+/g, '-').replace('/', '-').toLowerCase();
+}

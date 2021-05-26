@@ -1,9 +1,12 @@
 .header-bottom-station {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 30px;
 }
 
-/* .arrow {} */
+.alewife-arrows {
+  justify-content: flex-end;
+}
 
 .recommendations-div {
   display: flex;

@@ -2,8 +2,10 @@
 
 :root {
   --redline-red: #e10c0c;
+  --flash-red: #e14c0c;
   --redline-white: #eef1f1;
   --redline-orange: #e88a58;
+  --bus-yellow: #FFC72C;
 }
 
 body {
@@ -41,7 +43,7 @@ header>* {
 
 .header-bottom {
   background-color: var(--redline-white);
-  font-size: 3em;
+  font-size: 2em;
 }
 
 /* ==========================================================================
@@ -50,21 +52,30 @@ header>* {
 
 button,
 a {
-  text-transform: uppercase;
+  text-transform: lowercase;
   cursor: pointer;
 }
 
 button {
   border: none;
-  box-shadow: 3px 2px 2px rgb(104, 100, 98);
-  background-color: rgb(238, 241, 241);
-  border-radius: 8px;
-  padding: 20px;
+  color: white;
+  border-radius: 0px;
+  padding: 10px;
+  transition: border-radius .5s;
+  font-weight: 800;
+  font-size: 1.5em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-button:hover,
-button:active {
-  box-shadow: 3px 2px 2px var(--redline-orange);
+.share-ideas {
+  padding: 20px;
+  background-color: var(--bus-yellow);
+  color: black;
+  transition: background-color 1s;
+}
+
+.share-ideas:hover {
+  background-color: var(--redline-orange)
 }
 
 a:hover,
@@ -85,9 +96,9 @@ a:active {
   .header-bottom {
     font-size: 2em;
   }
-  button {
+  /* button {
     font-size: 1.5em;
-  }
+  } */
 }
 
 /* ==================================================================
@@ -102,5 +113,4 @@ a:active {
   .header-top, .header-bottom {
     font-size: 3em;
   }
-
 }

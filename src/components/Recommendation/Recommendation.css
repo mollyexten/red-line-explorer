@@ -5,6 +5,8 @@
   margin: 20px auto;
   width: 90%;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .red-bar {
@@ -22,10 +24,18 @@
   margin: 0px;
 }
 
-.rec-content {
-  padding: 10px;
+.rec-date {
+  background-color: var(--bus-yellow);
+  color: black;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 4px;
 }
 
+.rec-content {
+  padding: 10px;
+  margin-bottom: 20px;
+}
 @media (min-width: 640px) {
   .rec-text {
     width: 400px;
